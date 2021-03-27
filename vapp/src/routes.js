@@ -29,11 +29,11 @@ const routes = [
     {path: '/regulator/create-user', component: CreateUser},
     {path: '/regulator/check-violators', component: CheckViolators},
     {path: '/consumer', component: Consumer},
-    {path: 'consumer/consumer-profile', component: ConsumerProfile},
-    {path: 'consumer/consumer-market', component: ConsumerMarket},
+    {path: '/consumer/consumer-profile', component: ConsumerProfile},
+    {path: '/consumer/consumer-market', component: ConsumerMarket},
     {path: '/generator', component: Generator},
-    {path: 'generator/generator-profile', component: GeneratorProfile},
-    {path: 'generator/generator-market', component: GeneratorMarket}
+    {path: '/generator/generator-profile', component: GeneratorProfile},
+    {path: '/generator/generator-market', component: GeneratorMarket}
 ];
 
 const router = new VueRouter({
