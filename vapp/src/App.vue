@@ -33,14 +33,12 @@
 <script>
 import Header from "./components/Header.vue";
 import Footer from "./components/Footer.vue";
-import SimpleStorage from "@/components/SimpleStorage";
 
 import {mapGetters} from 'vuex';
 
 export default {
   name: 'app',
   components: {
-    SimpleStorage,
     Header,
     Footer
   },

@@ -6,11 +6,45 @@
           <span>Carbon Portal</span>
         </router-link>
       </div>
+      <div id="main-right-if">
+        <span>Ernest</span>
+        <a @click.prevent="signOut">Sign Out</a>
+      </div>
+      <div id="main-right-else">
+        <router-link to="login">Login</router-link>
+      </div>
     </nav>
   </header>
 </template>
 
 <script>
+import {mapGetters} from "vuex";
+import firebase from "firebase";
+
+export default {
+  data() {
+    return {};
+  },
+  computed: {
+    ...mapGetters({
+      user: "user"
+    })
+  },
+  methods: {
+    signOut() {
+      firebase
+          .auth()
+          .signOut()
+          .then(() => {
+            this.$router.replace({
+              path: "/"
+            }).catch(() => {
+            });
+          });
+    }
+  }
+};
+
 
 </script>
 
@@ -33,6 +67,29 @@ header {
   width: fit-content;
   margin-left: 10px;
   margin-right: auto;
+}
+
+#main-right-if {
+  display: flex;
+  list-style-type: none;
+  margin-left: auto;
+  margin-right: 10px;
+}
+
+#main-right-if a {
+  padding: 0 20px;
+}
+
+#main-right-else {
+  display: flex;
+  list-style-type: none;
+  margin-left: auto;
+  margin-right: 10px;
+}
+
+#main-right-else a {
+  color: white;
+  padding: 0 20px;
 }
 
 #main-left span {
