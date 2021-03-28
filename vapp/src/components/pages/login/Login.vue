@@ -62,13 +62,13 @@ export default {
       firebase
           .auth()
           .signInWithEmailAndPassword(this.form.email, this.form.password)
-          .then(data => {
-            console.log(data);
-            this.$router.replace({path: "/"});
-          })
-          .catch(err => {
-            this.error = err.message;
-          });
+          // .then(data => {
+          //   console.log(data);
+          //   this.$router.replace({path: "/"});
+          // })
+          // .catch(err => {
+          //   this.error = err.message;
+          // });
     }
   }
 };
