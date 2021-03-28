@@ -5,19 +5,27 @@
       <h1>CARBON TRADING</h1>
       <div class="divider"></div>
     </div>
-<!--    <video id="video" autoplay muted loop>-->
-<!--      <source :src="image" type="video/mp4">-->
-<!--    </video>-->
+    <video id="video" autoplay muted loop>
+      <source :src="image" type="video/mp4">
+    </video>
   </div>
 </template>
 
 <script>
+import homevid from "@/assets/homevid.mp4";
 
+export default {
+  data() {
+    return {
+      image: homevid
+    };
+  }
+};
 </script>
 
 <style scoped>
 .wrapper {
-  height: calc(100vh - 100px - 80px - 40px);
+  height: calc(100vh - 100px - 80px);
   overflow: hidden;
   display: flex;
   align-items: center;
@@ -39,15 +47,15 @@
   z-index: 2;
   top: 50%;
   transform: translateY(-50%);
-  width: 50%;
-  color: #103B1D
+  width: 20%;
+  color: #FFFFFF;
 }
 
 .divider {
   background: #FFFFFF;
   box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
-  margin: 20px;
-  height: 5px;
-  width: 80%;
+  margin: 40px;
+  height: 8px;
+  width: 100%;
 }
 </style>
