@@ -3,14 +3,14 @@
     <nav id="main">
       <div id="main-left">
         <router-link id="header-title" to="/" exact>
-          <span>Carbon Portal</span>
+          <span>Carbon Market</span>
         </router-link>
       </div>
-      <div id="main-right-if">
+      <div id="main-right-if" v-if="user.loggedIn">
         <span>Ernest</span>
         <a @click.prevent="signOut">Sign Out</a>
       </div>
-      <div id="main-right-else">
+      <div id="main-right-else" v-else>
         <router-link to="login">Login</router-link>
       </div>
     </nav>
@@ -23,7 +23,9 @@ import firebase from "firebase";
 
 export default {
   data() {
-    return {};
+    return {
+      // image: mask
+    };
   },
   computed: {
     ...mapGetters({
@@ -45,7 +47,6 @@ export default {
   }
 };
 
-
 </script>
 
 <style scoped>
@@ -57,7 +58,7 @@ header {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #103B1D;
+  background: #436152;
   color: #FFFFFF;
   text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
   height: 100px;

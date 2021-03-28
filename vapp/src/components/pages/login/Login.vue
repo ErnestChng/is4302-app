@@ -33,6 +33,17 @@
               />
             </div>
           </div>
+          <div class="form-group row">
+            <label for="role" class="col-md-4 col-form-label text-md-right">Role</label>
+            <div class="col-md-6">
+              <select id="role" required v-model="form.role">
+                <option value="regulator">Regulator</option>
+                <option value="validator">Validator</option>
+                <option value="consumer">Consumer</option>
+                <option value="generator">Generator</option>
+              </select>
+            </div>
+          </div>
           <div class="form-group row mb-0">
             <div class="col-md-8 offset-md-4">
               <button type="submit" class="btn btn-primary">Login</button>
@@ -45,30 +56,32 @@
 </template>
 
 <script>
-import firebase from "firebase";
+// TODO: fix firebase login
+// import firebase from "firebase";
 
 export default {
   data() {
     return {
       form: {
         email: "",
-        password: ""
+        password: "",
+        role: ""
       },
       error: null
     };
   },
   methods: {
     submit() {
-      firebase
-          .auth()
-          .signInWithEmailAndPassword(this.form.email, this.form.password)
-          // .then(data => {
-          //   console.log(data);
-          //   this.$router.replace({path: "/"});
-          // })
-          // .catch(err => {
-          //   this.error = err.message;
-          // });
+      this.$router.replace({path: `/${this.form.role}`});
+      // firebase
+      //     .auth()
+      //     .signInWithEmailAndPassword(this.form.email, this.form.password)
+      //     .then(() => {
+      //       this.$router.replace({path: `/${this.role}`});
+      //     })
+      //     .catch(err => {
+      //       this.error = err.message;
+      //     });
     }
   }
 };
@@ -76,11 +89,16 @@ export default {
 
 <style scoped>
 .container {
-  min-height: calc(100vh - 100px - 80px - 40px);
+  min-height: calc(100vh - 100px - 80px);
   padding: 100px 0;
 }
 
 .form-group {
   padding: 20px;
+}
+
+select {
+  height: 35px;
+  width: 150px;
 }
 </style>
