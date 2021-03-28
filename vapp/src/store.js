@@ -1,9 +1,11 @@
-import Vue from "vue";
 import Vuex from "vuex";
+import Vue from "vue";
+import drizzleVuePlugin from "@drizzle/vue-plugin";
+import drizzleOptions from "@/drizzleOptions";
 
-Vue.user(Vuex);
+Vue.use(Vuex);
 
-export default new Vuex.Store({
+const store = new Vuex.Store({
     state: {
         user: {
             loggedIn: false,
@@ -37,3 +39,7 @@ export default new Vuex.Store({
         }
     }
 });
+
+Vue.use(drizzleVuePlugin, {store, drizzleOptions});
+
+export default store;
