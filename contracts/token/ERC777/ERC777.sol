@@ -42,11 +42,11 @@ contract ERC777 is Context, IERC777, IERC20 {
 
     // keccak256("ERC777TokensSender")
     bytes32 constant private TOKENS_SENDER_INTERFACE_HASH =
-        0x29ddb589b1fb5fc7cf394961c1adf5f8c6454761adf795e67fe149f658abe895;
+    0x29ddb589b1fb5fc7cf394961c1adf5f8c6454761adf795e67fe149f658abe895;
 
     // keccak256("ERC777TokensRecipient")
     bytes32 constant private TOKENS_RECIPIENT_INTERFACE_HASH =
-        0xb281fc8c12954d22544db45de3159a39272895b169a852b314f9cc762e44c53b;
+    0xb281fc8c12954d22544db45de3159a39272895b169a852b314f9cc762e44c53b;
 
     // This isn't ever read from - it's only used to respond to the defaultOperators query.
     address[] private _defaultOperatorsArray;
@@ -59,7 +59,7 @@ contract ERC777 is Context, IERC777, IERC20 {
     mapping(address => mapping(address => bool)) private _revokedDefaultOperators;
 
     // ERC20-allowances
-    mapping (address => mapping (address => uint256)) private _allowances;
+    mapping(address => mapping(address => uint256)) private _allowances;
 
     /**
      * @dev `defaultOperators` may be an empty array.
@@ -177,8 +177,8 @@ contract ERC777 is Context, IERC777, IERC20 {
         address tokenHolder
     ) public view returns (bool) {
         return operator == tokenHolder ||
-            (_defaultOperators[operator] && !_revokedDefaultOperators[tokenHolder][operator]) ||
-            _operators[tokenHolder][operator];
+        (_defaultOperators[operator] && !_revokedDefaultOperators[tokenHolder][operator]) ||
+        _operators[tokenHolder][operator];
     }
 
     /**
@@ -268,15 +268,15 @@ contract ERC777 is Context, IERC777, IERC20 {
         return true;
     }
 
-   /**
-    * @dev See {IERC20-transferFrom}.
-    *
-    * Note that operator and allowance concepts are orthogonal: operators cannot
-    * call `transferFrom` (unless they have allowance), and accounts with
-    * allowance cannot call `operatorSend` (unless they are operators).
-    *
-    * Emits {Sent}, {IERC20-Transfer} and {IERC20-Approval} events.
-    */
+    /**
+     * @dev See {IERC20-transferFrom}.
+     *
+     * Note that operator and allowance concepts are orthogonal: operators cannot
+     * call `transferFrom` (unless they have allowance), and accounts with
+     * allowance cannot call `operatorSend` (unless they are operators).
+     *
+     * Emits {Sent}, {IERC20-Transfer} and {IERC20-Approval} events.
+     */
     function transferFrom(address holder, address recipient, uint256 amount) public returns (bool) {
         require(recipient != address(0), "ERC777: transfer to the zero address");
         require(holder != address(0), "ERC777: transfer from the zero address");
@@ -350,7 +350,7 @@ contract ERC777 is Context, IERC777, IERC20 {
         bytes memory operatorData,
         bool requireReceptionAck
     )
-        internal
+    internal
     {
         require(from != address(0), "ERC777: send from the zero address");
         require(to != address(0), "ERC777: send to the zero address");
@@ -377,7 +377,7 @@ contract ERC777 is Context, IERC777, IERC20 {
         bytes memory data,
         bytes memory operatorData
     )
-        internal
+    internal
     {
         require(from != address(0), "ERC777: burn from the zero address");
 
@@ -399,7 +399,7 @@ contract ERC777 is Context, IERC777, IERC20 {
         bytes memory userData,
         bytes memory operatorData
     )
-        private
+    private
     {
         _balances[from] = _balances[from].sub(amount, "ERC777: transfer amount exceeds balance");
         _balances[to] = _balances[to].add(amount);
@@ -435,7 +435,7 @@ contract ERC777 is Context, IERC777, IERC20 {
         bytes memory userData,
         bytes memory operatorData
     )
-        internal
+    internal
     {
         address implementer = ERC1820_REGISTRY.getInterfaceImplementer(from, TOKENS_SENDER_INTERFACE_HASH);
         if (implementer != address(0)) {
@@ -463,7 +463,7 @@ contract ERC777 is Context, IERC777, IERC20 {
         bytes memory operatorData,
         bool requireReceptionAck
     )
-        internal
+    internal
     {
         address implementer = ERC1820_REGISTRY.getInterfaceImplementer(to, TOKENS_RECIPIENT_INTERFACE_HASH);
         if (implementer != address(0)) {

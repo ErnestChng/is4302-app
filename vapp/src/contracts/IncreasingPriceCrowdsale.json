@@ -254,7 +254,7 @@
       "type": "function"
     }
   ],
-  "metadata": "{\"compiler\":{\"version\":\"0.5.16+commit.9c3226ce\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"initialRate\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"finalRate\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"prevClosingTime\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"newClosingTime\",\"type\":\"uint256\"}],\"name\":\"TimedCrowdsaleExtended\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"purchaser\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"beneficiary\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"value\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"TokensPurchased\",\"type\":\"event\"},{\"payable\":true,\"stateMutability\":\"payable\",\"type\":\"fallback\"},{\"constant\":false,\"inputs\":[{\"internalType\":\"address\",\"name\":\"beneficiary\",\"type\":\"address\"}],\"name\":\"buyTokens\",\"outputs\":[],\"payable\":true,\"stateMutability\":\"payable\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"closingTime\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"finalRate\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"getCurrentRate\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"hasClosed\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"initialRate\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"isOpen\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"openingTime\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"rate\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"token\",\"outputs\":[{\"internalType\":\"contract IERC20\",\"name\":\"\",\"type\":\"address\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"wallet\",\"outputs\":[{\"internalType\":\"address payable\",\"name\":\"\",\"type\":\"address\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"weiRaised\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"details\":\"Extension of Crowdsale contract that increases the price of tokens linearly in time. Note that what should be provided to the constructor is the initial and final _rates_, that is, the amount of tokens per wei contributed. Thus, the initial rate must be greater than the final rate.\",\"methods\":{\"buyTokens(address)\":{\"details\":\"low level token purchase ***DO NOT OVERRIDE*** This function has a non-reentrancy guard, so it shouldn't be called by another `nonReentrant` function.\",\"params\":{\"beneficiary\":\"Recipient of the token purchase\"}},\"closingTime()\":{\"return\":\"the crowdsale closing time.\"},\"constructor\":{\"details\":\"Constructor, takes initial and final rates of tokens received per wei contributed.\",\"params\":{\"finalRate\":\"Number of tokens a buyer gets per wei at the end of the crowdsale\",\"initialRate\":\"Number of tokens a buyer gets per wei at the start of the crowdsale\"}},\"finalRate()\":{\"return\":\"the final rate of the crowdsale.\"},\"getCurrentRate()\":{\"details\":\"Returns the rate of tokens per wei at the present time. Note that, as price _increases_ with time, the rate _decreases_.\",\"return\":\"The number of tokens a buyer gets per wei at a given time\"},\"hasClosed()\":{\"details\":\"Checks whether the period in which the crowdsale is open has already elapsed.\",\"return\":\"Whether crowdsale period has elapsed\"},\"initialRate()\":{\"return\":\"the initial rate of the crowdsale.\"},\"isOpen()\":{\"return\":\"true if the crowdsale is open, false otherwise.\"},\"openingTime()\":{\"return\":\"the crowdsale opening time.\"},\"token()\":{\"return\":\"the token being sold.\"},\"wallet()\":{\"return\":\"the address where funds are collected.\"},\"weiRaised()\":{\"return\":\"the amount of wei raised.\"}},\"title\":\"IncreasingPriceCrowdsale\"},\"userdoc\":{\"methods\":{\"rate()\":{\"notice\":\"The base rate function is overridden to revert, since this crowdsale doesn't use it, and all calls to it are a mistake.\"}}}},\"settings\":{\"compilationTarget\":{\"/Users/ernestchng/WebstormProjects/is4302-app/contracts/crowdsale/price/IncreasingPriceCrowdsale.sol\":\"IncreasingPriceCrowdsale\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"/Users/ernestchng/WebstormProjects/is4302-app/contracts/GSN/Context.sol\":{\"keccak256\":\"0x90a3995645af7562d84b9d69363ffa5ae7217714ab61e951bf7bc450f40e4061\",\"urls\":[\"bzz-raw://216ef9d6b614db4eb46970b4e84903f2534a45572dd30a79f0041f1a5830f436\",\"dweb:/ipfs/QmNPrJ4MWKUAWzKXpUqeyKRUfosaoANZAqXgvepdrCwZAG\"]},\"/Users/ernestchng/WebstormProjects/is4302-app/contracts/crowdsale/Crowdsale.sol\":{\"keccak256\":\"0xe612eb8a3023c1a4f4d7e2d0aaf7f19c25e9d772c46a6e95790ddb42ba7baa99\",\"urls\":[\"bzz-raw://8b2bba5f74117ed67570e3b73bbd3ff51153275a0fcefe34df964ccba92ae028\",\"dweb:/ipfs/QmWZF4DnkWZZYzVHz8pAxbLFRxmNiKWE2n1Chd4w2rXWYh\"]},\"/Users/ernestchng/WebstormProjects/is4302-app/contracts/crowdsale/price/IncreasingPriceCrowdsale.sol\":{\"keccak256\":\"0xe61212e05623a62b0db82583919fcfdc81567a0ba02b8b526b1c7d197563fe54\",\"urls\":[\"bzz-raw://e9ada62e528c5c51f6e55887b7f2d7037a74e07982aa8cae276a39adb3d232ff\",\"dweb:/ipfs/QmamwKuZTgLwNDj1bWQ6dmfh68aFbNas7wqXu8QuFK2Tec\"]},\"/Users/ernestchng/WebstormProjects/is4302-app/contracts/crowdsale/validation/TimedCrowdsale.sol\":{\"keccak256\":\"0x9407dd37cfed74aa107fd1614c478ba0a2bc3e084e9aa8fbd5a6f316c53aed3b\",\"urls\":[\"bzz-raw://d7d0b156b355c01268a533f127aed64c54f68e1e435efd76dc4ad7dd6138968a\",\"dweb:/ipfs/QmQ6npy1tbtRT6g8NR7gRryu4VYYejVvdnSjgdjG8Z4qAc\"]},\"/Users/ernestchng/WebstormProjects/is4302-app/contracts/math/SafeMath.sol\":{\"keccak256\":\"0x640b6dee7a4b830bdfd52b5031a07fc2b12209f5b2e29e5d364a7d37f69d8076\",\"urls\":[\"bzz-raw://31113152e1ddb78fe7a4197f247591ca894e93f916867beb708d8e747b6cc74f\",\"dweb:/ipfs/QmbZaJyXdpsYGykVhHH9qpVGQg9DGCxE2QufbCUy3daTgq\"]},\"/Users/ernestchng/WebstormProjects/is4302-app/contracts/token/ERC20/IERC20.sol\":{\"keccak256\":\"0xe5bb0f57cff3e299f360052ba50f1ea0fff046df2be070b6943e0e3c3fdad8a9\",\"urls\":[\"bzz-raw://59fd025151435da35faa8093a5c7a17de02de9d08ad27275c5cdf05050820d91\",\"dweb:/ipfs/QmQMvwEcPhoRXzbXyrdoeRtvLoifUW9Qh7Luho7bmUPRkc\"]},\"/Users/ernestchng/WebstormProjects/is4302-app/contracts/token/ERC20/SafeERC20.sol\":{\"keccak256\":\"0x6f2c9955d65c522b80f4b8792f076512d2df947d2112cbc4d98a4781ed42ede2\",\"urls\":[\"bzz-raw://7d8ec81683520c06baeef3f7e06cd82bd6fd5fa611f26857f475f6c829540aff\",\"dweb:/ipfs/QmTDkFzKnrpiV1UKnSoiZAHPuguWzokrr4pFbSPvyaSo56\"]},\"/Users/ernestchng/WebstormProjects/is4302-app/contracts/utils/Address.sol\":{\"keccak256\":\"0x1a8e5072509c5ea7365eb1d48030b9be865140c8fb779968da0a459a0e174a11\",\"urls\":[\"bzz-raw://03335b7b07c7c8c8d613cfdd8ec39a0b5ec133ee510bf2fe6cc5a496767bef4b\",\"dweb:/ipfs/Qmebp4nzPja645c9yXSdJkGq96oU3am3LUnG2K3R7XxyKf\"]},\"/Users/ernestchng/WebstormProjects/is4302-app/contracts/utils/ReentrancyGuard.sol\":{\"keccak256\":\"0xb63221b23818d622bfd83d18e0968307e4fcb7a35536bdceded76e1cf8349acd\",\"urls\":[\"bzz-raw://44e1e8c22362c4708a8c3362735f1465f5b05e2f7315e16c7010d694ce019d73\",\"dweb:/ipfs/QmWj9g8X1hxkXRre2kwkEjLBetjuzmSbWHD81bsSojnBkS\"]}},\"version\":1}",
+  "metadata": "{\"compiler\":{\"version\":\"0.5.16+commit.9c3226ce\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"initialRate\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"finalRate\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"prevClosingTime\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"newClosingTime\",\"type\":\"uint256\"}],\"name\":\"TimedCrowdsaleExtended\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"purchaser\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"beneficiary\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"value\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"TokensPurchased\",\"type\":\"event\"},{\"payable\":true,\"stateMutability\":\"payable\",\"type\":\"fallback\"},{\"constant\":false,\"inputs\":[{\"internalType\":\"address\",\"name\":\"beneficiary\",\"type\":\"address\"}],\"name\":\"buyTokens\",\"outputs\":[],\"payable\":true,\"stateMutability\":\"payable\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"closingTime\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"finalRate\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"getCurrentRate\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"hasClosed\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"initialRate\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"isOpen\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"openingTime\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"rate\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"token\",\"outputs\":[{\"internalType\":\"contract IERC20\",\"name\":\"\",\"type\":\"address\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"wallet\",\"outputs\":[{\"internalType\":\"address payable\",\"name\":\"\",\"type\":\"address\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"weiRaised\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"details\":\"Extension of Crowdsale contract that increases the price of tokens linearly in time. Note that what should be provided to the constructor is the initial and final _rates_, that is, the amount of tokens per wei contributed. Thus, the initial rate must be greater than the final rate.\",\"methods\":{\"buyTokens(address)\":{\"details\":\"low level token purchase ***DO NOT OVERRIDE*** This function has a non-reentrancy guard, so it shouldn't be called by another `nonReentrant` function.\",\"params\":{\"beneficiary\":\"Recipient of the token purchase\"}},\"closingTime()\":{\"return\":\"the crowdsale closing time.\"},\"constructor\":{\"details\":\"Constructor, takes initial and final rates of tokens received per wei contributed.\",\"params\":{\"finalRate\":\"Number of tokens a buyer gets per wei at the end of the crowdsale\",\"initialRate\":\"Number of tokens a buyer gets per wei at the start of the crowdsale\"}},\"finalRate()\":{\"return\":\"the final rate of the crowdsale.\"},\"getCurrentRate()\":{\"details\":\"Returns the rate of tokens per wei at the present time. Note that, as price _increases_ with time, the rate _decreases_.\",\"return\":\"The number of tokens a buyer gets per wei at a given time\"},\"hasClosed()\":{\"details\":\"Checks whether the period in which the crowdsale is open has already elapsed.\",\"return\":\"Whether crowdsale period has elapsed\"},\"initialRate()\":{\"return\":\"the initial rate of the crowdsale.\"},\"isOpen()\":{\"return\":\"true if the crowdsale is open, false otherwise.\"},\"openingTime()\":{\"return\":\"the crowdsale opening time.\"},\"token()\":{\"return\":\"the token being sold.\"},\"wallet()\":{\"return\":\"the address where funds are collected.\"},\"weiRaised()\":{\"return\":\"the amount of wei raised.\"}},\"title\":\"IncreasingPriceCrowdsale\"},\"userdoc\":{\"methods\":{\"rate()\":{\"notice\":\"The base rate function is overridden to revert, since this crowdsale doesn't use it, and all calls to it are a mistake.\"}}}},\"settings\":{\"compilationTarget\":{\"/Users/ernestchng/WebstormProjects/is4302-app/contracts/crowdsale/price/IncreasingPriceCrowdsale.sol\":\"IncreasingPriceCrowdsale\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"/Users/ernestchng/WebstormProjects/is4302-app/contracts/GSN/Context.sol\":{\"keccak256\":\"0x068760cbe3b1e635a2a820f7d6969cdb167360b21d36c39ec165c8efb65041c4\",\"urls\":[\"bzz-raw://a8cae4f4b9b8236e1ec22afdfaac2f848b776ad98f7fb9c1823d6d756ddee890\",\"dweb:/ipfs/QmQicBVSv9SvhHwmTNzBG71Gb775o2mfF5CTfSFZvqtgfJ\"]},\"/Users/ernestchng/WebstormProjects/is4302-app/contracts/crowdsale/Crowdsale.sol\":{\"keccak256\":\"0xf675d9cf38cab19e6b1134c5db8f8552ea25d4b323c2375f8fef7b967f6478b9\",\"urls\":[\"bzz-raw://0eef8273597c60d91f5887b007cd6168201f31b6af234338e7a669ed0b9f60df\",\"dweb:/ipfs/QmQFBLCLzyPwmEzyLr3aYZPc2iZNCFBhrd6vvb66Bi2z4i\"]},\"/Users/ernestchng/WebstormProjects/is4302-app/contracts/crowdsale/price/IncreasingPriceCrowdsale.sol\":{\"keccak256\":\"0xe61212e05623a62b0db82583919fcfdc81567a0ba02b8b526b1c7d197563fe54\",\"urls\":[\"bzz-raw://e9ada62e528c5c51f6e55887b7f2d7037a74e07982aa8cae276a39adb3d232ff\",\"dweb:/ipfs/QmamwKuZTgLwNDj1bWQ6dmfh68aFbNas7wqXu8QuFK2Tec\"]},\"/Users/ernestchng/WebstormProjects/is4302-app/contracts/crowdsale/validation/TimedCrowdsale.sol\":{\"keccak256\":\"0x9407dd37cfed74aa107fd1614c478ba0a2bc3e084e9aa8fbd5a6f316c53aed3b\",\"urls\":[\"bzz-raw://d7d0b156b355c01268a533f127aed64c54f68e1e435efd76dc4ad7dd6138968a\",\"dweb:/ipfs/QmQ6npy1tbtRT6g8NR7gRryu4VYYejVvdnSjgdjG8Z4qAc\"]},\"/Users/ernestchng/WebstormProjects/is4302-app/contracts/math/SafeMath.sol\":{\"keccak256\":\"0x640b6dee7a4b830bdfd52b5031a07fc2b12209f5b2e29e5d364a7d37f69d8076\",\"urls\":[\"bzz-raw://31113152e1ddb78fe7a4197f247591ca894e93f916867beb708d8e747b6cc74f\",\"dweb:/ipfs/QmbZaJyXdpsYGykVhHH9qpVGQg9DGCxE2QufbCUy3daTgq\"]},\"/Users/ernestchng/WebstormProjects/is4302-app/contracts/token/ERC20/IERC20.sol\":{\"keccak256\":\"0xe5bb0f57cff3e299f360052ba50f1ea0fff046df2be070b6943e0e3c3fdad8a9\",\"urls\":[\"bzz-raw://59fd025151435da35faa8093a5c7a17de02de9d08ad27275c5cdf05050820d91\",\"dweb:/ipfs/QmQMvwEcPhoRXzbXyrdoeRtvLoifUW9Qh7Luho7bmUPRkc\"]},\"/Users/ernestchng/WebstormProjects/is4302-app/contracts/token/ERC20/SafeERC20.sol\":{\"keccak256\":\"0x34c35213a62dc4083c0706c0132159bc336f5bbae17a04d9905ea2c8c2abf314\",\"urls\":[\"bzz-raw://0fe9ca75a2156ec0bb68f03e79f2dd2b784bb43a83255bce89d72e294a076cdc\",\"dweb:/ipfs/QmP38QGsJTJbYQbmS7nGgEDRBQ98YEfezt8ZuRVDkDCLEH\"]},\"/Users/ernestchng/WebstormProjects/is4302-app/contracts/utils/Address.sol\":{\"keccak256\":\"0x36c48d6afbab50225bac499a65f0285076ab97ef95ff72b978e75f18708edaa9\",\"urls\":[\"bzz-raw://ddd92c5f380c0ae7ada203e9a42994264518f5f1f99d12d0212f0f59a01faa59\",\"dweb:/ipfs/QmTqUZNRvHw86UQHh73qREngtBtW7i74mvjLJPvhGe9f8Y\"]},\"/Users/ernestchng/WebstormProjects/is4302-app/contracts/utils/ReentrancyGuard.sol\":{\"keccak256\":\"0xb63221b23818d622bfd83d18e0968307e4fcb7a35536bdceded76e1cf8349acd\",\"urls\":[\"bzz-raw://44e1e8c22362c4708a8c3362735f1465f5b05e2f7315e16c7010d694ce019d73\",\"dweb:/ipfs/QmWj9g8X1hxkXRre2kwkEjLBetjuzmSbWHD81bsSojnBkS\"]}},\"version\":1}",
   "bytecode": "0x",
   "deployedBytecode": "0x",
   "sourceMap": "",
@@ -299,7 +299,7 @@
         "id": 3024,
         "nodeType": "ImportDirective",
         "scope": 3158,
-        "sourceUnit": 5632,
+        "sourceUnit": 5378,
         "src": "68:33:22",
         "symbolAliases": [],
         "unitAlias": ""
@@ -329,7 +329,7 @@
           423,
           2554,
           3522,
-          10846
+          10482
         ],
         "contractKind": "contract",
         "documentation": "@title IncreasingPriceCrowdsale\n@dev Extension of Crowdsale contract that increases the price of tokens linearly in time.\nNote that what should be provided to the constructor is the initial and final _rates_, that is,\nthe amount of tokens per wei contributed. Thus, the initial rate must be greater than the final rate.",
@@ -339,7 +339,7 @@
           3157,
           3522,
           2554,
-          10846,
+          10482,
           423
         ],
         "name": "IncreasingPriceCrowdsale",
@@ -352,10 +352,10 @@
               "id": 3027,
               "name": "SafeMath",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 5631,
+              "referencedDeclaration": 5377,
               "src": "507:8:22",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_SafeMath_$5631",
+                "typeIdentifier": "t_contract$_SafeMath_$5377",
                 "typeString": "library SafeMath"
               }
             },
@@ -518,10 +518,10 @@
                       "name": "require",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [
-                        10972,
-                        10973
+                        10608,
+                        10609
                       ],
-                      "referencedDeclaration": 10973,
+                      "referencedDeclaration": 10609,
                       "src": "966:7:22",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_require_pure$_t_bool_$_t_string_memory_ptr_$returns$__$",
@@ -629,10 +629,10 @@
                       "name": "require",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [
-                        10972,
-                        10973
+                        10608,
+                        10609
                       ],
-                      "referencedDeclaration": 10973,
+                      "referencedDeclaration": 10609,
                       "src": "1096:7:22",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_require_pure$_t_bool_$_t_string_memory_ptr_$returns$__$",
@@ -869,10 +869,10 @@
                       "name": "revert",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [
-                        10974,
-                        10975
+                        10610,
+                        10611
                       ],
-                      "referencedDeclaration": 10975,
+                      "referencedDeclaration": 10611,
                       "src": "1488:6:22",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_revert_pure$_t_string_memory_ptr_$returns$__$",
@@ -1280,7 +1280,7 @@
                           "name": "block",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 10959,
+                          "referencedDeclaration": 10595,
                           "src": "2295:5:22",
                           "typeDescriptions": {
                             "typeIdentifier": "t_magic_block",
@@ -1308,7 +1308,7 @@
                       "lValueRequested": false,
                       "memberName": "sub",
                       "nodeType": "MemberAccess",
-                      "referencedDeclaration": 5487,
+                      "referencedDeclaration": 5233,
                       "src": "2295:19:22",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_internal_pure$_t_uint256_$_t_uint256_$returns$_t_uint256_$bound_to$_t_uint256_$",
@@ -1443,7 +1443,7 @@
                       "lValueRequested": false,
                       "memberName": "sub",
                       "nodeType": "MemberAccess",
-                      "referencedDeclaration": 5487,
+                      "referencedDeclaration": 5233,
                       "src": "2359:17:22",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_internal_pure$_t_uint256_$_t_uint256_$returns$_t_uint256_$bound_to$_t_uint256_$",
@@ -1544,7 +1544,7 @@
                       "lValueRequested": false,
                       "memberName": "sub",
                       "nodeType": "MemberAccess",
-                      "referencedDeclaration": 5487,
+                      "referencedDeclaration": 5233,
                       "src": "2421:16:22",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_internal_pure$_t_uint256_$_t_uint256_$returns$_t_uint256_$bound_to$_t_uint256_$",
@@ -1640,7 +1640,7 @@
                               "lValueRequested": false,
                               "memberName": "mul",
                               "nodeType": "MemberAccess",
-                              "referencedDeclaration": 5548,
+                              "referencedDeclaration": 5294,
                               "src": "2483:15:22",
                               "typeDescriptions": {
                                 "typeIdentifier": "t_function_internal_pure$_t_uint256_$_t_uint256_$returns$_t_uint256_$bound_to$_t_uint256_$",
@@ -1668,7 +1668,7 @@
                           "lValueRequested": false,
                           "memberName": "div",
                           "nodeType": "MemberAccess",
-                          "referencedDeclaration": 5564,
+                          "referencedDeclaration": 5310,
                           "src": "2483:30:22",
                           "typeDescriptions": {
                             "typeIdentifier": "t_function_internal_pure$_t_uint256_$_t_uint256_$returns$_t_uint256_$bound_to$_t_uint256_$",
@@ -1717,7 +1717,7 @@
                       "lValueRequested": false,
                       "memberName": "sub",
                       "nodeType": "MemberAccess",
-                      "referencedDeclaration": 5487,
+                      "referencedDeclaration": 5233,
                       "src": "2466:16:22",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_internal_pure$_t_uint256_$_t_uint256_$returns$_t_uint256_$bound_to$_t_uint256_$",
@@ -1914,7 +1914,7 @@
                       "lValueRequested": false,
                       "memberName": "mul",
                       "nodeType": "MemberAccess",
-                      "referencedDeclaration": 5548,
+                      "referencedDeclaration": 5294,
                       "src": "2911:15:22",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_internal_pure$_t_uint256_$_t_uint256_$returns$_t_uint256_$bound_to$_t_uint256_$",
@@ -2068,7 +2068,7 @@
       },
       {
         "attributes": {
-          "SourceUnit": 5632,
+          "SourceUnit": 5378,
           "absolutePath": "/Users/ernestchng/WebstormProjects/is4302-app/contracts/math/SafeMath.sol",
           "file": "../../math/SafeMath.sol",
           "scope": 3158,
@@ -2087,7 +2087,7 @@
             423,
             2554,
             3522,
-            10846
+            10482
           ],
           "contractKind": "contract",
           "documentation": "@title IncreasingPriceCrowdsale\n@dev Extension of Crowdsale contract that increases the price of tokens linearly in time.\nNote that what should be provided to the constructor is the initial and final _rates_, that is,\nthe amount of tokens per wei contributed. Thus, the initial rate must be greater than the final rate.",
@@ -2096,7 +2096,7 @@
             3157,
             3522,
             2554,
-            10846,
+            10482,
             423
           ],
           "name": "IncreasingPriceCrowdsale",
@@ -2130,7 +2130,7 @@
                 "attributes": {
                   "contractScope": null,
                   "name": "SafeMath",
-                  "referencedDeclaration": 5631,
+                  "referencedDeclaration": 5377,
                   "type": "library SafeMath"
                 },
                 "id": 3027,
@@ -2321,10 +2321,10 @@
                                 }
                               ],
                               "overloadedDeclarations": [
-                                10972,
-                                10973
+                                10608,
+                                10609
                               ],
-                              "referencedDeclaration": 10973,
+                              "referencedDeclaration": 10609,
                               "type": "function (bool,string memory) pure",
                               "value": "require"
                             },
@@ -2440,10 +2440,10 @@
                                 }
                               ],
                               "overloadedDeclarations": [
-                                10972,
-                                10973
+                                10608,
+                                10609
                               ],
-                              "referencedDeclaration": 10973,
+                              "referencedDeclaration": 10609,
                               "type": "function (bool,string memory) pure",
                               "value": "require"
                             },
@@ -2726,10 +2726,10 @@
                                 }
                               ],
                               "overloadedDeclarations": [
-                                10974,
-                                10975
+                                10610,
+                                10611
                               ],
-                              "referencedDeclaration": 10975,
+                              "referencedDeclaration": 10611,
                               "type": "function (string memory) pure",
                               "value": "revert"
                             },
@@ -3189,7 +3189,7 @@
                               "isPure": false,
                               "lValueRequested": false,
                               "member_name": "sub",
-                              "referencedDeclaration": 5487,
+                              "referencedDeclaration": 5233,
                               "type": "function (uint256,uint256) pure returns (uint256)"
                             },
                             "children": [
@@ -3211,7 +3211,7 @@
                                       "overloadedDeclarations": [
                                         null
                                       ],
-                                      "referencedDeclaration": 10959,
+                                      "referencedDeclaration": 10595,
                                       "type": "block",
                                       "value": "block"
                                     },
@@ -3339,7 +3339,7 @@
                               "isPure": false,
                               "lValueRequested": false,
                               "member_name": "sub",
-                              "referencedDeclaration": 5487,
+                              "referencedDeclaration": 5233,
                               "type": "function (uint256,uint256) pure returns (uint256)"
                             },
                             "children": [
@@ -3497,7 +3497,7 @@
                               "isPure": false,
                               "lValueRequested": false,
                               "member_name": "sub",
-                              "referencedDeclaration": 5487,
+                              "referencedDeclaration": 5233,
                               "type": "function (uint256,uint256) pure returns (uint256)"
                             },
                             "children": [
@@ -3577,7 +3577,7 @@
                               "isPure": false,
                               "lValueRequested": false,
                               "member_name": "sub",
-                              "referencedDeclaration": 5487,
+                              "referencedDeclaration": 5233,
                               "type": "function (uint256,uint256) pure returns (uint256)"
                             },
                             "children": [
@@ -3628,7 +3628,7 @@
                                   "isPure": false,
                                   "lValueRequested": false,
                                   "member_name": "div",
-                                  "referencedDeclaration": 5564,
+                                  "referencedDeclaration": 5310,
                                   "type": "function (uint256,uint256) pure returns (uint256)"
                                 },
                                 "children": [
@@ -3660,7 +3660,7 @@
                                           "isPure": false,
                                           "lValueRequested": false,
                                           "member_name": "mul",
-                                          "referencedDeclaration": 5548,
+                                          "referencedDeclaration": 5294,
                                           "type": "function (uint256,uint256) pure returns (uint256)"
                                         },
                                         "children": [
@@ -3940,7 +3940,7 @@
                               "isPure": false,
                               "lValueRequested": false,
                               "member_name": "mul",
-                              "referencedDeclaration": 5548,
+                              "referencedDeclaration": 5294,
                               "type": "function (uint256,uint256) pure returns (uint256)"
                             },
                             "children": [
@@ -4013,7 +4013,7 @@
   },
   "networks": {},
   "schemaVersion": "3.3.3",
-  "updatedAt": "2021-04-01T03:32:32.969Z",
+  "updatedAt": "2021-04-01T03:45:24.270Z",
   "devdoc": {
     "details": "Extension of Crowdsale contract that increases the price of tokens linearly in time. Note that what should be provided to the constructor is the initial and final _rates_, that is, the amount of tokens per wei contributed. Thus, the initial rate must be greater than the final rate.",
     "methods": {

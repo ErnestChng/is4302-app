@@ -147,10 +147,10 @@ interface IRelayHub {
 
     // Preconditions for relaying, checked by canRelay and returned as the corresponding numeric values.
     enum PreconditionCheck {
-        OK,                         // All checks passed, the call can be relayed
-        WrongSignature,             // The transaction to relay is not signed by requested sender
-        WrongNonce,                 // The provided nonce has already been used by the sender
-        AcceptRelayedCallReverted,  // The recipient rejected this call via acceptRelayedCall
+        OK, // All checks passed, the call can be relayed
+        WrongSignature, // The transaction to relay is not signed by requested sender
+        WrongNonce, // The provided nonce has already been used by the sender
+        AcceptRelayedCallReverted, // The recipient rejected this call via acceptRelayedCall
         InvalidRecipientStatusCode  // The recipient returned an invalid (reserved) status code
     }
 
@@ -218,10 +218,10 @@ interface IRelayHub {
 
     // Reason error codes for the TransactionRelayed event
     enum RelayCallStatus {
-        OK,                      // The transaction was successfully relayed and execution successful - never included in the event
-        RelayedCallFailed,       // The transaction was relayed, but the relayed call failed
-        PreRelayedFailed,        // The transaction was not relayed due to preRelatedCall reverting
-        PostRelayedFailed,       // The transaction was relayed and reverted due to postRelatedCall reverting
+        OK, // The transaction was successfully relayed and execution successful - never included in the event
+        RelayedCallFailed, // The transaction was relayed, but the relayed call failed
+        PreRelayedFailed, // The transaction was not relayed due to preRelatedCall reverting
+        PostRelayedFailed, // The transaction was relayed and reverted due to postRelatedCall reverting
         RecipientBalanceChanged  // The transaction was relayed and reverted due to the recipient's balance changing
     }
 
@@ -236,8 +236,8 @@ interface IRelayHub {
      */
     function maxPossibleCharge(uint256 relayedCallStipend, uint256 gasPrice, uint256 transactionFee) external view returns (uint256);
 
-     // Relay penalization. 
-     // Any account can penalize relays, removing them from the system immediately, and rewarding the
+    // Relay penalization.
+    // Any account can penalize relays, removing them from the system immediately, and rewarding the
     // reporter with half of the relay's stake. The other half is burned so that, even if the relay penalizes itself, it
     // still loses half of its stake.
 

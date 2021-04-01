@@ -61,9 +61,9 @@ contract GSNRecipientERC20Fee is GSNRecipient {
         bytes calldata,
         uint256 maxPossibleCharge
     )
-        external
-        view
-        returns (uint256, bytes memory)
+    external
+    view
+    returns (uint256, bytes memory)
     {
         if (_token.balanceOf(from) < maxPossibleCharge) {
             return _rejectRelayedCall(uint256(GSNRecipientERC20FeeErrorCodes.INSUFFICIENT_BALANCE));
@@ -90,7 +90,7 @@ contract GSNRecipientERC20Fee is GSNRecipient {
      */
     function _postRelayedCall(bytes memory context, bool, uint256 actualCharge, bytes32) internal {
         (address from, uint256 maxPossibleCharge, uint256 transactionFee, uint256 gasPrice) =
-            abi.decode(context, (address, uint256, uint256, uint256));
+        abi.decode(context, (address, uint256, uint256, uint256));
 
         // actualCharge is an _estimated_ charge, which assumes postRelayedCall will use all available gas.
         // This implementation's gas cost can be roughly estimated as 10k gas, for the two SSTORE operations in an
@@ -111,7 +111,7 @@ contract GSNRecipientERC20Fee is GSNRecipient {
  */
 // solhint-disable-next-line contract-name-camelcase
 contract __unstable__ERC20PrimaryAdmin is ERC20, ERC20Detailed, Secondary {
-    uint256 private constant UINT256_MAX = 2**256 - 1;
+    uint256 private constant UINT256_MAX = 2 ** 256 - 1;
 
     constructor(string memory name, string memory symbol, uint8 decimals) public ERC20Detailed(name, symbol, decimals) {
         // solhint-disable-previous-line no-empty-blocks

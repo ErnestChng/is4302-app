@@ -24,7 +24,7 @@ library EnumerableSet {
     struct AddressSet {
         // Position of the value in the `values` array, plus 1 because index 0
         // means a value is not in the set.
-        mapping (address => uint256) index;
+        mapping(address => uint256) index;
         address[] values;
     }
 
@@ -33,10 +33,10 @@ library EnumerableSet {
      * Returns false if the value was already in the set.
      */
     function add(AddressSet storage set, address value)
-        internal
-        returns (bool)
+    internal
+    returns (bool)
     {
-        if (!contains(set, value)){
+        if (!contains(set, value)) {
             set.index[value] = set.values.push(value);
             return true;
         } else {
@@ -49,10 +49,10 @@ library EnumerableSet {
      * Returns false if the value was not present in the set.
      */
     function remove(AddressSet storage set, address value)
-        internal
-        returns (bool)
+    internal
+    returns (bool)
     {
-        if (contains(set, value)){
+        if (contains(set, value)) {
             uint256 toDeleteIndex = set.index[value] - 1;
             uint256 lastIndex = set.values.length - 1;
 
@@ -63,7 +63,8 @@ library EnumerableSet {
                 // Move the last value to the index where the deleted value is
                 set.values[toDeleteIndex] = lastValue;
                 // Update the index for the moved value
-                set.index[lastValue] = toDeleteIndex + 1; // All indexes are 1-based
+                set.index[lastValue] = toDeleteIndex + 1;
+                // All indexes are 1-based
             }
 
             // Delete the index entry for the deleted value
@@ -82,9 +83,9 @@ library EnumerableSet {
      * @dev Returns true if the value is in the set. O(1).
      */
     function contains(AddressSet storage set, address value)
-        internal
-        view
-        returns (bool)
+    internal
+    view
+    returns (bool)
     {
         return set.index[value] != 0;
     }
@@ -98,12 +99,12 @@ library EnumerableSet {
      * {get} instead in these cases.
      */
     function enumerate(AddressSet storage set)
-        internal
-        view
-        returns (address[] memory)
+    internal
+    view
+    returns (address[] memory)
     {
         address[] memory output = new address[](set.values.length);
-        for (uint256 i; i < set.values.length; i++){
+        for (uint256 i; i < set.values.length; i++) {
             output[i] = set.values[i];
         }
         return output;
@@ -113,25 +114,25 @@ library EnumerableSet {
      * @dev Returns the number of elements on the set. O(1).
      */
     function length(AddressSet storage set)
-        internal
-        view
-        returns (uint256)
+    internal
+    view
+    returns (uint256)
     {
         return set.values.length;
     }
 
-   /** @dev Returns the element stored at position `index` in the set. O(1).
-    * Note that there are no guarantees on the ordering of values inside the
-    * array, and it may change when more values are added or removed.
-    *
-    * Requirements:
-    *
-    * - `index` must be strictly less than {length}.
-    */
+    /** @dev Returns the element stored at position `index` in the set. O(1).
+     * Note that there are no guarantees on the ordering of values inside the
+     * array, and it may change when more values are added or removed.
+     *
+     * Requirements:
+     *
+     * - `index` must be strictly less than {length}.
+     */
     function get(AddressSet storage set, uint256 index)
-        internal
-        view
-        returns (address)
+    internal
+    view
+    returns (address)
     {
         return set.values[index];
     }

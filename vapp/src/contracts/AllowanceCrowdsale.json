@@ -155,7 +155,7 @@
       "type": "function"
     }
   ],
-  "metadata": "{\"compiler\":{\"version\":\"0.5.16+commit.9c3226ce\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"address\",\"name\":\"tokenWallet\",\"type\":\"address\"}],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"purchaser\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"beneficiary\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"value\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"TokensPurchased\",\"type\":\"event\"},{\"payable\":true,\"stateMutability\":\"payable\",\"type\":\"fallback\"},{\"constant\":false,\"inputs\":[{\"internalType\":\"address\",\"name\":\"beneficiary\",\"type\":\"address\"}],\"name\":\"buyTokens\",\"outputs\":[],\"payable\":true,\"stateMutability\":\"payable\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"rate\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"remainingTokens\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"token\",\"outputs\":[{\"internalType\":\"contract IERC20\",\"name\":\"\",\"type\":\"address\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"tokenWallet\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"wallet\",\"outputs\":[{\"internalType\":\"address payable\",\"name\":\"\",\"type\":\"address\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"weiRaised\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"details\":\"Extension of Crowdsale where tokens are held by a wallet, which approves an allowance to the crowdsale.\",\"methods\":{\"buyTokens(address)\":{\"details\":\"low level token purchase ***DO NOT OVERRIDE*** This function has a non-reentrancy guard, so it shouldn't be called by another `nonReentrant` function.\",\"params\":{\"beneficiary\":\"Recipient of the token purchase\"}},\"constructor\":{\"details\":\"Constructor, takes token wallet address.\",\"params\":{\"tokenWallet\":\"Address holding the tokens, which has approved allowance to the crowdsale.\"}},\"rate()\":{\"return\":\"the number of token units a buyer gets per wei.\"},\"remainingTokens()\":{\"details\":\"Checks the amount of tokens left in the allowance.\",\"return\":\"Amount of tokens left in the allowance\"},\"token()\":{\"return\":\"the token being sold.\"},\"tokenWallet()\":{\"return\":\"the address of the wallet that will hold the tokens.\"},\"wallet()\":{\"return\":\"the address where funds are collected.\"},\"weiRaised()\":{\"return\":\"the amount of wei raised.\"}},\"title\":\"AllowanceCrowdsale\"},\"userdoc\":{\"methods\":{}}},\"settings\":{\"compilationTarget\":{\"/Users/ernestchng/WebstormProjects/is4302-app/contracts/crowdsale/emission/AllowanceCrowdsale.sol\":\"AllowanceCrowdsale\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"/Users/ernestchng/WebstormProjects/is4302-app/contracts/GSN/Context.sol\":{\"keccak256\":\"0x90a3995645af7562d84b9d69363ffa5ae7217714ab61e951bf7bc450f40e4061\",\"urls\":[\"bzz-raw://216ef9d6b614db4eb46970b4e84903f2534a45572dd30a79f0041f1a5830f436\",\"dweb:/ipfs/QmNPrJ4MWKUAWzKXpUqeyKRUfosaoANZAqXgvepdrCwZAG\"]},\"/Users/ernestchng/WebstormProjects/is4302-app/contracts/crowdsale/Crowdsale.sol\":{\"keccak256\":\"0xe612eb8a3023c1a4f4d7e2d0aaf7f19c25e9d772c46a6e95790ddb42ba7baa99\",\"urls\":[\"bzz-raw://8b2bba5f74117ed67570e3b73bbd3ff51153275a0fcefe34df964ccba92ae028\",\"dweb:/ipfs/QmWZF4DnkWZZYzVHz8pAxbLFRxmNiKWE2n1Chd4w2rXWYh\"]},\"/Users/ernestchng/WebstormProjects/is4302-app/contracts/crowdsale/emission/AllowanceCrowdsale.sol\":{\"keccak256\":\"0x29502dd6dabc9950df59707968e8ff6a3b45c809b0ee32e9f4d6914fba0aee96\",\"urls\":[\"bzz-raw://69737315295e3ff73cb1538c0e790c732d1abeb687c146bc5ba8f787001c9da8\",\"dweb:/ipfs/QmTwiTGNHrqV3rHTgYGgGCoxuDL7FxnCrarsU7NtRXPMDu\"]},\"/Users/ernestchng/WebstormProjects/is4302-app/contracts/math/Math.sol\":{\"keccak256\":\"0x4b5aa451e4e8801478708f94b118a7821c0500d676255eaf89fc78c14856ce4e\",\"urls\":[\"bzz-raw://bed15b3f35ed05505efc8fb5cb01d06c52230fbcaadf4ed24a85b1ac2f15f33c\",\"dweb:/ipfs/QmS6tW81u8E4tvzVfVuqEuMCkdwAozQ6pKJPRBR4JEVmQp\"]},\"/Users/ernestchng/WebstormProjects/is4302-app/contracts/math/SafeMath.sol\":{\"keccak256\":\"0x640b6dee7a4b830bdfd52b5031a07fc2b12209f5b2e29e5d364a7d37f69d8076\",\"urls\":[\"bzz-raw://31113152e1ddb78fe7a4197f247591ca894e93f916867beb708d8e747b6cc74f\",\"dweb:/ipfs/QmbZaJyXdpsYGykVhHH9qpVGQg9DGCxE2QufbCUy3daTgq\"]},\"/Users/ernestchng/WebstormProjects/is4302-app/contracts/token/ERC20/IERC20.sol\":{\"keccak256\":\"0xe5bb0f57cff3e299f360052ba50f1ea0fff046df2be070b6943e0e3c3fdad8a9\",\"urls\":[\"bzz-raw://59fd025151435da35faa8093a5c7a17de02de9d08ad27275c5cdf05050820d91\",\"dweb:/ipfs/QmQMvwEcPhoRXzbXyrdoeRtvLoifUW9Qh7Luho7bmUPRkc\"]},\"/Users/ernestchng/WebstormProjects/is4302-app/contracts/token/ERC20/SafeERC20.sol\":{\"keccak256\":\"0x6f2c9955d65c522b80f4b8792f076512d2df947d2112cbc4d98a4781ed42ede2\",\"urls\":[\"bzz-raw://7d8ec81683520c06baeef3f7e06cd82bd6fd5fa611f26857f475f6c829540aff\",\"dweb:/ipfs/QmTDkFzKnrpiV1UKnSoiZAHPuguWzokrr4pFbSPvyaSo56\"]},\"/Users/ernestchng/WebstormProjects/is4302-app/contracts/utils/Address.sol\":{\"keccak256\":\"0x1a8e5072509c5ea7365eb1d48030b9be865140c8fb779968da0a459a0e174a11\",\"urls\":[\"bzz-raw://03335b7b07c7c8c8d613cfdd8ec39a0b5ec133ee510bf2fe6cc5a496767bef4b\",\"dweb:/ipfs/Qmebp4nzPja645c9yXSdJkGq96oU3am3LUnG2K3R7XxyKf\"]},\"/Users/ernestchng/WebstormProjects/is4302-app/contracts/utils/ReentrancyGuard.sol\":{\"keccak256\":\"0xb63221b23818d622bfd83d18e0968307e4fcb7a35536bdceded76e1cf8349acd\",\"urls\":[\"bzz-raw://44e1e8c22362c4708a8c3362735f1465f5b05e2f7315e16c7010d694ce019d73\",\"dweb:/ipfs/QmWj9g8X1hxkXRre2kwkEjLBetjuzmSbWHD81bsSojnBkS\"]}},\"version\":1}",
+  "metadata": "{\"compiler\":{\"version\":\"0.5.16+commit.9c3226ce\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"address\",\"name\":\"tokenWallet\",\"type\":\"address\"}],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"purchaser\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"beneficiary\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"value\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"TokensPurchased\",\"type\":\"event\"},{\"payable\":true,\"stateMutability\":\"payable\",\"type\":\"fallback\"},{\"constant\":false,\"inputs\":[{\"internalType\":\"address\",\"name\":\"beneficiary\",\"type\":\"address\"}],\"name\":\"buyTokens\",\"outputs\":[],\"payable\":true,\"stateMutability\":\"payable\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"rate\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"remainingTokens\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"token\",\"outputs\":[{\"internalType\":\"contract IERC20\",\"name\":\"\",\"type\":\"address\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"tokenWallet\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"wallet\",\"outputs\":[{\"internalType\":\"address payable\",\"name\":\"\",\"type\":\"address\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"weiRaised\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"details\":\"Extension of Crowdsale where tokens are held by a wallet, which approves an allowance to the crowdsale.\",\"methods\":{\"buyTokens(address)\":{\"details\":\"low level token purchase ***DO NOT OVERRIDE*** This function has a non-reentrancy guard, so it shouldn't be called by another `nonReentrant` function.\",\"params\":{\"beneficiary\":\"Recipient of the token purchase\"}},\"constructor\":{\"details\":\"Constructor, takes token wallet address.\",\"params\":{\"tokenWallet\":\"Address holding the tokens, which has approved allowance to the crowdsale.\"}},\"rate()\":{\"return\":\"the number of token units a buyer gets per wei.\"},\"remainingTokens()\":{\"details\":\"Checks the amount of tokens left in the allowance.\",\"return\":\"Amount of tokens left in the allowance\"},\"token()\":{\"return\":\"the token being sold.\"},\"tokenWallet()\":{\"return\":\"the address of the wallet that will hold the tokens.\"},\"wallet()\":{\"return\":\"the address where funds are collected.\"},\"weiRaised()\":{\"return\":\"the amount of wei raised.\"}},\"title\":\"AllowanceCrowdsale\"},\"userdoc\":{\"methods\":{}}},\"settings\":{\"compilationTarget\":{\"/Users/ernestchng/WebstormProjects/is4302-app/contracts/crowdsale/emission/AllowanceCrowdsale.sol\":\"AllowanceCrowdsale\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"/Users/ernestchng/WebstormProjects/is4302-app/contracts/GSN/Context.sol\":{\"keccak256\":\"0x068760cbe3b1e635a2a820f7d6969cdb167360b21d36c39ec165c8efb65041c4\",\"urls\":[\"bzz-raw://a8cae4f4b9b8236e1ec22afdfaac2f848b776ad98f7fb9c1823d6d756ddee890\",\"dweb:/ipfs/QmQicBVSv9SvhHwmTNzBG71Gb775o2mfF5CTfSFZvqtgfJ\"]},\"/Users/ernestchng/WebstormProjects/is4302-app/contracts/crowdsale/Crowdsale.sol\":{\"keccak256\":\"0xf675d9cf38cab19e6b1134c5db8f8552ea25d4b323c2375f8fef7b967f6478b9\",\"urls\":[\"bzz-raw://0eef8273597c60d91f5887b007cd6168201f31b6af234338e7a669ed0b9f60df\",\"dweb:/ipfs/QmQFBLCLzyPwmEzyLr3aYZPc2iZNCFBhrd6vvb66Bi2z4i\"]},\"/Users/ernestchng/WebstormProjects/is4302-app/contracts/crowdsale/emission/AllowanceCrowdsale.sol\":{\"keccak256\":\"0x29502dd6dabc9950df59707968e8ff6a3b45c809b0ee32e9f4d6914fba0aee96\",\"urls\":[\"bzz-raw://69737315295e3ff73cb1538c0e790c732d1abeb687c146bc5ba8f787001c9da8\",\"dweb:/ipfs/QmTwiTGNHrqV3rHTgYGgGCoxuDL7FxnCrarsU7NtRXPMDu\"]},\"/Users/ernestchng/WebstormProjects/is4302-app/contracts/math/Math.sol\":{\"keccak256\":\"0x4b5aa451e4e8801478708f94b118a7821c0500d676255eaf89fc78c14856ce4e\",\"urls\":[\"bzz-raw://bed15b3f35ed05505efc8fb5cb01d06c52230fbcaadf4ed24a85b1ac2f15f33c\",\"dweb:/ipfs/QmS6tW81u8E4tvzVfVuqEuMCkdwAozQ6pKJPRBR4JEVmQp\"]},\"/Users/ernestchng/WebstormProjects/is4302-app/contracts/math/SafeMath.sol\":{\"keccak256\":\"0x640b6dee7a4b830bdfd52b5031a07fc2b12209f5b2e29e5d364a7d37f69d8076\",\"urls\":[\"bzz-raw://31113152e1ddb78fe7a4197f247591ca894e93f916867beb708d8e747b6cc74f\",\"dweb:/ipfs/QmbZaJyXdpsYGykVhHH9qpVGQg9DGCxE2QufbCUy3daTgq\"]},\"/Users/ernestchng/WebstormProjects/is4302-app/contracts/token/ERC20/IERC20.sol\":{\"keccak256\":\"0xe5bb0f57cff3e299f360052ba50f1ea0fff046df2be070b6943e0e3c3fdad8a9\",\"urls\":[\"bzz-raw://59fd025151435da35faa8093a5c7a17de02de9d08ad27275c5cdf05050820d91\",\"dweb:/ipfs/QmQMvwEcPhoRXzbXyrdoeRtvLoifUW9Qh7Luho7bmUPRkc\"]},\"/Users/ernestchng/WebstormProjects/is4302-app/contracts/token/ERC20/SafeERC20.sol\":{\"keccak256\":\"0x34c35213a62dc4083c0706c0132159bc336f5bbae17a04d9905ea2c8c2abf314\",\"urls\":[\"bzz-raw://0fe9ca75a2156ec0bb68f03e79f2dd2b784bb43a83255bce89d72e294a076cdc\",\"dweb:/ipfs/QmP38QGsJTJbYQbmS7nGgEDRBQ98YEfezt8ZuRVDkDCLEH\"]},\"/Users/ernestchng/WebstormProjects/is4302-app/contracts/utils/Address.sol\":{\"keccak256\":\"0x36c48d6afbab50225bac499a65f0285076ab97ef95ff72b978e75f18708edaa9\",\"urls\":[\"bzz-raw://ddd92c5f380c0ae7ada203e9a42994264518f5f1f99d12d0212f0f59a01faa59\",\"dweb:/ipfs/QmTqUZNRvHw86UQHh73qREngtBtW7i74mvjLJPvhGe9f8Y\"]},\"/Users/ernestchng/WebstormProjects/is4302-app/contracts/utils/ReentrancyGuard.sol\":{\"keccak256\":\"0xb63221b23818d622bfd83d18e0968307e4fcb7a35536bdceded76e1cf8349acd\",\"urls\":[\"bzz-raw://44e1e8c22362c4708a8c3362735f1465f5b05e2f7315e16c7010d694ce019d73\",\"dweb:/ipfs/QmWj9g8X1hxkXRre2kwkEjLBetjuzmSbWHD81bsSojnBkS\"]}},\"version\":1}",
   "bytecode": "0x",
   "deployedBytecode": "0x",
   "sourceMap": "",
@@ -200,7 +200,7 @@
         "id": 2911,
         "nodeType": "ImportDirective",
         "scope": 2992,
-        "sourceUnit": 7261,
+        "sourceUnit": 7007,
         "src": "52:38:20",
         "symbolAliases": [],
         "unitAlias": ""
@@ -211,7 +211,7 @@
         "id": 2912,
         "nodeType": "ImportDirective",
         "scope": 2992,
-        "sourceUnit": 7481,
+        "sourceUnit": 7227,
         "src": "91:41:20",
         "symbolAliases": [],
         "unitAlias": ""
@@ -222,7 +222,7 @@
         "id": 2913,
         "nodeType": "ImportDirective",
         "scope": 2992,
-        "sourceUnit": 5632,
+        "sourceUnit": 5378,
         "src": "133:33:20",
         "symbolAliases": [],
         "unitAlias": ""
@@ -233,7 +233,7 @@
         "id": 2914,
         "nodeType": "ImportDirective",
         "scope": 2992,
-        "sourceUnit": 5445,
+        "sourceUnit": 5191,
         "src": "167:29:20",
         "symbolAliases": [],
         "unitAlias": ""
@@ -262,7 +262,7 @@
         "contractDependencies": [
           423,
           2554,
-          10846
+          10482
         ],
         "contractKind": "contract",
         "documentation": "@title AllowanceCrowdsale\n@dev Extension of Crowdsale where tokens are held by a wallet, which approves an allowance to the crowdsale.",
@@ -271,7 +271,7 @@
         "linearizedBaseContracts": [
           2991,
           2554,
-          10846,
+          10482,
           423
         ],
         "name": "AllowanceCrowdsale",
@@ -284,10 +284,10 @@
               "id": 2917,
               "name": "SafeMath",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 5631,
+              "referencedDeclaration": 5377,
               "src": "400:8:20",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_SafeMath_$5631",
+                "typeIdentifier": "t_contract$_SafeMath_$5377",
                 "typeString": "library SafeMath"
               }
             },
@@ -311,10 +311,10 @@
               "id": 2920,
               "name": "SafeERC20",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 7480,
+              "referencedDeclaration": 7226,
               "src": "432:9:20",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_SafeERC20_$7480",
+                "typeIdentifier": "t_contract$_SafeERC20_$7226",
                 "typeString": "library SafeERC20"
               }
             },
@@ -325,10 +325,10 @@
               "id": 2921,
               "name": "IERC20",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 7260,
+              "referencedDeclaration": 7006,
               "src": "446:6:20",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_IERC20_$7260",
+                "typeIdentifier": "t_contract$_IERC20_$7006",
                 "typeString": "contract IERC20"
               }
             }
@@ -492,10 +492,10 @@
                       "name": "require",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [
-                        10972,
-                        10973
+                        10608,
+                        10609
                       ],
-                      "referencedDeclaration": 10973,
+                      "referencedDeclaration": 10609,
                       "src": "715:7:20",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_require_pure$_t_bool_$_t_string_memory_ptr_$returns$__$",
@@ -747,7 +747,7 @@
                               "referencedDeclaration": 2378,
                               "src": "1249:5:20",
                               "typeDescriptions": {
-                                "typeIdentifier": "t_function_internal_view$__$returns$_t_contract$_IERC20_$7260_$",
+                                "typeIdentifier": "t_function_internal_view$__$returns$_t_contract$_IERC20_$7006_$",
                                 "typeString": "function () view returns (contract IERC20)"
                               }
                             },
@@ -761,7 +761,7 @@
                             "nodeType": "FunctionCall",
                             "src": "1249:7:20",
                             "typeDescriptions": {
-                              "typeIdentifier": "t_contract$_IERC20_$7260",
+                              "typeIdentifier": "t_contract$_IERC20_$7006",
                               "typeString": "contract IERC20"
                             }
                           },
@@ -772,7 +772,7 @@
                           "lValueRequested": false,
                           "memberName": "balanceOf",
                           "nodeType": "MemberAccess",
-                          "referencedDeclaration": 7205,
+                          "referencedDeclaration": 6951,
                           "src": "1249:17:20",
                           "typeDescriptions": {
                             "typeIdentifier": "t_function_external_view$_t_address_$returns$_t_uint256_$",
@@ -818,7 +818,7 @@
                                 "name": "this",
                                 "nodeType": "Identifier",
                                 "overloadedDeclarations": [],
-                                "referencedDeclaration": 11065,
+                                "referencedDeclaration": 10701,
                                 "src": "1322:4:20",
                                 "typeDescriptions": {
                                   "typeIdentifier": "t_contract$_AllowanceCrowdsale_$2991",
@@ -884,7 +884,7 @@
                               "referencedDeclaration": 2378,
                               "src": "1282:5:20",
                               "typeDescriptions": {
-                                "typeIdentifier": "t_function_internal_view$__$returns$_t_contract$_IERC20_$7260_$",
+                                "typeIdentifier": "t_function_internal_view$__$returns$_t_contract$_IERC20_$7006_$",
                                 "typeString": "function () view returns (contract IERC20)"
                               }
                             },
@@ -898,7 +898,7 @@
                             "nodeType": "FunctionCall",
                             "src": "1282:7:20",
                             "typeDescriptions": {
-                              "typeIdentifier": "t_contract$_IERC20_$7260",
+                              "typeIdentifier": "t_contract$_IERC20_$7006",
                               "typeString": "contract IERC20"
                             }
                           },
@@ -909,7 +909,7 @@
                           "lValueRequested": false,
                           "memberName": "allowance",
                           "nodeType": "MemberAccess",
-                          "referencedDeclaration": 7223,
+                          "referencedDeclaration": 6969,
                           "src": "1282:17:20",
                           "typeDescriptions": {
                             "typeIdentifier": "t_function_external_view$_t_address_$_t_address_$returns$_t_uint256_$",
@@ -948,10 +948,10 @@
                         "name": "Math",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 5444,
+                        "referencedDeclaration": 5190,
                         "src": "1240:4:20",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_type$_t_contract$_Math_$5444_$",
+                          "typeIdentifier": "t_type$_t_contract$_Math_$5190_$",
                           "typeString": "type(library Math)"
                         }
                       },
@@ -962,7 +962,7 @@
                       "lValueRequested": false,
                       "memberName": "min",
                       "nodeType": "MemberAccess",
-                      "referencedDeclaration": 5411,
+                      "referencedDeclaration": 5157,
                       "src": "1240:8:20",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_internal_pure$_t_uint256_$_t_uint256_$returns$_t_uint256_$",
@@ -1119,7 +1119,7 @@
                           "referencedDeclaration": 2378,
                           "src": "1612:5:20",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_function_internal_view$__$returns$_t_contract$_IERC20_$7260_$",
+                            "typeIdentifier": "t_function_internal_view$__$returns$_t_contract$_IERC20_$7006_$",
                             "typeString": "function () view returns (contract IERC20)"
                           }
                         },
@@ -1133,7 +1133,7 @@
                         "nodeType": "FunctionCall",
                         "src": "1612:7:20",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_contract$_IERC20_$7260",
+                          "typeIdentifier": "t_contract$_IERC20_$7006",
                           "typeString": "contract IERC20"
                         }
                       },
@@ -1144,10 +1144,10 @@
                       "lValueRequested": false,
                       "memberName": "safeTransferFrom",
                       "nodeType": "MemberAccess",
-                      "referencedDeclaration": 7318,
+                      "referencedDeclaration": 7064,
                       "src": "1612:24:20",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_function_internal_nonpayable$_t_contract$_IERC20_$7260_$_t_address_$_t_address_$_t_uint256_$returns$__$bound_to$_t_contract$_IERC20_$7260_$",
+                        "typeIdentifier": "t_function_internal_nonpayable$_t_contract$_IERC20_$7006_$_t_address_$_t_address_$_t_uint256_$returns$__$bound_to$_t_contract$_IERC20_$7006_$",
                         "typeString": "function (contract IERC20,address,address,uint256)"
                       }
                     },
@@ -1297,7 +1297,7 @@
       },
       {
         "attributes": {
-          "SourceUnit": 7261,
+          "SourceUnit": 7007,
           "absolutePath": "/Users/ernestchng/WebstormProjects/is4302-app/contracts/token/ERC20/IERC20.sol",
           "file": "../../token/ERC20/IERC20.sol",
           "scope": 2992,
@@ -1312,7 +1312,7 @@
       },
       {
         "attributes": {
-          "SourceUnit": 7481,
+          "SourceUnit": 7227,
           "absolutePath": "/Users/ernestchng/WebstormProjects/is4302-app/contracts/token/ERC20/SafeERC20.sol",
           "file": "../../token/ERC20/SafeERC20.sol",
           "scope": 2992,
@@ -1327,7 +1327,7 @@
       },
       {
         "attributes": {
-          "SourceUnit": 5632,
+          "SourceUnit": 5378,
           "absolutePath": "/Users/ernestchng/WebstormProjects/is4302-app/contracts/math/SafeMath.sol",
           "file": "../../math/SafeMath.sol",
           "scope": 2992,
@@ -1342,7 +1342,7 @@
       },
       {
         "attributes": {
-          "SourceUnit": 5445,
+          "SourceUnit": 5191,
           "absolutePath": "/Users/ernestchng/WebstormProjects/is4302-app/contracts/math/Math.sol",
           "file": "../../math/Math.sol",
           "scope": 2992,
@@ -1360,7 +1360,7 @@
           "contractDependencies": [
             423,
             2554,
-            10846
+            10482
           ],
           "contractKind": "contract",
           "documentation": "@title AllowanceCrowdsale\n@dev Extension of Crowdsale where tokens are held by a wallet, which approves an allowance to the crowdsale.",
@@ -1368,7 +1368,7 @@
           "linearizedBaseContracts": [
             2991,
             2554,
-            10846,
+            10482,
             423
           ],
           "name": "AllowanceCrowdsale",
@@ -1402,7 +1402,7 @@
                 "attributes": {
                   "contractScope": null,
                   "name": "SafeMath",
-                  "referencedDeclaration": 5631,
+                  "referencedDeclaration": 5377,
                   "type": "library SafeMath"
                 },
                 "id": 2917,
@@ -1429,7 +1429,7 @@
                 "attributes": {
                   "contractScope": null,
                   "name": "SafeERC20",
-                  "referencedDeclaration": 7480,
+                  "referencedDeclaration": 7226,
                   "type": "library SafeERC20"
                 },
                 "id": 2920,
@@ -1440,7 +1440,7 @@
                 "attributes": {
                   "contractScope": null,
                   "name": "IERC20",
-                  "referencedDeclaration": 7260,
+                  "referencedDeclaration": 7006,
                   "type": "contract IERC20"
                 },
                 "id": 2921,
@@ -1572,10 +1572,10 @@
                                 }
                               ],
                               "overloadedDeclarations": [
-                                10972,
-                                10973
+                                10608,
+                                10609
                               ],
-                              "referencedDeclaration": 10973,
+                              "referencedDeclaration": 10609,
                               "type": "function (bool,string memory) pure",
                               "value": "require"
                             },
@@ -1957,7 +1957,7 @@
                               "isPure": false,
                               "lValueRequested": false,
                               "member_name": "min",
-                              "referencedDeclaration": 5411,
+                              "referencedDeclaration": 5157,
                               "type": "function (uint256,uint256) pure returns (uint256)"
                             },
                             "children": [
@@ -1967,7 +1967,7 @@
                                   "overloadedDeclarations": [
                                     null
                                   ],
-                                  "referencedDeclaration": 5444,
+                                  "referencedDeclaration": 5190,
                                   "type": "type(library Math)",
                                   "value": "Math"
                                 },
@@ -2008,7 +2008,7 @@
                                   "isPure": false,
                                   "lValueRequested": false,
                                   "member_name": "balanceOf",
-                                  "referencedDeclaration": 7205,
+                                  "referencedDeclaration": 6951,
                                   "type": "function (address) view external returns (uint256)"
                                 },
                                 "children": [
@@ -2107,7 +2107,7 @@
                                   "isPure": false,
                                   "lValueRequested": false,
                                   "member_name": "allowance",
-                                  "referencedDeclaration": 7223,
+                                  "referencedDeclaration": 6969,
                                   "type": "function (address,address) view external returns (uint256)"
                                 },
                                 "children": [
@@ -2209,7 +2209,7 @@
                                       "overloadedDeclarations": [
                                         null
                                       ],
-                                      "referencedDeclaration": 11065,
+                                      "referencedDeclaration": 10701,
                                       "type": "contract AllowanceCrowdsale",
                                       "value": "this"
                                     },
@@ -2374,7 +2374,7 @@
                               "isPure": false,
                               "lValueRequested": false,
                               "member_name": "safeTransferFrom",
-                              "referencedDeclaration": 7318,
+                              "referencedDeclaration": 7064,
                               "type": "function (contract IERC20,address,address,uint256)"
                             },
                             "children": [
@@ -2500,7 +2500,7 @@
   },
   "networks": {},
   "schemaVersion": "3.3.3",
-  "updatedAt": "2021-04-01T03:32:32.967Z",
+  "updatedAt": "2021-04-01T03:45:24.264Z",
   "devdoc": {
     "details": "Extension of Crowdsale where tokens are held by a wallet, which approves an allowance to the crowdsale.",
     "methods": {

@@ -1,17 +1,30 @@
 <template>
   <div>
-    <router-link to="/validator/allocate-credits"><button>Allocate Credits</button></router-link>
-    <router-link to="/validator/get-credits"><button>Get Credits</button></router-link>
-    <router-link to="/validator/report-emissions"><button>Report Emissions</button></router-link>
+    <router-link to="/validator/allocate-credits">
+      <button>Allocate Credits</button>
+    </router-link>
+    <router-link to="/validator/get-credits">
+      <button>Get Credits</button>
+    </router-link>
+    <router-link to="/validator/report-emissions">
+      <button>Report Emissions</button>
+    </router-link>
   </div>
 </template>
 
 <script>
-</script><template>
+</script>
+<template>
   <div>
-    <router-link to="/validator/allocate-credits"><button>Allocate Credits</button></router-link>
-    <router-link to="/validator/get-credits"><button>Get Credits</button></router-link>
-    <router-link to="/validator/report-emissions"><button>Report Emissions</button></router-link>
+    <router-link to="/validator/allocate-credits">
+      <button>Allocate Credits</button>
+    </router-link>
+    <router-link to="/validator/get-credits">
+      <button>Get Credits</button>
+    </router-link>
+    <router-link to="/validator/report-emissions">
+      <button>Report Emissions</button>
+    </router-link>
   </div>
 </template>
 
@@ -31,7 +44,7 @@ button {
   color: #103B1D;
   font-weight: bold;
   border-radius: 15px;
-  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 button a {
@@ -61,7 +74,7 @@ button {
   color: #103B1D;
   font-weight: bold;
   border-radius: 15px;
-  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 button a {

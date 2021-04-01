@@ -61,7 +61,8 @@ contract GSNRecipient is IRelayRecipient, Context {
     // This function is view for future-proofing, it may require reading from
     // storage in the future.
     function relayHubVersion() public view returns (string memory) {
-        this; // silence state mutability warning without generating bytecode - see https://github.com/ethereum/solidity/issues/2691
+        this;
+        // silence state mutability warning without generating bytecode - see https://github.com/ethereum/solidity/issues/2691
         return "1.0.0";
     }
 
@@ -206,7 +207,7 @@ contract GSNRecipient is IRelayRecipient, Context {
 
         // solhint-disable-next-line no-inline-assembly
         assembly {
-            // Load the 32 bytes word from memory with the address on the lower 20 bytes, and mask those.
+        // Load the 32 bytes word from memory with the address on the lower 20 bytes, and mask those.
             result := and(mload(add(array, index)), 0xffffffffffffffffffffffffffffffffffffffff)
         }
         return result;

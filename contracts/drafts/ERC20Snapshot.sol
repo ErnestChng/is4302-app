@@ -32,7 +32,7 @@ contract ERC20Snapshot is ERC20 {
         uint256[] values;
     }
 
-    mapping (address => Snapshots) private _accountBalanceSnapshots;
+    mapping(address => Snapshots) private _accountBalanceSnapshots;
     Snapshots private _totalSupplySnapshots;
 
     // Snapshot ids increase monotonically, with the first value being 1. An id of 0 is invalid.
@@ -57,7 +57,7 @@ contract ERC20Snapshot is ERC20 {
         return snapshotted ? value : balanceOf(account);
     }
 
-    function totalSupplyAt(uint256 snapshotId) public view returns(uint256) {
+    function totalSupplyAt(uint256 snapshotId) public view returns (uint256) {
         (bool snapshotted, uint256 value) = _valueAt(snapshotId, _totalSupplySnapshots);
 
         return snapshotted ? value : totalSupply();
@@ -101,7 +101,7 @@ contract ERC20Snapshot is ERC20 {
     // it is not found, unless said value doesn't exist (e.g. when all values are smaller). Arrays.findUpperBound does
     // exactly this.
     function _valueAt(uint256 snapshotId, Snapshots storage snapshots)
-        private view returns (bool, uint256)
+    private view returns (bool, uint256)
     {
         require(snapshotId > 0, "ERC20Snapshot: id is 0");
         // solhint-disable-next-line max-line-length

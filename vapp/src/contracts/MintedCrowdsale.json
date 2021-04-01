@@ -113,12 +113,12 @@
       "type": "function"
     }
   ],
-  "metadata": "{\"compiler\":{\"version\":\"0.5.16+commit.9c3226ce\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"purchaser\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"beneficiary\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"value\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"TokensPurchased\",\"type\":\"event\"},{\"payable\":true,\"stateMutability\":\"payable\",\"type\":\"fallback\"},{\"constant\":false,\"inputs\":[{\"internalType\":\"address\",\"name\":\"beneficiary\",\"type\":\"address\"}],\"name\":\"buyTokens\",\"outputs\":[],\"payable\":true,\"stateMutability\":\"payable\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"rate\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"token\",\"outputs\":[{\"internalType\":\"contract IERC20\",\"name\":\"\",\"type\":\"address\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"wallet\",\"outputs\":[{\"internalType\":\"address payable\",\"name\":\"\",\"type\":\"address\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"weiRaised\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"details\":\"Extension of Crowdsale contract whose tokens are minted in each purchase. Token ownership should be transferred to MintedCrowdsale for minting.\",\"methods\":{\"buyTokens(address)\":{\"details\":\"low level token purchase ***DO NOT OVERRIDE*** This function has a non-reentrancy guard, so it shouldn't be called by another `nonReentrant` function.\",\"params\":{\"beneficiary\":\"Recipient of the token purchase\"}},\"rate()\":{\"return\":\"the number of token units a buyer gets per wei.\"},\"token()\":{\"return\":\"the token being sold.\"},\"wallet()\":{\"return\":\"the address where funds are collected.\"},\"weiRaised()\":{\"return\":\"the amount of wei raised.\"}},\"title\":\"MintedCrowdsale\"},\"userdoc\":{\"methods\":{}}},\"settings\":{\"compilationTarget\":{\"/Users/ernestchng/WebstormProjects/is4302-app/contracts/crowdsale/emission/MintedCrowdsale.sol\":\"MintedCrowdsale\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"/Users/ernestchng/WebstormProjects/is4302-app/contracts/GSN/Context.sol\":{\"keccak256\":\"0x90a3995645af7562d84b9d69363ffa5ae7217714ab61e951bf7bc450f40e4061\",\"urls\":[\"bzz-raw://216ef9d6b614db4eb46970b4e84903f2534a45572dd30a79f0041f1a5830f436\",\"dweb:/ipfs/QmNPrJ4MWKUAWzKXpUqeyKRUfosaoANZAqXgvepdrCwZAG\"]},\"/Users/ernestchng/WebstormProjects/is4302-app/contracts/access/Roles.sol\":{\"keccak256\":\"0xb002c378d7b82a101bd659c341518953ca0919d342c0a400196982c0e7e7bcdb\",\"urls\":[\"bzz-raw://00a788c4631466c220b385bdd100c571d24b2deccd657615cfbcef6cadf669a4\",\"dweb:/ipfs/QmTEwDbjJNxmMNCDMqtuou3dyM8Wtp8Q9NFvn7SAVM7Jf3\"]},\"/Users/ernestchng/WebstormProjects/is4302-app/contracts/access/roles/MinterRole.sol\":{\"keccak256\":\"0xbe8eef6f2cb4e427f5c5d8a76865ccd06e55a4f1d6671ba312d45bfa705aedbf\",\"urls\":[\"bzz-raw://badf338a5e22c8658c01fe2ce89b487d9dbf6d2d9d5eb49df7415383e2498765\",\"dweb:/ipfs/QmP5aMkvFwMJyuQjKE8ADh5tkWYqonb4KjgkAjgYEVVFAv\"]},\"/Users/ernestchng/WebstormProjects/is4302-app/contracts/crowdsale/Crowdsale.sol\":{\"keccak256\":\"0xe612eb8a3023c1a4f4d7e2d0aaf7f19c25e9d772c46a6e95790ddb42ba7baa99\",\"urls\":[\"bzz-raw://8b2bba5f74117ed67570e3b73bbd3ff51153275a0fcefe34df964ccba92ae028\",\"dweb:/ipfs/QmWZF4DnkWZZYzVHz8pAxbLFRxmNiKWE2n1Chd4w2rXWYh\"]},\"/Users/ernestchng/WebstormProjects/is4302-app/contracts/crowdsale/emission/MintedCrowdsale.sol\":{\"keccak256\":\"0x343249b95ade6a20737b7f681a05a257f14a39b21043ff2e31d8e5d861d83777\",\"urls\":[\"bzz-raw://ace82fde631b4c630223282ec488c53adf0c53beb99a972736dea0a37351d55c\",\"dweb:/ipfs/QmdyGt7hjQ3D6JFr1HRaqa2xjS3EZGFomnwsqfjKHckcqx\"]},\"/Users/ernestchng/WebstormProjects/is4302-app/contracts/math/SafeMath.sol\":{\"keccak256\":\"0x640b6dee7a4b830bdfd52b5031a07fc2b12209f5b2e29e5d364a7d37f69d8076\",\"urls\":[\"bzz-raw://31113152e1ddb78fe7a4197f247591ca894e93f916867beb708d8e747b6cc74f\",\"dweb:/ipfs/QmbZaJyXdpsYGykVhHH9qpVGQg9DGCxE2QufbCUy3daTgq\"]},\"/Users/ernestchng/WebstormProjects/is4302-app/contracts/token/ERC20/ERC20.sol\":{\"keccak256\":\"0xb15af804e2bc97db51e4e103f13de9fe13f87e6b835d7a88c897966c0e58506e\",\"urls\":[\"bzz-raw://1e8cff8437557fc915a3bed968fcd8f2df9809599e665ef69c2c9ce628548055\",\"dweb:/ipfs/QmP5spYP8vs2jvLF8zNrXUbqB79hMsoEvMHiLcBxerWKcm\"]},\"/Users/ernestchng/WebstormProjects/is4302-app/contracts/token/ERC20/ERC20Mintable.sol\":{\"keccak256\":\"0xa2b957cf89692c504962afb7506999155f83385373f808243246cd5879de5940\",\"urls\":[\"bzz-raw://c44ae0ad1bce141c33b962f8b4e9228bdf8df36c8ac363b4f0bf9498b8bfc32a\",\"dweb:/ipfs/QmcSBRdFwVvy2wFZrBwo5cvqNP4UHh9Eyzf8jnxBgnPqfe\"]},\"/Users/ernestchng/WebstormProjects/is4302-app/contracts/token/ERC20/IERC20.sol\":{\"keccak256\":\"0xe5bb0f57cff3e299f360052ba50f1ea0fff046df2be070b6943e0e3c3fdad8a9\",\"urls\":[\"bzz-raw://59fd025151435da35faa8093a5c7a17de02de9d08ad27275c5cdf05050820d91\",\"dweb:/ipfs/QmQMvwEcPhoRXzbXyrdoeRtvLoifUW9Qh7Luho7bmUPRkc\"]},\"/Users/ernestchng/WebstormProjects/is4302-app/contracts/token/ERC20/SafeERC20.sol\":{\"keccak256\":\"0x6f2c9955d65c522b80f4b8792f076512d2df947d2112cbc4d98a4781ed42ede2\",\"urls\":[\"bzz-raw://7d8ec81683520c06baeef3f7e06cd82bd6fd5fa611f26857f475f6c829540aff\",\"dweb:/ipfs/QmTDkFzKnrpiV1UKnSoiZAHPuguWzokrr4pFbSPvyaSo56\"]},\"/Users/ernestchng/WebstormProjects/is4302-app/contracts/utils/Address.sol\":{\"keccak256\":\"0x1a8e5072509c5ea7365eb1d48030b9be865140c8fb779968da0a459a0e174a11\",\"urls\":[\"bzz-raw://03335b7b07c7c8c8d613cfdd8ec39a0b5ec133ee510bf2fe6cc5a496767bef4b\",\"dweb:/ipfs/Qmebp4nzPja645c9yXSdJkGq96oU3am3LUnG2K3R7XxyKf\"]},\"/Users/ernestchng/WebstormProjects/is4302-app/contracts/utils/ReentrancyGuard.sol\":{\"keccak256\":\"0xb63221b23818d622bfd83d18e0968307e4fcb7a35536bdceded76e1cf8349acd\",\"urls\":[\"bzz-raw://44e1e8c22362c4708a8c3362735f1465f5b05e2f7315e16c7010d694ce019d73\",\"dweb:/ipfs/QmWj9g8X1hxkXRre2kwkEjLBetjuzmSbWHD81bsSojnBkS\"]}},\"version\":1}",
+  "metadata": "{\"compiler\":{\"version\":\"0.5.16+commit.9c3226ce\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"purchaser\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"beneficiary\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"value\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"TokensPurchased\",\"type\":\"event\"},{\"payable\":true,\"stateMutability\":\"payable\",\"type\":\"fallback\"},{\"constant\":false,\"inputs\":[{\"internalType\":\"address\",\"name\":\"beneficiary\",\"type\":\"address\"}],\"name\":\"buyTokens\",\"outputs\":[],\"payable\":true,\"stateMutability\":\"payable\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"rate\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"token\",\"outputs\":[{\"internalType\":\"contract IERC20\",\"name\":\"\",\"type\":\"address\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"wallet\",\"outputs\":[{\"internalType\":\"address payable\",\"name\":\"\",\"type\":\"address\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"weiRaised\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"details\":\"Extension of Crowdsale contract whose tokens are minted in each purchase. Token ownership should be transferred to MintedCrowdsale for minting.\",\"methods\":{\"buyTokens(address)\":{\"details\":\"low level token purchase ***DO NOT OVERRIDE*** This function has a non-reentrancy guard, so it shouldn't be called by another `nonReentrant` function.\",\"params\":{\"beneficiary\":\"Recipient of the token purchase\"}},\"rate()\":{\"return\":\"the number of token units a buyer gets per wei.\"},\"token()\":{\"return\":\"the token being sold.\"},\"wallet()\":{\"return\":\"the address where funds are collected.\"},\"weiRaised()\":{\"return\":\"the amount of wei raised.\"}},\"title\":\"MintedCrowdsale\"},\"userdoc\":{\"methods\":{}}},\"settings\":{\"compilationTarget\":{\"/Users/ernestchng/WebstormProjects/is4302-app/contracts/crowdsale/emission/MintedCrowdsale.sol\":\"MintedCrowdsale\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"/Users/ernestchng/WebstormProjects/is4302-app/contracts/GSN/Context.sol\":{\"keccak256\":\"0x068760cbe3b1e635a2a820f7d6969cdb167360b21d36c39ec165c8efb65041c4\",\"urls\":[\"bzz-raw://a8cae4f4b9b8236e1ec22afdfaac2f848b776ad98f7fb9c1823d6d756ddee890\",\"dweb:/ipfs/QmQicBVSv9SvhHwmTNzBG71Gb775o2mfF5CTfSFZvqtgfJ\"]},\"/Users/ernestchng/WebstormProjects/is4302-app/contracts/access/Roles.sol\":{\"keccak256\":\"0x62933c5baec5dec159853f0c2f23d6eee264adf50a0ab9a400b9efb9c478eb1f\",\"urls\":[\"bzz-raw://59374e5ff9a6cafa55948f82ca4d02ead3b5753d7f88a258755b656f05dc413d\",\"dweb:/ipfs/QmPbwZm1nePCN9NDxcaj9o7vJxKv9R6Z6c6LnHC8fdb56G\"]},\"/Users/ernestchng/WebstormProjects/is4302-app/contracts/access/roles/MinterRole.sol\":{\"keccak256\":\"0xbe8eef6f2cb4e427f5c5d8a76865ccd06e55a4f1d6671ba312d45bfa705aedbf\",\"urls\":[\"bzz-raw://badf338a5e22c8658c01fe2ce89b487d9dbf6d2d9d5eb49df7415383e2498765\",\"dweb:/ipfs/QmP5aMkvFwMJyuQjKE8ADh5tkWYqonb4KjgkAjgYEVVFAv\"]},\"/Users/ernestchng/WebstormProjects/is4302-app/contracts/crowdsale/Crowdsale.sol\":{\"keccak256\":\"0xf675d9cf38cab19e6b1134c5db8f8552ea25d4b323c2375f8fef7b967f6478b9\",\"urls\":[\"bzz-raw://0eef8273597c60d91f5887b007cd6168201f31b6af234338e7a669ed0b9f60df\",\"dweb:/ipfs/QmQFBLCLzyPwmEzyLr3aYZPc2iZNCFBhrd6vvb66Bi2z4i\"]},\"/Users/ernestchng/WebstormProjects/is4302-app/contracts/crowdsale/emission/MintedCrowdsale.sol\":{\"keccak256\":\"0xc71da3154bf660d85bac74d0c82afd4122ddad2df4652fa4aad37d8f326949ea\",\"urls\":[\"bzz-raw://4da0fc7f26ff062a45b8c5fe92bc40fc87f5f7de614b61095fcb3fd80a714f46\",\"dweb:/ipfs/QmU7krDfW6c5vS8CWuYWEsBcUZU1MXt3B4T1887D6kR8SS\"]},\"/Users/ernestchng/WebstormProjects/is4302-app/contracts/math/SafeMath.sol\":{\"keccak256\":\"0x640b6dee7a4b830bdfd52b5031a07fc2b12209f5b2e29e5d364a7d37f69d8076\",\"urls\":[\"bzz-raw://31113152e1ddb78fe7a4197f247591ca894e93f916867beb708d8e747b6cc74f\",\"dweb:/ipfs/QmbZaJyXdpsYGykVhHH9qpVGQg9DGCxE2QufbCUy3daTgq\"]},\"/Users/ernestchng/WebstormProjects/is4302-app/contracts/token/ERC20/ERC20.sol\":{\"keccak256\":\"0xc17694a3230ac9581c2c796a886af2a2f06d8f16686c1330b7bce104c37bf019\",\"urls\":[\"bzz-raw://2a48601df5e96f979398dfdb2bb60b2fa0c25eeb118d7fa20ad3678953660335\",\"dweb:/ipfs/QmUpWPB26KfiTenSoobzYxfnzSgGNBjBvZV1LgUUcCrL7M\"]},\"/Users/ernestchng/WebstormProjects/is4302-app/contracts/token/ERC20/ERC20Mintable.sol\":{\"keccak256\":\"0xa2b957cf89692c504962afb7506999155f83385373f808243246cd5879de5940\",\"urls\":[\"bzz-raw://c44ae0ad1bce141c33b962f8b4e9228bdf8df36c8ac363b4f0bf9498b8bfc32a\",\"dweb:/ipfs/QmcSBRdFwVvy2wFZrBwo5cvqNP4UHh9Eyzf8jnxBgnPqfe\"]},\"/Users/ernestchng/WebstormProjects/is4302-app/contracts/token/ERC20/IERC20.sol\":{\"keccak256\":\"0xe5bb0f57cff3e299f360052ba50f1ea0fff046df2be070b6943e0e3c3fdad8a9\",\"urls\":[\"bzz-raw://59fd025151435da35faa8093a5c7a17de02de9d08ad27275c5cdf05050820d91\",\"dweb:/ipfs/QmQMvwEcPhoRXzbXyrdoeRtvLoifUW9Qh7Luho7bmUPRkc\"]},\"/Users/ernestchng/WebstormProjects/is4302-app/contracts/token/ERC20/SafeERC20.sol\":{\"keccak256\":\"0x34c35213a62dc4083c0706c0132159bc336f5bbae17a04d9905ea2c8c2abf314\",\"urls\":[\"bzz-raw://0fe9ca75a2156ec0bb68f03e79f2dd2b784bb43a83255bce89d72e294a076cdc\",\"dweb:/ipfs/QmP38QGsJTJbYQbmS7nGgEDRBQ98YEfezt8ZuRVDkDCLEH\"]},\"/Users/ernestchng/WebstormProjects/is4302-app/contracts/utils/Address.sol\":{\"keccak256\":\"0x36c48d6afbab50225bac499a65f0285076ab97ef95ff72b978e75f18708edaa9\",\"urls\":[\"bzz-raw://ddd92c5f380c0ae7ada203e9a42994264518f5f1f99d12d0212f0f59a01faa59\",\"dweb:/ipfs/QmTqUZNRvHw86UQHh73qREngtBtW7i74mvjLJPvhGe9f8Y\"]},\"/Users/ernestchng/WebstormProjects/is4302-app/contracts/utils/ReentrancyGuard.sol\":{\"keccak256\":\"0xb63221b23818d622bfd83d18e0968307e4fcb7a35536bdceded76e1cf8349acd\",\"urls\":[\"bzz-raw://44e1e8c22362c4708a8c3362735f1465f5b05e2f7315e16c7010d694ce019d73\",\"dweb:/ipfs/QmWj9g8X1hxkXRre2kwkEjLBetjuzmSbWHD81bsSojnBkS\"]}},\"version\":1}",
   "bytecode": "0x",
   "deployedBytecode": "0x",
   "sourceMap": "",
   "deployedSourceMap": "",
-  "source": "pragma solidity ^0.5.0;\n\nimport \"../Crowdsale.sol\";\nimport \"../../token/ERC20/ERC20Mintable.sol\";\n\n/**\n * @title MintedCrowdsale\n * @dev Extension of Crowdsale contract whose tokens are minted in each purchase.\n * Token ownership should be transferred to MintedCrowdsale for minting.\n */\ncontract MintedCrowdsale is Crowdsale {\n    /**\n     * @dev Overrides delivery by minting tokens upon purchase.\n     * @param beneficiary Token purchaser\n     * @param tokenAmount Number of tokens to be minted\n     */\n    function _deliverTokens(address beneficiary, uint256 tokenAmount) internal {\n        // Potentially dangerous assumption about the type of the token.\n        require(\n            ERC20Mintable(address(token())).mint(beneficiary, tokenAmount),\n                \"MintedCrowdsale: minting failed\"\n        );\n    }\n}\n",
+  "source": "pragma solidity ^0.5.0;\n\nimport \"../Crowdsale.sol\";\nimport \"../../token/ERC20/ERC20Mintable.sol\";\n\n/**\n * @title MintedCrowdsale\n * @dev Extension of Crowdsale contract whose tokens are minted in each purchase.\n * Token ownership should be transferred to MintedCrowdsale for minting.\n */\ncontract MintedCrowdsale is Crowdsale {\n    /**\n     * @dev Overrides delivery by minting tokens upon purchase.\n     * @param beneficiary Token purchaser\n     * @param tokenAmount Number of tokens to be minted\n     */\n    function _deliverTokens(address beneficiary, uint256 tokenAmount) internal {\n        // Potentially dangerous assumption about the type of the token.\n        require(\n            ERC20Mintable(address(token())).mint(beneficiary, tokenAmount),\n            \"MintedCrowdsale: minting failed\"\n        );\n    }\n}\n",
   "sourcePath": "/Users/ernestchng/WebstormProjects/is4302-app/contracts/crowdsale/emission/MintedCrowdsale.sol",
   "ast": {
     "absolutePath": "/Users/ernestchng/WebstormProjects/is4302-app/contracts/crowdsale/emission/MintedCrowdsale.sol",
@@ -158,7 +158,7 @@
         "id": 2995,
         "nodeType": "ImportDirective",
         "scope": 3021,
-        "sourceUnit": 7090,
+        "sourceUnit": 6836,
         "src": "52:45:21",
         "symbolAliases": [],
         "unitAlias": ""
@@ -187,7 +187,7 @@
         "contractDependencies": [
           423,
           2554,
-          10846
+          10482
         ],
         "contractKind": "contract",
         "documentation": "@title MintedCrowdsale\n@dev Extension of Crowdsale contract whose tokens are minted in each purchase.\nToken ownership should be transferred to MintedCrowdsale for minting.",
@@ -196,7 +196,7 @@
         "linearizedBaseContracts": [
           3020,
           2554,
-          10846,
+          10482,
           423
         ],
         "name": "MintedCrowdsale",
@@ -206,7 +206,7 @@
             "body": {
               "id": 3018,
               "nodeType": "Block",
-              "src": "585:234:21",
+              "src": "585:230:21",
               "statements": [
                 {
                   "expression": {
@@ -271,7 +271,7 @@
                                       "referencedDeclaration": 2378,
                                       "src": "711:5:21",
                                       "typeDescriptions": {
-                                        "typeIdentifier": "t_function_internal_view$__$returns$_t_contract$_IERC20_$7260_$",
+                                        "typeIdentifier": "t_function_internal_view$__$returns$_t_contract$_IERC20_$7006_$",
                                         "typeString": "function () view returns (contract IERC20)"
                                       }
                                     },
@@ -285,7 +285,7 @@
                                     "nodeType": "FunctionCall",
                                     "src": "711:7:21",
                                     "typeDescriptions": {
-                                      "typeIdentifier": "t_contract$_IERC20_$7260",
+                                      "typeIdentifier": "t_contract$_IERC20_$7006",
                                       "typeString": "contract IERC20"
                                     }
                                   }
@@ -293,7 +293,7 @@
                                 "expression": {
                                   "argumentTypes": [
                                     {
-                                      "typeIdentifier": "t_contract$_IERC20_$7260",
+                                      "typeIdentifier": "t_contract$_IERC20_$7006",
                                       "typeString": "contract IERC20"
                                     }
                                   ],
@@ -336,10 +336,10 @@
                               "name": "ERC20Mintable",
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
-                              "referencedDeclaration": 7089,
+                              "referencedDeclaration": 6835,
                               "src": "689:13:21",
                               "typeDescriptions": {
-                                "typeIdentifier": "t_type$_t_contract$_ERC20Mintable_$7089_$",
+                                "typeIdentifier": "t_type$_t_contract$_ERC20Mintable_$6835_$",
                                 "typeString": "type(contract ERC20Mintable)"
                               }
                             },
@@ -353,7 +353,7 @@
                             "nodeType": "FunctionCall",
                             "src": "689:31:21",
                             "typeDescriptions": {
-                              "typeIdentifier": "t_contract$_ERC20Mintable_$7089",
+                              "typeIdentifier": "t_contract$_ERC20Mintable_$6835",
                               "typeString": "contract ERC20Mintable"
                             }
                           },
@@ -364,7 +364,7 @@
                           "lValueRequested": false,
                           "memberName": "mint",
                           "nodeType": "MemberAccess",
-                          "referencedDeclaration": 7088,
+                          "referencedDeclaration": 6834,
                           "src": "689:36:21",
                           "typeDescriptions": {
                             "typeIdentifier": "t_function_external_nonpayable$_t_address_$_t_uint256_$returns$_t_bool_$",
@@ -395,7 +395,7 @@
                         "kind": "string",
                         "lValueRequested": false,
                         "nodeType": "Literal",
-                        "src": "769:33:21",
+                        "src": "765:33:21",
                         "subdenomination": null,
                         "typeDescriptions": {
                           "typeIdentifier": "t_stringliteral_d0eac45d7b8513926ae2e01dfc6ebd8082fa88af4d89904f45e3d97f75d97ab5",
@@ -419,10 +419,10 @@
                       "name": "require",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [
-                        10972,
-                        10973
+                        10608,
+                        10609
                       ],
-                      "referencedDeclaration": 10973,
+                      "referencedDeclaration": 10609,
                       "src": "668:7:21",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_require_pure$_t_bool_$_t_string_memory_ptr_$returns$__$",
@@ -437,7 +437,7 @@
                     "lValueRequested": false,
                     "names": [],
                     "nodeType": "FunctionCall",
-                    "src": "668:144:21",
+                    "src": "668:140:21",
                     "typeDescriptions": {
                       "typeIdentifier": "t_tuple$__$",
                       "typeString": "tuple()"
@@ -445,7 +445,7 @@
                   },
                   "id": 3017,
                   "nodeType": "ExpressionStatement",
-                  "src": "668:144:21"
+                  "src": "668:140:21"
                 }
               ]
             },
@@ -523,17 +523,17 @@
               "src": "585:0:21"
             },
             "scope": 3020,
-            "src": "510:309:21",
+            "src": "510:305:21",
             "stateMutability": "nonpayable",
             "superFunction": 2508,
             "visibility": "internal"
           }
         ],
         "scope": 3021,
-        "src": "288:533:21"
+        "src": "288:529:21"
       }
     ],
-    "src": "0:822:21"
+    "src": "0:818:21"
   },
   "legacyAST": {
     "attributes": {
@@ -575,7 +575,7 @@
       },
       {
         "attributes": {
-          "SourceUnit": 7090,
+          "SourceUnit": 6836,
           "absolutePath": "/Users/ernestchng/WebstormProjects/is4302-app/contracts/token/ERC20/ERC20Mintable.sol",
           "file": "../../token/ERC20/ERC20Mintable.sol",
           "scope": 3021,
@@ -593,7 +593,7 @@
           "contractDependencies": [
             423,
             2554,
-            10846
+            10482
           ],
           "contractKind": "contract",
           "documentation": "@title MintedCrowdsale\n@dev Extension of Crowdsale contract whose tokens are minted in each purchase.\nToken ownership should be transferred to MintedCrowdsale for minting.",
@@ -601,7 +601,7 @@
           "linearizedBaseContracts": [
             3020,
             2554,
-            10846,
+            10482,
             423
           ],
           "name": "MintedCrowdsale",
@@ -748,10 +748,10 @@
                                 }
                               ],
                               "overloadedDeclarations": [
-                                10972,
-                                10973
+                                10608,
+                                10609
                               ],
-                              "referencedDeclaration": 10973,
+                              "referencedDeclaration": 10609,
                               "type": "function (bool,string memory) pure",
                               "value": "require"
                             },
@@ -791,7 +791,7 @@
                                   "isPure": false,
                                   "lValueRequested": false,
                                   "member_name": "mint",
-                                  "referencedDeclaration": 7088,
+                                  "referencedDeclaration": 6834,
                                   "type": "function (address,uint256) external returns (bool)"
                                 },
                                 "children": [
@@ -821,7 +821,7 @@
                                           "overloadedDeclarations": [
                                             null
                                           ],
-                                          "referencedDeclaration": 7089,
+                                          "referencedDeclaration": 6835,
                                           "type": "type(contract ERC20Mintable)",
                                           "value": "ERC20Mintable"
                                         },
@@ -848,7 +848,7 @@
                                             "attributes": {
                                               "argumentTypes": [
                                                 {
-                                                  "typeIdentifier": "t_contract$_IERC20_$7260",
+                                                  "typeIdentifier": "t_contract$_IERC20_$7006",
                                                   "typeString": "contract IERC20"
                                                 }
                                               ],
@@ -965,37 +965,37 @@
                             },
                             "id": 3015,
                             "name": "Literal",
-                            "src": "769:33:21"
+                            "src": "765:33:21"
                           }
                         ],
                         "id": 3016,
                         "name": "FunctionCall",
-                        "src": "668:144:21"
+                        "src": "668:140:21"
                       }
                     ],
                     "id": 3017,
                     "name": "ExpressionStatement",
-                    "src": "668:144:21"
+                    "src": "668:140:21"
                   }
                 ],
                 "id": 3018,
                 "name": "Block",
-                "src": "585:234:21"
+                "src": "585:230:21"
               }
             ],
             "id": 3019,
             "name": "FunctionDefinition",
-            "src": "510:309:21"
+            "src": "510:305:21"
           }
         ],
         "id": 3020,
         "name": "ContractDefinition",
-        "src": "288:533:21"
+        "src": "288:529:21"
       }
     ],
     "id": 3021,
     "name": "SourceUnit",
-    "src": "0:822:21"
+    "src": "0:818:21"
   },
   "compiler": {
     "name": "solc",
@@ -1003,7 +1003,7 @@
   },
   "networks": {},
   "schemaVersion": "3.3.3",
-  "updatedAt": "2021-04-01T03:32:32.968Z",
+  "updatedAt": "2021-04-01T03:45:24.267Z",
   "devdoc": {
     "details": "Extension of Crowdsale contract whose tokens are minted in each purchase. Token ownership should be transferred to MintedCrowdsale for minting.",
     "methods": {

@@ -70,7 +70,7 @@ contract Crowdsale is Context, ReentrancyGuard {
      * of 2300, which is not enough to call buyTokens. Consider calling
      * buyTokens directly when purchasing tokens from a contract.
      */
-    function () external payable {
+    function() external payable {
         buyTokens(_msgSender());
     }
 
@@ -139,7 +139,8 @@ contract Crowdsale is Context, ReentrancyGuard {
     function _preValidatePurchase(address beneficiary, uint256 weiAmount) internal view {
         require(beneficiary != address(0), "Crowdsale: beneficiary is the zero address");
         require(weiAmount != 0, "Crowdsale: weiAmount is 0");
-        this; // silence state mutability warning without generating bytecode - see https://github.com/ethereum/solidity/issues/2691
+        this;
+        // silence state mutability warning without generating bytecode - see https://github.com/ethereum/solidity/issues/2691
     }
 
     /**

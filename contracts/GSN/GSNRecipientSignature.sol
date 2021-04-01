@@ -40,9 +40,9 @@ contract GSNRecipientSignature is GSNRecipient {
         bytes calldata approvalData,
         uint256
     )
-        external
-        view
-        returns (uint256, bytes memory)
+    external
+    view
+    returns (uint256, bytes memory)
     {
         bytes memory blob = abi.encodePacked(
             relay,

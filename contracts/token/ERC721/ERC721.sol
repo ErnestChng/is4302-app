@@ -22,16 +22,16 @@ contract ERC721 is Context, ERC165, IERC721 {
     bytes4 private constant _ERC721_RECEIVED = 0x150b7a02;
 
     // Mapping from token ID to owner
-    mapping (uint256 => address) private _tokenOwner;
+    mapping(uint256 => address) private _tokenOwner;
 
     // Mapping from token ID to approved address
-    mapping (uint256 => address) private _tokenApprovals;
+    mapping(uint256 => address) private _tokenApprovals;
 
     // Mapping from owner to number of owned token
-    mapping (address => Counters.Counter) private _ownedTokensCount;
+    mapping(address => Counters.Counter) private _ownedTokensCount;
 
     // Mapping from owner to operator approvals
-    mapping (address => mapping (address => bool)) private _operatorApprovals;
+    mapping(address => mapping(address => bool)) private _operatorApprovals;
 
     /*
      *     bytes4(keccak256('balanceOf(address)')) == 0x70a08231
@@ -325,19 +325,19 @@ contract ERC721 is Context, ERC165, IERC721 {
      * @return bool whether the call correctly returned the expected magic value
      */
     function _checkOnERC721Received(address from, address to, uint256 tokenId, bytes memory _data)
-        internal returns (bool)
+    internal returns (bool)
     {
         if (!to.isContract()) {
             return true;
         }
         // solhint-disable-next-line avoid-low-level-calls
         (bool success, bytes memory returndata) = to.call(abi.encodeWithSelector(
-            IERC721Receiver(to).onERC721Received.selector,
-            _msgSender(),
-            from,
-            tokenId,
-            _data
-        ));
+                IERC721Receiver(to).onERC721Received.selector,
+                _msgSender(),
+                from,
+                tokenId,
+                _data
+            ));
         if (!success) {
             if (returndata.length > 0) {
                 // solhint-disable-next-line no-inline-assembly

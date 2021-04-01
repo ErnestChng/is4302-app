@@ -1,7 +1,11 @@
 <template>
   <div>
-    <router-link to="/consumer/consumer-market"><button>Consumer Market</button></router-link>
-    <router-link to="/consumer/consumer-profile"><button>Consumer Profile</button></router-link>
+    <router-link to="/consumer/consumer-market">
+      <button>Consumer Market</button>
+    </router-link>
+    <router-link to="/consumer/consumer-profile">
+      <button>Consumer Profile</button>
+    </router-link>
   </div>
 </template>
 
@@ -21,7 +25,7 @@ button {
   color: #103B1D;
   font-weight: bold;
   border-radius: 15px;
-  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 button a {

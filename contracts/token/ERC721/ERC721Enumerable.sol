@@ -162,8 +162,10 @@ contract ERC721Enumerable is Context, ERC165, ERC721, IERC721Enumerable {
         if (tokenIndex != lastTokenIndex) {
             uint256 lastTokenId = _ownedTokens[from][lastTokenIndex];
 
-            _ownedTokens[from][tokenIndex] = lastTokenId; // Move the last token to the slot of the to-delete token
-            _ownedTokensIndex[lastTokenId] = tokenIndex; // Update the moved token's index
+            _ownedTokens[from][tokenIndex] = lastTokenId;
+            // Move the last token to the slot of the to-delete token
+            _ownedTokensIndex[lastTokenId] = tokenIndex;
+            // Update the moved token's index
         }
 
         // This also deletes the contents at the last position of the array
@@ -190,8 +192,10 @@ contract ERC721Enumerable is Context, ERC165, ERC721, IERC721Enumerable {
         // an 'if' statement (like in _removeTokenFromOwnerEnumeration)
         uint256 lastTokenId = _allTokens[lastTokenIndex];
 
-        _allTokens[tokenIndex] = lastTokenId; // Move the last token to the slot of the to-delete token
-        _allTokensIndex[lastTokenId] = tokenIndex; // Update the moved token's index
+        _allTokens[tokenIndex] = lastTokenId;
+        // Move the last token to the slot of the to-delete token
+        _allTokensIndex[lastTokenId] = tokenIndex;
+        // Update the moved token's index
 
         // This also deletes the contents at the last position of the array
         _allTokens.length--;

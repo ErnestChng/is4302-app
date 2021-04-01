@@ -23,7 +23,7 @@ library ERC165Checker {
         // Any contract that implements ERC165 must explicitly indicate support of
         // InterfaceId_ERC165 and explicitly indicate non-support of InterfaceId_Invalid
         return _supportsERC165Interface(account, _INTERFACE_ID_ERC165) &&
-            !_supportsERC165Interface(account, _INTERFACE_ID_INVALID);
+        !_supportsERC165Interface(account, _INTERFACE_ID_INVALID);
     }
 
     /**
@@ -35,7 +35,7 @@ library ERC165Checker {
     function _supportsInterface(address account, bytes4 interfaceId) internal view returns (bool) {
         // query support of both ERC165 as per the spec and support of _interfaceId
         return _supportsERC165(account) &&
-            _supportsERC165Interface(account, interfaceId);
+        _supportsERC165Interface(account, interfaceId);
     }
 
     /**
@@ -92,9 +92,9 @@ library ERC165Checker {
      * indicates support of the interface with identifier interfaceId, false otherwise
      */
     function _callERC165SupportsInterface(address account, bytes4 interfaceId)
-        private
-        view
-        returns (bool, bool)
+    private
+    view
+    returns (bool, bool)
     {
         bytes memory encodedParams = abi.encodeWithSelector(_INTERFACE_ID_ERC165, interfaceId);
         (bool success, bytes memory result) = account.staticcall.gas(30000)(encodedParams);

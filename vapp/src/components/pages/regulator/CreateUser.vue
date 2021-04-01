@@ -3,7 +3,7 @@
     <h1>Create User</h1>
     <hr>
 
-    <form class="form" >
+    <form class="form">
       <label class="required drop">User Type:</label>
       <select id="dropdown" v-model="userType" name="'userType">
         <option value="consumer">Consumer</option>
@@ -26,12 +26,12 @@
 export default {
   data() {
     return {
-      userType:'',
+      userType: '',
       id: '',
       name: ''
     };
   }
-}
+};
 </script>
 
 <style scoped>
@@ -45,7 +45,7 @@ label {
   font-weight: bold;
 }
 
-input[type="text"], input[type="submit"], select{
+input[type="text"], input[type="submit"], select {
   display: inline-block;
   padding: 8px;
   width: 30%;

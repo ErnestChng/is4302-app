@@ -14,7 +14,7 @@ import "./ConditionalEscrow.sol";
  * `RefundableCrowdsale` contract for an example of `RefundEscrow`’s use.
  */
 contract RefundEscrow is ConditionalEscrow {
-    enum State { Active, Refunding, Closed }
+    enum State {Active, Refunding, Closed}
 
     event RefundsClosed();
     event RefundsEnabled();
