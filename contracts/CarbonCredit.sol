@@ -1,8 +1,8 @@
 pragma solidity >0.5.0;
 
-import "./token/ERC777/ERC777.sol";
+import "./token/ERC20/ERC20.sol";
 
-contract CarbonCredit is ERC777 {
+contract CarbonCredit is ERC20 {
 
     address contractOwner;
 
@@ -16,7 +16,7 @@ contract CarbonCredit is ERC777 {
     struct Consumer {
         uint id;
         uint tokenBalance;
-        uint emissions; //current emissions so far 
+        uint emissions; //current emissions so far
         string consumerName;
         address consumerAddress;
     }
@@ -30,7 +30,11 @@ contract CarbonCredit is ERC777 {
 
     uint[] consumerList;
 
-    constructor() public ERC777("Carbon Token", "c", new address[](0)) {
+    // constructor() public ERC20("Carbon Token", "c") {
+    //     contractOwner = msg.sender;
+    // }
+
+    constructor() public ERC20() {
         contractOwner = msg.sender;
     }
 
@@ -44,7 +48,7 @@ contract CarbonCredit is ERC777 {
         _;
     }
 
-    //Create new generator and store in mapping, assign values (balance = 0) 
+    //Create new generator and store in mapping, assign values (balance = 0)
     function createGenerator(uint generatorId, string memory name, address thisAdd) public isRegulator {
         require(generatorExists[generatorId] == false);
 
@@ -82,12 +86,13 @@ contract CarbonCredit is ERC777 {
         require(generatorExists[generatorId] == true);
         require(credit > 0);
 
-        _mint(contractOwner, allGenerators[generatorId].generatorAddress, credit, "receive", "fromRegulator");
+        //_mint(contractOwner, allGenerators[generatorId].generatorAddress, credit, "receive", "fromRegulator");
+        _mint(allGenerators[generatorId].generatorAddress, credit);
         allGenerators[generatorId].tokenBalance += credit;
 
     }
 
-    //Validators input a emissions amt (frontend), add it to consumer's emissions value 
+    //Validators input a emissions amt (frontend), add it to consumer's emissions value
     function reportEmission(uint consumerId, uint emission) public isValidator {
         require(emission > 0);
         require(consumerExists[consumerId] == true);
@@ -120,26 +125,26 @@ contract CarbonCredit is ERC777 {
     }
 
     // GETTERS
-    function getConsumerCredits(uint consumerId) public view returns (uint credit) {
+    function getConsumerCredits(uint consumerId) public returns (uint credit) {
         require(consumerExists[consumerId] == true);
         return (allConsumers[consumerId].tokenBalance);
     }
 
-    function getGeneratorCredits(uint generatorId) public view returns (uint credit) {
+    function getGeneratorCredits(uint generatorId) public returns (uint credit) {
         require(generatorExists[generatorId] == true);
         return (allGenerators[generatorId].tokenBalance);
     }
 
-    function isGenerator(uint ID) public view returns (bool doesExist) {
+    function isGenerator(uint ID) public returns (bool doesExist) {
         return (generatorExists[ID]);
     }
 
-    function isConsumer(uint ID) public view returns (bool doesExist) {
+    function isConsumer(uint ID) public returns (bool doesExist) {
         return (consumerExists[ID]);
     }
 
 
-    // //For each consumer in mapping, check if emissions > tokenBalance. If yes, add to result list and return list. 
+    // //For each consumer in mapping, check if emissions > tokenBalance. If yes, add to result list and return list.
     // function checkEmission() isRegulator public returns (mapping(uint => uint[])) {
     //     // the returned array contains [tokenBalance, emissions, amountExceededBy]
     //     mapping(uint => uint[]) res;

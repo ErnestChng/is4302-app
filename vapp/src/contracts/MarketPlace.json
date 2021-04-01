@@ -1,25 +1,25 @@
 {
   "contractName": "MarketPlace",
   "abi": [],
-  "metadata": "{\"compiler\":{\"version\":\"0.5.16+commit.9c3226ce\"},\"language\":\"Solidity\",\"output\":{\"abi\":[],\"devdoc\":{\"methods\":{}},\"userdoc\":{\"methods\":{}}},\"settings\":{\"compilationTarget\":{\"/Users/ernestchng/WebstormProjects/is4302-app/contracts/MarketPlace.sol\":\"MarketPlace\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"/Users/ernestchng/WebstormProjects/is4302-app/contracts/CarbonCredit.sol\":{\"keccak256\":\"0x6f43b88c87496818857185bd47dcc032c77327e0283ed41370badfb8c22e2c1b\",\"urls\":[\"bzz-raw://788daa18d4d98b8b8ddceecdba65e73ea0bf8e76194b0b218fa14ea5ce006a67\",\"dweb:/ipfs/QmQdTT6aAhT8PwUjwev7B3nEakpBw347MqHSqVMbUR1KsS\"]},\"/Users/ernestchng/WebstormProjects/is4302-app/contracts/GSN/Context.sol\":{\"keccak256\":\"0x068760cbe3b1e635a2a820f7d6969cdb167360b21d36c39ec165c8efb65041c4\",\"urls\":[\"bzz-raw://a8cae4f4b9b8236e1ec22afdfaac2f848b776ad98f7fb9c1823d6d756ddee890\",\"dweb:/ipfs/QmQicBVSv9SvhHwmTNzBG71Gb775o2mfF5CTfSFZvqtgfJ\"]},\"/Users/ernestchng/WebstormProjects/is4302-app/contracts/MarketPlace.sol\":{\"keccak256\":\"0x488f524fb484f0526570b89fd6fd54e249831782b46044af404efc77eaf02615\",\"urls\":[\"bzz-raw://e42e6c7987142ba2a61f742eab49971627d676be6fb6ea4f2014f518c85c8495\",\"dweb:/ipfs/QmedSz4HwwERfzGuynao28cEgGYgFqkxZTCNpaaVtR2G7e\"]},\"/Users/ernestchng/WebstormProjects/is4302-app/contracts/introspection/IERC1820Registry.sol\":{\"keccak256\":\"0x03c69b91f23efafb5d460b32520ac5066a084347733de3078cf2ba9b33397945\",\"urls\":[\"bzz-raw://2bed1580fb9b2ea946b2709cfccdc43aa2ed0089f61fb94201f385b297d027c2\",\"dweb:/ipfs/QmR2ogAcEAAiM5A4gHFTiQemYuZpVriei5Ud26j4YSQcfc\"]},\"/Users/ernestchng/WebstormProjects/is4302-app/contracts/math/SafeMath.sol\":{\"keccak256\":\"0x640b6dee7a4b830bdfd52b5031a07fc2b12209f5b2e29e5d364a7d37f69d8076\",\"urls\":[\"bzz-raw://31113152e1ddb78fe7a4197f247591ca894e93f916867beb708d8e747b6cc74f\",\"dweb:/ipfs/QmbZaJyXdpsYGykVhHH9qpVGQg9DGCxE2QufbCUy3daTgq\"]},\"/Users/ernestchng/WebstormProjects/is4302-app/contracts/token/ERC20/IERC20.sol\":{\"keccak256\":\"0xe5bb0f57cff3e299f360052ba50f1ea0fff046df2be070b6943e0e3c3fdad8a9\",\"urls\":[\"bzz-raw://59fd025151435da35faa8093a5c7a17de02de9d08ad27275c5cdf05050820d91\",\"dweb:/ipfs/QmQMvwEcPhoRXzbXyrdoeRtvLoifUW9Qh7Luho7bmUPRkc\"]},\"/Users/ernestchng/WebstormProjects/is4302-app/contracts/token/ERC777/ERC777.sol\":{\"keccak256\":\"0xaddc967ba4511a65b1c638a1f5871025806529b28b0c9f58bbfde403e6e48bf0\",\"urls\":[\"bzz-raw://631616a8b81362301ea7724a917244025367c26a7666babe36f29522d8b3c6d2\",\"dweb:/ipfs/QmWVxSpAFHCMFd6Ypj4jnArhku8aYq17nw7PvuEiVngU9i\"]},\"/Users/ernestchng/WebstormProjects/is4302-app/contracts/token/ERC777/IERC777.sol\":{\"keccak256\":\"0x01d1e2116e2d3a45d066969cf500da0648cb4903b885589021eaeb89f325d70f\",\"urls\":[\"bzz-raw://6783602f84db63a7fd140df918cd12b91d56a57b1f90b1f5f25798c3d7602987\",\"dweb:/ipfs/QmbDjeBQQguEsQWsfSd6WeKD5hGDhBdUFUX9KHMy3w5evz\"]},\"/Users/ernestchng/WebstormProjects/is4302-app/contracts/token/ERC777/IERC777Recipient.sol\":{\"keccak256\":\"0x6b097bc7c7762b5ad4a7447755e3654ada71d1c10f40c0ad5a4f820892f67edf\",\"urls\":[\"bzz-raw://299e4189bf254f1df707ad2366ed41c91440eb58b6e937e46b7b349ba1124afb\",\"dweb:/ipfs/QmcQHnb9mZ3ibkzpsUfyCYobavoS5gwPhPBasomxNnsycj\"]},\"/Users/ernestchng/WebstormProjects/is4302-app/contracts/token/ERC777/IERC777Sender.sol\":{\"keccak256\":\"0xabd5c2413dd920a9737db506fd8691e147f010fe30e3cef33a6a2c89288f15f3\",\"urls\":[\"bzz-raw://6a3165a338de13310cf58d9e2be4afc2c7ddf44beb3a2115e5cc43286553cf65\",\"dweb:/ipfs/QmNPNSWc5yX5D3gkZnzd95JX2r2L87iSWVu8CbundMj94n\"]},\"/Users/ernestchng/WebstormProjects/is4302-app/contracts/utils/Address.sol\":{\"keccak256\":\"0x36c48d6afbab50225bac499a65f0285076ab97ef95ff72b978e75f18708edaa9\",\"urls\":[\"bzz-raw://ddd92c5f380c0ae7ada203e9a42994264518f5f1f99d12d0212f0f59a01faa59\",\"dweb:/ipfs/QmTqUZNRvHw86UQHh73qREngtBtW7i74mvjLJPvhGe9f8Y\"]}},\"version\":1}",
-  "bytecode": "0x6080604052348015600f57600080fd5b50603e80601d6000396000f3fe6080604052600080fdfea265627a7a72315820031efaab85b17b8e13410bfbcd49b14d1e820dbc8405b61328981631e2e30b6c64736f6c63430005100032",
-  "deployedBytecode": "0x6080604052600080fdfea265627a7a72315820031efaab85b17b8e13410bfbcd49b14d1e820dbc8405b61328981631e2e30b6c64736f6c63430005100032",
-  "sourceMap": "55:823:7:-;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;55:823:7;;;;;;;",
-  "deployedSourceMap": "55:823:7:-;;;;;",
+  "metadata": "{\"compiler\":{\"version\":\"0.5.16+commit.9c3226ce\"},\"language\":\"Solidity\",\"output\":{\"abi\":[],\"devdoc\":{\"methods\":{}},\"userdoc\":{\"methods\":{}}},\"settings\":{\"compilationTarget\":{\"/Users/ernestchng/WebstormProjects/is4302-app/contracts/MarketPlace.sol\":\"MarketPlace\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"/Users/ernestchng/WebstormProjects/is4302-app/contracts/CarbonCredit.sol\":{\"keccak256\":\"0xd0c7e85e237e76dc53bb5ab6b92372799208a752a7ed7b99ca7ea8e569553513\",\"urls\":[\"bzz-raw://cb5497ac7c02c3f641cd7c9d4c1b4af8fb5d5384c637aa3e9f82429d65ae94da\",\"dweb:/ipfs/QmaLpkFRiHuCX5WW1LQy9r7WiK9BXZ6rtroWV8UteygQ9q\"]},\"/Users/ernestchng/WebstormProjects/is4302-app/contracts/GSN/Context.sol\":{\"keccak256\":\"0x068760cbe3b1e635a2a820f7d6969cdb167360b21d36c39ec165c8efb65041c4\",\"urls\":[\"bzz-raw://a8cae4f4b9b8236e1ec22afdfaac2f848b776ad98f7fb9c1823d6d756ddee890\",\"dweb:/ipfs/QmQicBVSv9SvhHwmTNzBG71Gb775o2mfF5CTfSFZvqtgfJ\"]},\"/Users/ernestchng/WebstormProjects/is4302-app/contracts/MarketPlace.sol\":{\"keccak256\":\"0x488f524fb484f0526570b89fd6fd54e249831782b46044af404efc77eaf02615\",\"urls\":[\"bzz-raw://e42e6c7987142ba2a61f742eab49971627d676be6fb6ea4f2014f518c85c8495\",\"dweb:/ipfs/QmedSz4HwwERfzGuynao28cEgGYgFqkxZTCNpaaVtR2G7e\"]},\"/Users/ernestchng/WebstormProjects/is4302-app/contracts/math/SafeMath.sol\":{\"keccak256\":\"0x640b6dee7a4b830bdfd52b5031a07fc2b12209f5b2e29e5d364a7d37f69d8076\",\"urls\":[\"bzz-raw://31113152e1ddb78fe7a4197f247591ca894e93f916867beb708d8e747b6cc74f\",\"dweb:/ipfs/QmbZaJyXdpsYGykVhHH9qpVGQg9DGCxE2QufbCUy3daTgq\"]},\"/Users/ernestchng/WebstormProjects/is4302-app/contracts/token/ERC20/ERC20.sol\":{\"keccak256\":\"0xc17694a3230ac9581c2c796a886af2a2f06d8f16686c1330b7bce104c37bf019\",\"urls\":[\"bzz-raw://2a48601df5e96f979398dfdb2bb60b2fa0c25eeb118d7fa20ad3678953660335\",\"dweb:/ipfs/QmUpWPB26KfiTenSoobzYxfnzSgGNBjBvZV1LgUUcCrL7M\"]},\"/Users/ernestchng/WebstormProjects/is4302-app/contracts/token/ERC20/IERC20.sol\":{\"keccak256\":\"0xe5bb0f57cff3e299f360052ba50f1ea0fff046df2be070b6943e0e3c3fdad8a9\",\"urls\":[\"bzz-raw://59fd025151435da35faa8093a5c7a17de02de9d08ad27275c5cdf05050820d91\",\"dweb:/ipfs/QmQMvwEcPhoRXzbXyrdoeRtvLoifUW9Qh7Luho7bmUPRkc\"]}},\"version\":1}",
+  "bytecode": "0x6080604052348015600f57600080fd5b50603e80601d6000396000f3fe6080604052600080fdfea265627a7a723158200ec397b23576b3a0b10d5615616757ec98667a129260e293eb4f91d61ff9994c64736f6c63430005100032",
+  "deployedBytecode": "0x6080604052600080fdfea265627a7a723158200ec397b23576b3a0b10d5615616757ec98667a129260e293eb4f91d61ff9994c64736f6c63430005100032",
+  "sourceMap": "55:823:2:-;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;55:823:2;;;;;;;",
+  "deployedSourceMap": "55:823:2:-;;;;;",
   "source": "pragma solidity ^0.5.0;\n\nimport \"./CarbonCredit.sol\";\n\ncontract MarketPlace {\n\n    CarbonCredit carbonCredit;\n\n    // {priceOfCredit: {firmId: numberOfCredits}}\n    mapping(uint => mapping(uint => uint)) creditsForSale;\n\n    // constructor() {\n\n\n    // }\n\n    modifier onlyConsumer(uint firmId) {\n        require(carbonCredit.isConsumer(firmId));\n        _;\n    }\n\n    modifier onlyGenerator(uint firmId) {\n        require(carbonCredit.isGenerator(firmId));\n        _;\n    }\n\n    // function listCredit(uint firmId, uint price, uint quantity) onlyConsumer(firmId) onlyGenerator(firmId) {\n\n    // }\n\n    // function buyCredit(uint firmId, uint quantity) onlyConsumer(firmId) returns (uint numFilled, uint avgPriceFilled) {\n    //     // looks at creditsForSale and picks the lowest price.\n    //     // this process is repeated until the entire buy order is satisfied\n    // }\n\n}",
   "sourcePath": "/Users/ernestchng/WebstormProjects/is4302-app/contracts/MarketPlace.sol",
   "ast": {
     "absolutePath": "/Users/ernestchng/WebstormProjects/is4302-app/contracts/MarketPlace.sol",
     "exportedSymbols": {
       "MarketPlace": [
-        1548
+        451
       ]
     },
-    "id": 1549,
+    "id": 452,
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 1512,
+        "id": 415,
         "literals": [
           "solidity",
           "^",
@@ -27,16 +27,16 @@
           ".0"
         ],
         "nodeType": "PragmaDirective",
-        "src": "0:23:7"
+        "src": "0:23:2"
       },
       {
         "absolutePath": "/Users/ernestchng/WebstormProjects/is4302-app/contracts/CarbonCredit.sol",
         "file": "./CarbonCredit.sol",
-        "id": 1513,
+        "id": 416,
         "nodeType": "ImportDirective",
-        "scope": 1549,
-        "sourceUnit": 397,
-        "src": "25:28:7",
+        "scope": 452,
+        "sourceUnit": 387,
+        "src": "25:28:2",
         "symbolAliases": [],
         "unitAlias": ""
       },
@@ -46,35 +46,35 @@
         "contractKind": "contract",
         "documentation": null,
         "fullyImplemented": true,
-        "id": 1548,
+        "id": 451,
         "linearizedBaseContracts": [
-          1548
+          451
         ],
         "name": "MarketPlace",
         "nodeType": "ContractDefinition",
         "nodes": [
           {
             "constant": false,
-            "id": 1515,
+            "id": 418,
             "name": "carbonCredit",
             "nodeType": "VariableDeclaration",
-            "scope": 1548,
-            "src": "83:25:7",
+            "scope": 451,
+            "src": "83:25:2",
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
-              "typeIdentifier": "t_contract$_CarbonCredit_$396",
+              "typeIdentifier": "t_contract$_CarbonCredit_$386",
               "typeString": "contract CarbonCredit"
             },
             "typeName": {
               "contractScope": null,
-              "id": 1514,
+              "id": 417,
               "name": "CarbonCredit",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 396,
-              "src": "83:12:7",
+              "referencedDeclaration": 386,
+              "src": "83:12:2",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_CarbonCredit_$396",
+                "typeIdentifier": "t_contract$_CarbonCredit_$386",
                 "typeString": "contract CarbonCredit"
               }
             },
@@ -83,11 +83,11 @@
           },
           {
             "constant": false,
-            "id": 1521,
+            "id": 424,
             "name": "creditsForSale",
             "nodeType": "VariableDeclaration",
-            "scope": 1548,
-            "src": "165:53:7",
+            "scope": 451,
+            "src": "165:53:2",
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
@@ -95,46 +95,46 @@
               "typeString": "mapping(uint256 => mapping(uint256 => uint256))"
             },
             "typeName": {
-              "id": 1520,
+              "id": 423,
               "keyType": {
-                "id": 1516,
+                "id": 419,
                 "name": "uint",
                 "nodeType": "ElementaryTypeName",
-                "src": "173:4:7",
+                "src": "173:4:2",
                 "typeDescriptions": {
                   "typeIdentifier": "t_uint256",
                   "typeString": "uint256"
                 }
               },
               "nodeType": "Mapping",
-              "src": "165:38:7",
+              "src": "165:38:2",
               "typeDescriptions": {
                 "typeIdentifier": "t_mapping$_t_uint256_$_t_mapping$_t_uint256_$_t_uint256_$_$",
                 "typeString": "mapping(uint256 => mapping(uint256 => uint256))"
               },
               "valueType": {
-                "id": 1519,
+                "id": 422,
                 "keyType": {
-                  "id": 1517,
+                  "id": 420,
                   "name": "uint",
                   "nodeType": "ElementaryTypeName",
-                  "src": "189:4:7",
+                  "src": "189:4:2",
                   "typeDescriptions": {
                     "typeIdentifier": "t_uint256",
                     "typeString": "uint256"
                   }
                 },
                 "nodeType": "Mapping",
-                "src": "181:21:7",
+                "src": "181:21:2",
                 "typeDescriptions": {
                   "typeIdentifier": "t_mapping$_t_uint256_$_t_uint256_$",
                   "typeString": "mapping(uint256 => uint256)"
                 },
                 "valueType": {
-                  "id": 1518,
+                  "id": 421,
                   "name": "uint",
                   "nodeType": "ElementaryTypeName",
-                  "src": "197:4:7",
+                  "src": "197:4:2",
                   "typeDescriptions": {
                     "typeIdentifier": "t_uint256",
                     "typeString": "uint256"
@@ -147,9 +147,9 @@
           },
           {
             "body": {
-              "id": 1533,
+              "id": 436,
               "nodeType": "Block",
-              "src": "295:68:7",
+              "src": "295:68:2",
               "statements": [
                 {
                   "expression": {
@@ -160,12 +160,12 @@
                         "arguments": [
                           {
                             "argumentTypes": null,
-                            "id": 1528,
+                            "id": 431,
                             "name": "firmId",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 1523,
-                            "src": "337:6:7",
+                            "referencedDeclaration": 426,
+                            "src": "337:6:2",
                             "typeDescriptions": {
                               "typeIdentifier": "t_uint256",
                               "typeString": "uint256"
@@ -181,32 +181,32 @@
                           ],
                           "expression": {
                             "argumentTypes": null,
-                            "id": 1526,
+                            "id": 429,
                             "name": "carbonCredit",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 1515,
-                            "src": "313:12:7",
+                            "referencedDeclaration": 418,
+                            "src": "313:12:2",
                             "typeDescriptions": {
-                              "typeIdentifier": "t_contract$_CarbonCredit_$396",
+                              "typeIdentifier": "t_contract$_CarbonCredit_$386",
                               "typeString": "contract CarbonCredit"
                             }
                           },
-                          "id": 1527,
+                          "id": 430,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": false,
                           "lValueRequested": false,
                           "memberName": "isConsumer",
                           "nodeType": "MemberAccess",
-                          "referencedDeclaration": 395,
-                          "src": "313:23:7",
+                          "referencedDeclaration": 385,
+                          "src": "313:23:2",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_function_external_view$_t_uint256_$returns$_t_bool_$",
-                            "typeString": "function (uint256) view external returns (bool)"
+                            "typeIdentifier": "t_function_external_nonpayable$_t_uint256_$returns$_t_bool_$",
+                            "typeString": "function (uint256) external returns (bool)"
                           }
                         },
-                        "id": 1529,
+                        "id": 432,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": false,
@@ -214,7 +214,7 @@
                         "lValueRequested": false,
                         "names": [],
                         "nodeType": "FunctionCall",
-                        "src": "313:31:7",
+                        "src": "313:31:2",
                         "typeDescriptions": {
                           "typeIdentifier": "t_bool",
                           "typeString": "bool"
@@ -228,21 +228,21 @@
                           "typeString": "bool"
                         }
                       ],
-                      "id": 1525,
+                      "id": 428,
                       "name": "require",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [
-                        10608,
-                        10609
+                        1130,
+                        1131
                       ],
-                      "referencedDeclaration": 10608,
-                      "src": "305:7:7",
+                      "referencedDeclaration": 1130,
+                      "src": "305:7:2",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_require_pure$_t_bool_$returns$__$",
                         "typeString": "function (bool) pure"
                       }
                     },
-                    "id": 1530,
+                    "id": 433,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -250,38 +250,38 @@
                     "lValueRequested": false,
                     "names": [],
                     "nodeType": "FunctionCall",
-                    "src": "305:40:7",
+                    "src": "305:40:2",
                     "typeDescriptions": {
                       "typeIdentifier": "t_tuple$__$",
                       "typeString": "tuple()"
                     }
                   },
-                  "id": 1531,
+                  "id": 434,
                   "nodeType": "ExpressionStatement",
-                  "src": "305:40:7"
+                  "src": "305:40:2"
                 },
                 {
-                  "id": 1532,
+                  "id": 435,
                   "nodeType": "PlaceholderStatement",
-                  "src": "355:1:7"
+                  "src": "355:1:2"
                 }
               ]
             },
             "documentation": null,
-            "id": 1534,
+            "id": 437,
             "name": "onlyConsumer",
             "nodeType": "ModifierDefinition",
             "parameters": {
-              "id": 1524,
+              "id": 427,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 1523,
+                  "id": 426,
                   "name": "firmId",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1534,
-                  "src": "282:11:7",
+                  "scope": 437,
+                  "src": "282:11:2",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -289,10 +289,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 1522,
+                    "id": 425,
                     "name": "uint",
                     "nodeType": "ElementaryTypeName",
-                    "src": "282:4:7",
+                    "src": "282:4:2",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -302,16 +302,16 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "281:13:7"
+              "src": "281:13:2"
             },
-            "src": "260:103:7",
+            "src": "260:103:2",
             "visibility": "internal"
           },
           {
             "body": {
-              "id": 1546,
+              "id": 449,
               "nodeType": "Block",
-              "src": "405:69:7",
+              "src": "405:69:2",
               "statements": [
                 {
                   "expression": {
@@ -322,12 +322,12 @@
                         "arguments": [
                           {
                             "argumentTypes": null,
-                            "id": 1541,
+                            "id": 444,
                             "name": "firmId",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 1536,
-                            "src": "448:6:7",
+                            "referencedDeclaration": 439,
+                            "src": "448:6:2",
                             "typeDescriptions": {
                               "typeIdentifier": "t_uint256",
                               "typeString": "uint256"
@@ -343,32 +343,32 @@
                           ],
                           "expression": {
                             "argumentTypes": null,
-                            "id": 1539,
+                            "id": 442,
                             "name": "carbonCredit",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 1515,
-                            "src": "423:12:7",
+                            "referencedDeclaration": 418,
+                            "src": "423:12:2",
                             "typeDescriptions": {
-                              "typeIdentifier": "t_contract$_CarbonCredit_$396",
+                              "typeIdentifier": "t_contract$_CarbonCredit_$386",
                               "typeString": "contract CarbonCredit"
                             }
                           },
-                          "id": 1540,
+                          "id": 443,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": false,
                           "lValueRequested": false,
                           "memberName": "isGenerator",
                           "nodeType": "MemberAccess",
-                          "referencedDeclaration": 382,
-                          "src": "423:24:7",
+                          "referencedDeclaration": 372,
+                          "src": "423:24:2",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_function_external_view$_t_uint256_$returns$_t_bool_$",
-                            "typeString": "function (uint256) view external returns (bool)"
+                            "typeIdentifier": "t_function_external_nonpayable$_t_uint256_$returns$_t_bool_$",
+                            "typeString": "function (uint256) external returns (bool)"
                           }
                         },
-                        "id": 1542,
+                        "id": 445,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": false,
@@ -376,7 +376,7 @@
                         "lValueRequested": false,
                         "names": [],
                         "nodeType": "FunctionCall",
-                        "src": "423:32:7",
+                        "src": "423:32:2",
                         "typeDescriptions": {
                           "typeIdentifier": "t_bool",
                           "typeString": "bool"
@@ -390,21 +390,21 @@
                           "typeString": "bool"
                         }
                       ],
-                      "id": 1538,
+                      "id": 441,
                       "name": "require",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [
-                        10608,
-                        10609
+                        1130,
+                        1131
                       ],
-                      "referencedDeclaration": 10608,
-                      "src": "415:7:7",
+                      "referencedDeclaration": 1130,
+                      "src": "415:7:2",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_require_pure$_t_bool_$returns$__$",
                         "typeString": "function (bool) pure"
                       }
                     },
-                    "id": 1543,
+                    "id": 446,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -412,38 +412,38 @@
                     "lValueRequested": false,
                     "names": [],
                     "nodeType": "FunctionCall",
-                    "src": "415:41:7",
+                    "src": "415:41:2",
                     "typeDescriptions": {
                       "typeIdentifier": "t_tuple$__$",
                       "typeString": "tuple()"
                     }
                   },
-                  "id": 1544,
+                  "id": 447,
                   "nodeType": "ExpressionStatement",
-                  "src": "415:41:7"
+                  "src": "415:41:2"
                 },
                 {
-                  "id": 1545,
+                  "id": 448,
                   "nodeType": "PlaceholderStatement",
-                  "src": "466:1:7"
+                  "src": "466:1:2"
                 }
               ]
             },
             "documentation": null,
-            "id": 1547,
+            "id": 450,
             "name": "onlyGenerator",
             "nodeType": "ModifierDefinition",
             "parameters": {
-              "id": 1537,
+              "id": 440,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 1536,
+                  "id": 439,
                   "name": "firmId",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1547,
-                  "src": "392:11:7",
+                  "scope": 450,
+                  "src": "392:11:2",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -451,10 +451,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 1535,
+                    "id": 438,
                     "name": "uint",
                     "nodeType": "ElementaryTypeName",
-                    "src": "392:4:7",
+                    "src": "392:4:2",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -464,24 +464,24 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "391:13:7"
+              "src": "391:13:2"
             },
-            "src": "369:105:7",
+            "src": "369:105:2",
             "visibility": "internal"
           }
         ],
-        "scope": 1549,
-        "src": "55:823:7"
+        "scope": 452,
+        "src": "55:823:2"
       }
     ],
-    "src": "0:878:7"
+    "src": "0:878:2"
   },
   "legacyAST": {
     "attributes": {
       "absolutePath": "/Users/ernestchng/WebstormProjects/is4302-app/contracts/MarketPlace.sol",
       "exportedSymbols": {
         "MarketPlace": [
-          1548
+          451
         ]
       }
     },
@@ -495,24 +495,24 @@
             ".0"
           ]
         },
-        "id": 1512,
+        "id": 415,
         "name": "PragmaDirective",
-        "src": "0:23:7"
+        "src": "0:23:2"
       },
       {
         "attributes": {
-          "SourceUnit": 397,
+          "SourceUnit": 387,
           "absolutePath": "/Users/ernestchng/WebstormProjects/is4302-app/contracts/CarbonCredit.sol",
           "file": "./CarbonCredit.sol",
-          "scope": 1549,
+          "scope": 452,
           "symbolAliases": [
             null
           ],
           "unitAlias": ""
         },
-        "id": 1513,
+        "id": 416,
         "name": "ImportDirective",
-        "src": "25:28:7"
+        "src": "25:28:2"
       },
       {
         "attributes": {
@@ -526,17 +526,17 @@
           "documentation": null,
           "fullyImplemented": true,
           "linearizedBaseContracts": [
-            1548
+            451
           ],
           "name": "MarketPlace",
-          "scope": 1549
+          "scope": 452
         },
         "children": [
           {
             "attributes": {
               "constant": false,
               "name": "carbonCredit",
-              "scope": 1548,
+              "scope": 451,
               "stateVariable": true,
               "storageLocation": "default",
               "type": "contract CarbonCredit",
@@ -548,23 +548,23 @@
                 "attributes": {
                   "contractScope": null,
                   "name": "CarbonCredit",
-                  "referencedDeclaration": 396,
+                  "referencedDeclaration": 386,
                   "type": "contract CarbonCredit"
                 },
-                "id": 1514,
+                "id": 417,
                 "name": "UserDefinedTypeName",
-                "src": "83:12:7"
+                "src": "83:12:2"
               }
             ],
-            "id": 1515,
+            "id": 418,
             "name": "VariableDeclaration",
-            "src": "83:25:7"
+            "src": "83:25:2"
           },
           {
             "attributes": {
               "constant": false,
               "name": "creditsForSale",
-              "scope": 1548,
+              "scope": 451,
               "stateVariable": true,
               "storageLocation": "default",
               "type": "mapping(uint256 => mapping(uint256 => uint256))",
@@ -582,9 +582,9 @@
                       "name": "uint",
                       "type": "uint256"
                     },
-                    "id": 1516,
+                    "id": 419,
                     "name": "ElementaryTypeName",
-                    "src": "173:4:7"
+                    "src": "173:4:2"
                   },
                   {
                     "attributes": {
@@ -596,33 +596,33 @@
                           "name": "uint",
                           "type": "uint256"
                         },
-                        "id": 1517,
+                        "id": 420,
                         "name": "ElementaryTypeName",
-                        "src": "189:4:7"
+                        "src": "189:4:2"
                       },
                       {
                         "attributes": {
                           "name": "uint",
                           "type": "uint256"
                         },
-                        "id": 1518,
+                        "id": 421,
                         "name": "ElementaryTypeName",
-                        "src": "197:4:7"
+                        "src": "197:4:2"
                       }
                     ],
-                    "id": 1519,
+                    "id": 422,
                     "name": "Mapping",
-                    "src": "181:21:7"
+                    "src": "181:21:2"
                   }
                 ],
-                "id": 1520,
+                "id": 423,
                 "name": "Mapping",
-                "src": "165:38:7"
+                "src": "165:38:2"
               }
             ],
-            "id": 1521,
+            "id": 424,
             "name": "VariableDeclaration",
-            "src": "165:53:7"
+            "src": "165:53:2"
           },
           {
             "attributes": {
@@ -637,7 +637,7 @@
                     "attributes": {
                       "constant": false,
                       "name": "firmId",
-                      "scope": 1534,
+                      "scope": 437,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "uint256",
@@ -650,19 +650,19 @@
                           "name": "uint",
                           "type": "uint256"
                         },
-                        "id": 1522,
+                        "id": 425,
                         "name": "ElementaryTypeName",
-                        "src": "282:4:7"
+                        "src": "282:4:2"
                       }
                     ],
-                    "id": 1523,
+                    "id": 426,
                     "name": "VariableDeclaration",
-                    "src": "282:11:7"
+                    "src": "282:11:2"
                   }
                 ],
-                "id": 1524,
+                "id": 427,
                 "name": "ParameterList",
-                "src": "281:13:7"
+                "src": "281:13:2"
               },
               {
                 "children": [
@@ -692,16 +692,16 @@
                                 }
                               ],
                               "overloadedDeclarations": [
-                                10608,
-                                10609
+                                1130,
+                                1131
                               ],
-                              "referencedDeclaration": 10608,
+                              "referencedDeclaration": 1130,
                               "type": "function (bool) pure",
                               "value": "require"
                             },
-                            "id": 1525,
+                            "id": 428,
                             "name": "Identifier",
-                            "src": "305:7:7"
+                            "src": "305:7:2"
                           },
                           {
                             "attributes": {
@@ -731,8 +731,8 @@
                                   "isPure": false,
                                   "lValueRequested": false,
                                   "member_name": "isConsumer",
-                                  "referencedDeclaration": 395,
-                                  "type": "function (uint256) view external returns (bool)"
+                                  "referencedDeclaration": 385,
+                                  "type": "function (uint256) external returns (bool)"
                                 },
                                 "children": [
                                   {
@@ -741,18 +741,18 @@
                                       "overloadedDeclarations": [
                                         null
                                       ],
-                                      "referencedDeclaration": 1515,
+                                      "referencedDeclaration": 418,
                                       "type": "contract CarbonCredit",
                                       "value": "carbonCredit"
                                     },
-                                    "id": 1526,
+                                    "id": 429,
                                     "name": "Identifier",
-                                    "src": "313:12:7"
+                                    "src": "313:12:2"
                                   }
                                 ],
-                                "id": 1527,
+                                "id": 430,
                                 "name": "MemberAccess",
-                                "src": "313:23:7"
+                                "src": "313:23:2"
                               },
                               {
                                 "attributes": {
@@ -760,43 +760,43 @@
                                   "overloadedDeclarations": [
                                     null
                                   ],
-                                  "referencedDeclaration": 1523,
+                                  "referencedDeclaration": 426,
                                   "type": "uint256",
                                   "value": "firmId"
                                 },
-                                "id": 1528,
+                                "id": 431,
                                 "name": "Identifier",
-                                "src": "337:6:7"
+                                "src": "337:6:2"
                               }
                             ],
-                            "id": 1529,
+                            "id": 432,
                             "name": "FunctionCall",
-                            "src": "313:31:7"
+                            "src": "313:31:2"
                           }
                         ],
-                        "id": 1530,
+                        "id": 433,
                         "name": "FunctionCall",
-                        "src": "305:40:7"
+                        "src": "305:40:2"
                       }
                     ],
-                    "id": 1531,
+                    "id": 434,
                     "name": "ExpressionStatement",
-                    "src": "305:40:7"
+                    "src": "305:40:2"
                   },
                   {
-                    "id": 1532,
+                    "id": 435,
                     "name": "PlaceholderStatement",
-                    "src": "355:1:7"
+                    "src": "355:1:2"
                   }
                 ],
-                "id": 1533,
+                "id": 436,
                 "name": "Block",
-                "src": "295:68:7"
+                "src": "295:68:2"
               }
             ],
-            "id": 1534,
+            "id": 437,
             "name": "ModifierDefinition",
-            "src": "260:103:7"
+            "src": "260:103:2"
           },
           {
             "attributes": {
@@ -811,7 +811,7 @@
                     "attributes": {
                       "constant": false,
                       "name": "firmId",
-                      "scope": 1547,
+                      "scope": 450,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "uint256",
@@ -824,19 +824,19 @@
                           "name": "uint",
                           "type": "uint256"
                         },
-                        "id": 1535,
+                        "id": 438,
                         "name": "ElementaryTypeName",
-                        "src": "392:4:7"
+                        "src": "392:4:2"
                       }
                     ],
-                    "id": 1536,
+                    "id": 439,
                     "name": "VariableDeclaration",
-                    "src": "392:11:7"
+                    "src": "392:11:2"
                   }
                 ],
-                "id": 1537,
+                "id": 440,
                 "name": "ParameterList",
-                "src": "391:13:7"
+                "src": "391:13:2"
               },
               {
                 "children": [
@@ -866,16 +866,16 @@
                                 }
                               ],
                               "overloadedDeclarations": [
-                                10608,
-                                10609
+                                1130,
+                                1131
                               ],
-                              "referencedDeclaration": 10608,
+                              "referencedDeclaration": 1130,
                               "type": "function (bool) pure",
                               "value": "require"
                             },
-                            "id": 1538,
+                            "id": 441,
                             "name": "Identifier",
-                            "src": "415:7:7"
+                            "src": "415:7:2"
                           },
                           {
                             "attributes": {
@@ -905,8 +905,8 @@
                                   "isPure": false,
                                   "lValueRequested": false,
                                   "member_name": "isGenerator",
-                                  "referencedDeclaration": 382,
-                                  "type": "function (uint256) view external returns (bool)"
+                                  "referencedDeclaration": 372,
+                                  "type": "function (uint256) external returns (bool)"
                                 },
                                 "children": [
                                   {
@@ -915,18 +915,18 @@
                                       "overloadedDeclarations": [
                                         null
                                       ],
-                                      "referencedDeclaration": 1515,
+                                      "referencedDeclaration": 418,
                                       "type": "contract CarbonCredit",
                                       "value": "carbonCredit"
                                     },
-                                    "id": 1539,
+                                    "id": 442,
                                     "name": "Identifier",
-                                    "src": "423:12:7"
+                                    "src": "423:12:2"
                                   }
                                 ],
-                                "id": 1540,
+                                "id": 443,
                                 "name": "MemberAccess",
-                                "src": "423:24:7"
+                                "src": "423:24:2"
                               },
                               {
                                 "attributes": {
@@ -934,53 +934,53 @@
                                   "overloadedDeclarations": [
                                     null
                                   ],
-                                  "referencedDeclaration": 1536,
+                                  "referencedDeclaration": 439,
                                   "type": "uint256",
                                   "value": "firmId"
                                 },
-                                "id": 1541,
+                                "id": 444,
                                 "name": "Identifier",
-                                "src": "448:6:7"
+                                "src": "448:6:2"
                               }
                             ],
-                            "id": 1542,
+                            "id": 445,
                             "name": "FunctionCall",
-                            "src": "423:32:7"
+                            "src": "423:32:2"
                           }
                         ],
-                        "id": 1543,
+                        "id": 446,
                         "name": "FunctionCall",
-                        "src": "415:41:7"
+                        "src": "415:41:2"
                       }
                     ],
-                    "id": 1544,
+                    "id": 447,
                     "name": "ExpressionStatement",
-                    "src": "415:41:7"
+                    "src": "415:41:2"
                   },
                   {
-                    "id": 1545,
+                    "id": 448,
                     "name": "PlaceholderStatement",
-                    "src": "466:1:7"
+                    "src": "466:1:2"
                   }
                 ],
-                "id": 1546,
+                "id": 449,
                 "name": "Block",
-                "src": "405:69:7"
+                "src": "405:69:2"
               }
             ],
-            "id": 1547,
+            "id": 450,
             "name": "ModifierDefinition",
-            "src": "369:105:7"
+            "src": "369:105:2"
           }
         ],
-        "id": 1548,
+        "id": 451,
         "name": "ContractDefinition",
-        "src": "55:823:7"
+        "src": "55:823:2"
       }
     ],
-    "id": 1549,
+    "id": 452,
     "name": "SourceUnit",
-    "src": "0:878:7"
+    "src": "0:878:2"
   },
   "compiler": {
     "name": "solc",
@@ -988,7 +988,7 @@
   },
   "networks": {},
   "schemaVersion": "3.3.3",
-  "updatedAt": "2021-04-01T03:45:24.203Z",
+  "updatedAt": "2021-04-01T04:49:10.285Z",
   "devdoc": {
     "methods": {}
   },
