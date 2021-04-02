@@ -1,9 +1,9 @@
 <template>
-  <div>
+  <div v-if="isDrizzleInitialized">
     <h1>Create User</h1>
     <hr>
 
-    <form class="form">
+    <form class="form" @submit.prevent="onSubmit">
       <label class="required drop">User Type:</label>
       <select id="dropdown" v-model="userType" name="'userType">
         <option value="consumer">Consumer</option>
@@ -16,22 +16,65 @@
       <input required v-model='name' name='name' type="text"/><br><br>
 
       <label></label>
-      <input style='font-weight: bold;' type="submit" value="Send" onclick="return confirm('Submit form?')">
+      <input style='font-weight: bold;' type="submit" value="Send">
     </form>
+    <drizzle-contract
+        contractName="CarbonCredit"
+        method="carbondata"
+        label="new Value"
+    />
+    <drizzle-contract contractName="CarbonCredit" method="getGeneratorlist" label="Generator List"/>
 
   </div>
+  <div v-else>Not initialized</div>
 </template>
 
 <script>
+import {mapGetters} from "vuex";
+
 export default {
+  name: 'getCredits',
+  computed: {
+    ...mapGetters('accounts', ['activeAccount', 'activeBalance']),
+    ...mapGetters('drizzle', ['isDrizzleInitialized', 'drizzleInstance']),
+
+    userAccount() {
+      return this.activeAccount;
+    },
+    getEthBalance() {
+      return this.drizzleInstance.web3.utils.fromWei(this.activeBalance, 'ether');
+    },
+    getGeneratorlist() {
+      return this.getContractData({
+        contract: 'CarbonCredit',
+        method: 'getGeneratorlist'
+      });
+    },
+  },
   data() {
     return {
       userType: '',
       id: '',
       name: ''
     };
-  }
+  },
+  methods: {
+    onSubmit() {
+      if (this.isDrizzleInitialized) {
+        window.console.log('creating generator')
+        window.console.log(this.id)
+        window.console.log(this.name)
+        window.console.log(this.activeAccount)
+        const contractmethod = this.drizzleInstance.contracts['CarbonCredit'].methods['changechange'];
+        //contractmethod.cacheSend(this.id, this.name, this.activeAccount);
+        contractmethod.cacheSend(this.id, this.activeAccount, {gas:1000000});
+      } else {
+        alert("Drizzle doesn't seem to be initialised / ready");
+      }
+    }
+  },
 };
+
 </script>
 
 <style scoped>

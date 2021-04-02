@@ -48,6 +48,15 @@ contract CarbonCredit is ERC20 {
         _;
     }
 
+    // TEST VARIABLES AND FUNCTIONS - TO REMOVE
+    uint public carbondata = 987654;
+    function changecarbondata() public {
+        carbondata = 12345;
+    }
+    function changechange(uint generatorId, address thisAdd) public {
+        changecarbondata();
+    }
+
     //Create new generator and store in mapping, assign values (balance = 0)
     function createGenerator(uint generatorId, string memory name, address thisAdd) public isRegulator {
         require(generatorExists[generatorId] == false);
