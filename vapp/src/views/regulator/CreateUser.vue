@@ -23,8 +23,6 @@
         method="carbondata"
         label="new Value"
     />
-    <drizzle-contract contractName="CarbonCredit" method="getGeneratorlist" label="Generator List"/>
-
   </div>
   <div v-else>Not initialized</div>
 </template>
@@ -37,6 +35,7 @@ export default {
   computed: {
     ...mapGetters('accounts', ['activeAccount', 'activeBalance']),
     ...mapGetters('drizzle', ['isDrizzleInitialized', 'drizzleInstance']),
+    ...mapGetters("contracts", ["getContractData"]),
 
     userAccount() {
       return this.activeAccount;
@@ -44,30 +43,33 @@ export default {
     getEthBalance() {
       return this.drizzleInstance.web3.utils.fromWei(this.activeBalance, 'ether');
     },
-    getGeneratorlist() {
-      return this.getContractData({
-        contract: 'CarbonCredit',
-        method: 'getGeneratorlist'
-      });
-    },
   },
   data() {
     return {
       userType: '',
       id: '',
-      name: ''
+      name: '',
+      genlist: []
     };
   },
   methods: {
     onSubmit() {
       if (this.isDrizzleInitialized) {
-        window.console.log('creating generator')
+        window.console.log('creating user')
         window.console.log(this.id)
         window.console.log(this.name)
+        window.console.log(this.userType)
         window.console.log(this.activeAccount)
-        const contractmethod = this.drizzleInstance.contracts['CarbonCredit'].methods['changechange'];
-        //contractmethod.cacheSend(this.id, this.name, this.activeAccount);
-        contractmethod.cacheSend(this.id, this.activeAccount, {gas:1000000});
+
+        if (this.userType === 'generator') {
+          window.console.log('creating generator')
+          const contractmethod = this.drizzleInstance.contracts['CarbonCredit'].methods['createGenerator'];
+          contractmethod.cacheSend(this.id, this.name, this.activeAccount, {gas: 1000000});
+        } else {
+          window.console.log('creating consumer')
+          const contractmethod = this.drizzleInstance.contracts['CarbonCredit'].methods['createConsumer'];
+          contractmethod.cacheSend(this.id, this.name, this.activeAccount, {gas: 1000000});
+        }
       } else {
         alert("Drizzle doesn't seem to be initialised / ready");
       }
