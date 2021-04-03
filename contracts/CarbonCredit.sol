@@ -34,6 +34,7 @@ contract CarbonCredit is ERC20 {
 
     uint[] consumerList;
     uint[] generatorList;
+    uint[] violatorsList;
 
     // constructor() public ERC20("Carbon Token", "c") {
     //     contractOwner = msg.sender;
@@ -70,6 +71,10 @@ contract CarbonCredit is ERC20 {
 
     function getGeneratorList() public returns (uint[] memory) {
         return generatorList;
+    }
+
+    function getViolators() public returns (uint[] memory){ // for consumers
+        return violatorsList;
     }
 
     //Create new generator and store in mapping, assign values (balance = 0)
@@ -119,11 +124,16 @@ contract CarbonCredit is ERC20 {
     }
 
     //Validators input a emissions amt (frontend), add it to consumer's emissions value
-    function reportEmission(uint consumerId, uint emission) public isValidator {
+    function reportEmission(uint consumerId, uint emission) public {
         require(emission > 0);
         require(consumerExists[consumerId] == true);
 
         allConsumers[consumerId].emissions = emission;
+
+        // Add consumerId to violatorsList if emissions exceed tokenBalance.
+        if (emission > allConsumers[consumerId].tokenBalance) {
+            violatorsList.push(consumerId);
+        }
     }
 
     // Cant put int, must put uint, if not it screws up the entire contract
@@ -167,6 +177,15 @@ contract CarbonCredit is ERC20 {
 
     function isConsumer(uint ID) public returns (bool doesExist) {
         return (consumerExists[ID]);
+    }
+
+    function getConsumerName(uint consumerId) public returns (string memory) {
+        require(consumerExists[consumerId] == true);
+        return (allConsumers[consumerId].consumerName);
+    }
+    function getConsumerEmission(uint consumerId) public returns (uint emission) {
+        require(consumerExists[consumerId] == true);
+        return (allConsumers[consumerId].emissions);
     }
 
 

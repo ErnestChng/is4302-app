@@ -49,11 +49,10 @@ export default {
       userType: '',
       id: '',
       name: '',
-      genlist: []
     };
   },
   methods: {
-    onSubmit() {
+    async onSubmit() {
       if (this.isDrizzleInitialized) {
         window.console.log('creating user')
         window.console.log(this.id)
@@ -63,12 +62,17 @@ export default {
 
         if (this.userType === 'generator') {
           window.console.log('creating generator')
-          const contractmethod = this.drizzleInstance.contracts['CarbonCredit'].methods['createGenerator'];
-          contractmethod.cacheSend(this.id, this.name, this.activeAccount, {gas: 1000000});
+          const contractmethod = await this.drizzleInstance.contracts['CarbonCredit'].methods['createGenerator'];
+          await contractmethod.cacheSend(this.id, this.name, this.activeAccount, {gas: 1000000});
         } else {
           window.console.log('creating consumer')
-          const contractmethod = this.drizzleInstance.contracts['CarbonCredit'].methods['createConsumer'];
-          contractmethod.cacheSend(this.id, this.name, this.activeAccount, {gas: 1000000});
+          const contractmethod = await this.drizzleInstance.contracts['CarbonCredit'].methods['createConsumer'];
+          await contractmethod.cacheSend(this.id, this.name, this.activeAccount, {gas: 1000000});
+
+          // REMOVE THIS AFTER REPORTEMISSIONS.VUE IS COMPLETE
+          // note: need to remove isValidator modifier in 'reportEmissions' method to work
+          const allocate = await this.drizzleInstance.contracts['CarbonCredit'].methods['reportEmission'];
+          await allocate.cacheSend(this.id, 130, {gas: 1000000});
         }
       } else {
         alert("Drizzle doesn't seem to be initialised / ready");
