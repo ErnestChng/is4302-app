@@ -4,7 +4,11 @@ import "./token/ERC20/ERC20.sol";
 
 contract CarbonCredit is ERC20 {
 
-    address contractOwner;
+    address public contractOwner;
+
+    function getContractOwner() public returns (address) {
+        return contractOwner;
+    }
 
     struct Generator {
         uint id;
@@ -21,7 +25,7 @@ contract CarbonCredit is ERC20 {
         address consumerAddress;
     }
 
-    mapping(uint => Generator) allGenerators;
+    mapping(uint => Generator) public allGenerators;
     mapping(uint => Consumer) allConsumers;
     mapping(address => bool) allValidators;
 
@@ -29,6 +33,7 @@ contract CarbonCredit is ERC20 {
     mapping(uint => bool) consumerExists;
 
     uint[] consumerList;
+    uint[] generatorList;
 
     // constructor() public ERC20("Carbon Token", "c") {
     //     contractOwner = msg.sender;
@@ -49,12 +54,22 @@ contract CarbonCredit is ERC20 {
     }
 
     // TEST VARIABLES AND FUNCTIONS - TO REMOVE
-    uint public carbondata = 987654;
+    uint public carbondata = 987654321;
+
     function changecarbondata() public {
         carbondata = 12345;
     }
+
     function changechange(uint generatorId, address thisAdd) public {
         changecarbondata();
+    }
+
+    function getGenerator(uint generatorId) public returns (bool) {
+        return generatorExists[generatorId];
+    }
+
+    function getGeneratorList() public returns (uint[] memory) {
+        return generatorList;
     }
 
     //Create new generator and store in mapping, assign values (balance = 0)
@@ -70,6 +85,8 @@ contract CarbonCredit is ERC20 {
 
         allGenerators[generatorId] = newGenerator;
         generatorExists[generatorId] = true;
+
+        generatorList.push(generatorId);
 
     }
     //Create new consumer and store in mapping, assign values (balance = limit)
