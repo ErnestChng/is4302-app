@@ -1,7 +1,5 @@
 import Vuex from "vuex";
 import Vue from "vue";
-import drizzleVuePlugin from "@drizzle/vue-plugin";
-import drizzleOptions from "@/drizzleOptions";
 
 Vue.use(Vuex);
 
@@ -39,7 +37,5 @@ const store = new Vuex.Store({
         }
     }
 });
-
-Vue.use(drizzleVuePlugin, {store, drizzleOptions});
 
 export default store;
