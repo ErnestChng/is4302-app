@@ -124,7 +124,7 @@ contract CarbonCredit is ERC20 {
     }
 
     //Validators input a emissions amt (frontend), add it to consumer's emissions value
-    function reportEmission(uint consumerId, uint emission) public {
+    function reportEmission(uint consumerId, uint emission) public isValidator{
         require(emission > 0);
         require(consumerExists[consumerId] == true);
 
