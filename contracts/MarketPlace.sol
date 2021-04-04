@@ -6,13 +6,21 @@ contract MarketPlace {
 
     CarbonCredit carbonCredit;
 
+    struct listing {
+        uint firmId;
+        uint qty;
+        bool isValue;
+    }
+
+
     // {priceOfCredit: {firmId: numberOfCredits}}
-    mapping(uint => mapping(uint => uint)) creditsForSale;
+    mapping(uint => listing) creditsForSale;
+    uint[] public prices;  // wont allow duplicate price listings
+    uint numListings = 0;
 
-    // constructor() {
-
-
-    // }
+    constructor(CarbonCredit carbonCredit_address) public {
+        carbonCredit = carbonCredit_address;
+    }
 
     modifier onlyConsumer(uint firmId) {
         require(carbonCredit.isConsumer(firmId));
@@ -24,13 +32,105 @@ contract MarketPlace {
         _;
     }
 
-    // function listCredit(uint firmId, uint price, uint quantity) onlyConsumer(firmId) onlyGenerator(firmId) {
+    // this gets added to the sorted list of prices. We will prevent people from listing
+    function listCredit(uint firmId, uint price, uint quantity) public onlyConsumer(firmId) {
 
-    // }
+        if (carbonCredit.isConsumer(firmId)) {
+            assert(carbonCredit.getConsumerCredits(firmId) >= quantity);
+        } else if (carbonCredit.isGenerator(firmId)) {
+            assert(carbonCredit.getGeneratorCredits(firmId) >= quantity);
+        }
 
-    // function buyCredit(uint firmId, uint quantity) onlyConsumer(firmId) returns (uint numFilled, uint avgPriceFilled) {
-    //     // looks at creditsForSale and picks the lowest price.
-    //     // this process is repeated until the entire buy order is satisfied
-    // }
+        assert(price > 0);
+        // can only list positive price
+        require(creditsForSale[price].isValue == false, "this price is already listed. Please go one up or one down.");
+        // the price shouldnt exist in the dictionary. We only allow unique price listings.
+
+        // create the mapping of the listing and add to creditsForSale mapping
+        listing memory newListing = listing(firmId, quantity, true);
+        creditsForSale[price] = newListing;
+
+        // add the same thing to the list of prices, then sort
+        prices.push(price);
+        numListings += 1;
+        insertionSort(prices, numListings);
+
+        // SHERVIN - need to transfer tokens from the seller to the marketplace
+
+    }
+
+
+    function buyCredit(uint firmId, uint quantity) public onlyConsumer(firmId) returns (uint numFilled, uint avgPriceFilled) {
+        // looks at creditsForSale and picks the lowest price.
+        // this process is repeated until the entire buy order is satisfied
+        assert(quantity > 0);
+        assert(carbonCredit.isConsumer(firmId));
+
+        uint filledSoFar = 0;
+        uint totalPaid = 0;
+
+        // while loop runs either until we fill the quantity, or we run out of listings
+        while (filledSoFar < quantity) {
+            if (prices[0] == 0 || numListings == 0) {// this is the case where there are no more listings
+                if (filledSoFar == 0) {return (filledSoFar, 0);}
+                else {return (filledSoFar, totalPaid / filledSoFar);}
+            }
+
+            uint currPrice = prices[0];
+            uint currQty = creditsForSale[currPrice].qty;
+            uint yetToFill = quantity - filledSoFar;
+
+            if (currQty > yetToFill) {// this is the case where this is the last listing we have to look at
+                filledSoFar += yetToFill;
+                totalPaid += currPrice * yetToFill;
+                // after this we break out of the loop
+            }
+
+            else if (currQty < yetToFill) {// if this listing is still not enough to completely fill our order
+                filledSoFar += currQty;
+                // assign all
+                totalPaid += currPrice * currQty;
+
+                // now we have to pop the array and re-sort
+                delete prices[0];
+                prices[0] = prices[numListings - 1];
+                numListings -= 1;
+                insertionSort(prices, numListings);
+
+                delete creditsForSale[currPrice];
+            }
+        }
+
+        // SHERVIN - need to transfer contracts from marketplace to this firmId
+
+        return (filledSoFar, totalPaid / filledSoFar);
+
+    }
+
+
+    // // insertion sort function to sort an array
+    // function insertionSort(uint[] memory a) internal {
+    //    for (uint i = 1;i < a.length;i++){
+    //     uint temp = a[i];
+    //     uint j;
+    //     for (j = i -1; j >= 0 && temp < a[j]; j--)
+    //       a[j+1] = a[j];
+    //     a[j + 1] = temp;
+    //    }
+    //   }
+
+    function insertionSort(uint[] memory data, uint numElems) internal pure {
+        uint length = numElems;
+        for (uint i = 1; i < length; i++) {
+            uint key = data[i];
+            uint j = i - 1;
+            while ((int(j) >= 0) && (data[j] > key)) {
+                data[j + 1] = data[j];
+                j--;
+            }
+
+            data[j + 1] = key;
+        }
+    }
 
 }
