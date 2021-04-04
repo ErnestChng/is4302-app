@@ -6,10 +6,6 @@ contract CarbonCredit is ERC20 {
 
     address public contractOwner;
 
-    function getContractOwner() public returns (address) {
-        return contractOwner;
-    }
-
     struct Generator {
         uint id;
         uint tokenBalance;
@@ -35,6 +31,7 @@ contract CarbonCredit is ERC20 {
     uint[] consumerList;
     uint[] generatorList;
     uint[] violatorsList;
+    uint numExceeded;
 
     // constructor() public ERC20("Carbon Token", "c") {
     //     contractOwner = msg.sender;
@@ -61,20 +58,20 @@ contract CarbonCredit is ERC20 {
         carbondata = 12345;
     }
 
-    function changechange(uint generatorId, address thisAdd) public {
-        changecarbondata();
-    }
-
-    function getGenerator(uint generatorId) public returns (bool) {
+    function getGenerator(uint generatorId) public view returns (bool) {
         return generatorExists[generatorId];
     }
 
-    function getGeneratorList() public returns (uint[] memory) {
+    function getGeneratorList() public view returns (uint[] memory) {
         return generatorList;
     }
 
-    function getViolators() public returns (uint[] memory){ // for consumers
+    function getViolators() public view returns (uint[] memory){ // for consumers
         return violatorsList;
+    }
+
+    function getContractOwner() public view returns (address) {
+        return contractOwner;
     }
 
     //Create new generator and store in mapping, assign values (balance = 0)
@@ -152,7 +149,6 @@ contract CarbonCredit is ERC20 {
     function updateGeneratorBalance(uint generatorId, uint delta, bool subtract) public {
         require(generatorExists[generatorId] == true);
 
-
         if (subtract) {
             allGenerators[generatorId].tokenBalance -= delta;
         } else {
@@ -161,56 +157,71 @@ contract CarbonCredit is ERC20 {
     }
 
     // GETTERS
-    function getConsumerCredits(uint consumerId) public returns (uint credit) {
+    function getConsumerCredits(uint consumerId) public view returns (uint credit) {
         require(consumerExists[consumerId] == true);
         return (allConsumers[consumerId].tokenBalance);
     }
 
-    function getGeneratorCredits(uint generatorId) public returns (uint credit) {
+    function getGeneratorCredits(uint generatorId) public view returns (uint credit) {
         require(generatorExists[generatorId] == true);
         return (allGenerators[generatorId].tokenBalance);
     }
 
-    function isGenerator(uint ID) public returns (bool doesExist) {
+    function isGenerator(uint ID) public view returns (bool doesExist) {
         return (generatorExists[ID]);
     }
 
-    function isConsumer(uint ID) public returns (bool doesExist) {
+    function isConsumer(uint ID) public view returns (bool doesExist) {
         return (consumerExists[ID]);
     }
 
-    function getConsumerName(uint consumerId) public returns (string memory) {
+    function getConsumerName(uint consumerId) public view returns (string memory) {
         require(consumerExists[consumerId] == true);
         return (allConsumers[consumerId].consumerName);
     }
-    function getConsumerEmission(uint consumerId) public returns (uint emission) {
+    function getConsumerEmission(uint consumerId) public view returns (uint emission) {
         require(consumerExists[consumerId] == true);
         return (allConsumers[consumerId].emissions);
     }
 
+    // //For each consumer in mapping, check if emissions > tokenBalance. If exceeded, adds to result list.
+    function checkEmission() isRegulator public view returns (uint[] memory, uint[] memory, uint[] memory, uint[] memory) {
+        //Returns 4 arrays: ID, balance, emissions and exceededBy. Same index corresponds to same company.
+        uint resCount;
 
-    // //For each consumer in mapping, check if emissions > tokenBalance. If yes, add to result list and return list.
-    // function checkEmission() isRegulator public returns (mapping(uint => uint[])) {
-    //     // the returned array contains [tokenBalance, emissions, amountExceededBy]
-    //     mapping(uint => uint[]) res;
+        for (uint i=0; i<consumerList.length; i++) {
+            uint thisID = consumerList[i];
+            uint thisBalance = allConsumers[thisID].tokenBalance;
+            uint thisEmission = allConsumers[thisID].emissions;
 
-    //     for (uint i=0; i<consumerList.length; i++) {
-    //         uint thisID = consumerList[i];
-    //         uint thisBalance = allConsumers[thisID].tokenBalance;
-    //         uint thisEmission = allConsumers[thisID].emissions;
+            if (thisEmission > thisBalance) {
+                resCount ++;
+            }
+        }
 
-    //         if (thisEmission > thisBalance) {
-    //             uint[] storage thisRes;
-    //             thisRes.push(thisBalance);
-    //             thisRes.push(thisEmission);
-    //             thisRes.push(thisEmission - thisBalance);
+        uint[] memory resID = new uint[](resCount);
+        uint[] memory resBalance = new uint[](resCount);
+        uint[] memory resEmission = new uint[](resCount);
+        uint[] memory resExceededBy= new uint[](resCount);
+        uint j;
 
-    //             res[thisID] = thisRes;
-    //         }
-    //     }
+        for (uint i=0; i<consumerList.length; i++) {
+            uint thisID = consumerList[i];
+            uint thisBalance = allConsumers[thisID].tokenBalance;
+            uint thisEmission = allConsumers[thisID].emissions;
 
-    //     return (res);
-    // }
+            if (thisEmission > thisBalance) {
+                uint amtExceeded = thisEmission - thisBalance;
+                resID[j] = thisID;
+                resBalance[j] = thisBalance;
+                resEmission[j] = thisEmission;
+                resExceededBy[j] = amtExceeded;
+                j++;
+            }
+        }
+
+        return (resID, resBalance, resEmission, resExceededBy);
+    }
 
 
 }
