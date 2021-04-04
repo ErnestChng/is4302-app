@@ -1,17 +1,20 @@
 import Vue from 'vue';
 import App from './App.vue';
+import firebase from "firebase";
 import store from "./store";
 import routes from "./routes.js";
 import VueRouter from "vue-router";
 import Toasted from 'vue-toasted';
-import firebase from "firebase";
+
 
 import drizzleVuePlugin from '@drizzle/vue-plugin';
 import drizzleOptions from "@/drizzleOptions";
+import BootstrapVue from "bootstrap-vue";
 
 Vue.use(VueRouter);
 Vue.use(drizzleVuePlugin, {store, drizzleOptions});
 Vue.use(Toasted); // TODO: can consider vuenotification or other toast
+Vue.use(BootstrapVue);
 
 Vue.config.productionTip = false;
 
