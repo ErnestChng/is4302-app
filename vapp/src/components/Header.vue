@@ -3,11 +3,16 @@
     <nav id="main">
       <div id="main-left">
         <router-link id="header-title" to="/" exact>
-          <span>Carbon Market</span>
+          <span>Carbon Ecosystem</span>
         </router-link>
+        <!--        TODO: remove when done-->
+        <router-link to="/regulator" style="margin-left: 50px; color: white">Regulator</router-link>
+        <router-link to="/validator" style="margin-left: 30px; color: white">Validator</router-link>
+        <router-link to="/consumer" style="margin-left: 30px; color: white">Consumer</router-link>
+        <router-link to="/generator" style="margin-left: 30px; color: white">Generator</router-link>
       </div>
       <div id="main-right-if" v-if="user.loggedIn">
-        <span>Ernest</span>
+        <span>{{ user.data.displayName }}</span>
         <a @click.prevent="signOut">Sign Out</a>
       </div>
       <div id="main-right-else" v-else>
@@ -22,11 +27,6 @@ import {mapGetters} from "vuex";
 import firebase from "firebase";
 
 export default {
-  data() {
-    return {
-      // image: mask
-    };
-  },
   computed: {
     ...mapGetters({
       user: "user"
@@ -46,7 +46,6 @@ export default {
     }
   }
 };
-
 </script>
 
 <style scoped>
