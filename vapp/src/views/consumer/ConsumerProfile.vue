@@ -3,10 +3,11 @@
     <!-- Sidenav -->
     <div class="row" ref="foo">
       <div class="profile left">
-        <div>{{msg}}</div>
-          <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png" alt="" width="130" height="130">
-          <div class="name">{{ this.name }}</div>
-          <div class="userType">Consumer</div>
+        <div>{{ msg }}</div>
+        <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png" alt=""
+             width="130" height="130">
+        <div class="name">{{ this.name }}</div>
+        <div class="userType">Consumer</div>
       </div>
 
       <!-- Main -->
@@ -43,7 +44,7 @@
       </div>
     </div>
   </div>
-  <div v-else>Not initialized</div>
+  <div v-else>Loading...</div>
 </template>
 
 <script>
@@ -65,8 +66,7 @@ export default {
       emissions: 130,
     };
   },
-  methods: {
-  },
+  methods: {},
   mounted() {
     if (this.$refs.foo) {
       if (this.isDrizzleInitialized) {
@@ -90,7 +90,7 @@ export default {
 
 .profile img {
   border-radius: 50%;
-  box-shadow: 0px 0px 5px 1px grey;
+  box-shadow: 0 0 5px 1px grey;
 }
 
 .name {
@@ -130,8 +130,7 @@ export default {
   background-color: #fff;
   color: #333;
   text-align: center;
-  padding: 30px;
-  padding-top: 50px;
+  padding: 50px 30px 30px;
   flex: 30%;
   margin-top: 30px;
 }

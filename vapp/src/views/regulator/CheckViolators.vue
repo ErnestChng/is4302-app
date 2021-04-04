@@ -21,13 +21,13 @@
         <td class="border" style="width:18%">{{ item.user }}</td>
         <td class="border" style="width:18%">{{ item.balance }}</td>
         <td class="border" style="width:18%">{{ item.emissions }}</td>
-        <td class="border" style="width:18%; color:red" >{{ item.diff }}</td>
+        <td class="border" style="width:18%; color:red">{{ item.diff }}</td>
       </tr>
       </tbody>
     </table>
 
   </div>
-  <div v-else>Not initialized</div>
+  <div v-else>Loading...</div>
 </template>
 
 <script>
@@ -57,7 +57,7 @@ export default {
           window.console.log('violator balance: ', balance1);
           const emissions1 = await this.drizzleInstance.contracts['CarbonCredit'].methods.getConsumerEmission(id).call();
           window.console.log('violator emissions: ', emissions1);
-          const diff1 = await balance1-emissions1;
+          const diff1 = await balance1 - emissions1;
           window.console.log('violator diff: ', diff1);
           let data = {
             user: consumer1,
@@ -88,12 +88,11 @@ export default {
 }
 
 input[type="submit"] {
-  /*display: inline-block;*/
   padding: 8px;
   width: 30%;
   border-radius: 10px;
   border: 1px solid #2d3f55;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
   margin: 15px;
 }
 
@@ -106,5 +105,4 @@ input[type="submit"]:hover {
   border: solid 1px #2d3f55;
   color: white;
 }
-
 </style>

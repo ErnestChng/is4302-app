@@ -56,7 +56,6 @@
 </template>
 
 <script>
-// TODO: fix firebase login
 import firebase from "firebase";
 
 export default {

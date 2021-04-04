@@ -1,11 +1,17 @@
 <template>
-  <div>
-    <router-link to="/generator/generator-market">
-      <button>Generator Market</button>
-    </router-link>
-    <router-link to="/generator/generator-profile">
-      <button>Generator Profile</button>
-    </router-link>
+  <div id="wrapper">
+    <div id="title">
+      <h1 style="margin: 0">Welcome Generator...</h1>
+    </div>
+    <hr style="margin: 0">
+    <div id="buttons">
+      <router-link to="/generator/generator-market">
+        <button>Generator Market</button>
+      </router-link>
+      <router-link to="/generator/generator-profile">
+        <button>Generator Profile</button>
+      </router-link>
+    </div>
   </div>
 </template>
 
@@ -13,12 +19,25 @@
 </script>
 
 <style scoped>
-div {
-  margin: 150px;
+#wrapper {
+  height: calc(100vh - 100px - 80px);
+}
+
+#title {
+  display: flex;
+  align-items: center;
+  padding-left: 40px;
+  height: 10%;
+}
+
+#buttons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 80%;
 }
 
 button {
-  display: inline-block;
   padding: 150px 100px;
   margin: 40px;
   font-size: 25px;
@@ -38,6 +57,5 @@ button:hover {
   text-decoration: none;
   color: white;
   cursor: pointer;
-
 }
 </style>

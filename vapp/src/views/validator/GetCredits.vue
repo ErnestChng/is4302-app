@@ -1,37 +1,43 @@
 <template>
-  <div v-if="isDrizzleInitialized" id="getCredits">
-    <!--    <button v-on:click="test">Test</button>-->
-    <!--    <hr>-->
-    <h1>Get Generator Credits</h1>
-    <form @submit.prevent="getGenCredits">
-      <label class="required">ID:</label>
-      <input required v-model="genId" name="genId" type="text">
-      <input type="submit">
-    </form>
-    <div>
-      Credits: {{ genCredits }}
+  <div v-if="isDrizzleInitialized" id="wrapper">
+    <div id="title">
+      <h2>Get Credits</h2>
+      <BackButton/>
     </div>
-    <hr>
-    <h1>Get Consumer Credits</h1>
-    <form @submit.prevent="getConCredits">
-      <label class="required">ID:</label>
-      <input required v-model="conId" name="conId" type="text">
-      <input type="submit">
-    </form>
-    <div>
-      Credits: {{ conCredits }}
+    <hr style="margin: 0">
+    <div id="content">
+      <div id="generator">
+        <h4>Get Generator Credits</h4>
+        <form @submit.prevent="getGenCredits">
+          <label for="genId" class="required">ID:</label>
+          <input id="genId" required v-model="genId" name="genId" type="text">
+          <input type="submit">
+        </form>
+        <span>Credits: {{ genCredits }}</span>
+      </div>
+      <hr style="width: 90%">
+      <div id="consumer">
+        <h4>Get Consumer Credits</h4>
+        <form @submit.prevent="getConCredits">
+          <label for="conId" class="required">ID:</label>
+          <input id="conId" required v-model="conId" name="conId" type="text">
+          <input type="submit">
+        </form>
+        <span>Credits: {{ conCredits }}</span>
+      </div>
+
     </div>
   </div>
-  <div v-else>
-    Loading...
-  </div>
+  <div v-else>Loading...</div>
 </template>
 
 <script>
 import {mapGetters} from "vuex";
+import BackButton from "@/components/BackButton";
 
 export default {
   name: 'GetCredits',
+  components: {BackButton},
   data() {
     return {
       genId: '',
@@ -44,20 +50,6 @@ export default {
     ...mapGetters("drizzle", ["isDrizzleInitialized", "drizzleInstance"])
   },
   methods: {
-    // async test() { // Testing purposes
-    //   if (this.isDrizzleInitialized) {
-    //     const contractOwner = await this.drizzleInstance.contracts.CarbonCredit.methods.getContractOwner().call();
-    //     window.console.log('contractOwner: ', contractOwner);
-    //
-    //     const test = await this.drizzleInstance.contracts['CarbonCredit'].methods.contractOwner().call();
-    //     window.console.log('test: ', test);
-    //
-    //     const genList = await this.drizzleInstance.contracts['CarbonCredit'].methods.getGeneratorList().call();
-    //     window.console.log('genList: ', genList);
-    //   } else {
-    //     alert("Drizzle doesn't seem to be initialised / ready");
-    //   }
-    // },
     async getGenCredits() {
       if (this.isDrizzleInitialized) {
         const genList = await this.drizzleInstance.contracts['CarbonCredit'].methods.getGeneratorList().call();
@@ -69,17 +61,13 @@ export default {
           window.console.log('genCredits: ', genCredits);
           this.genCredits = genCredits;
         } else {
-          // alert('ID is not in genList!');
-          const display = "ID is not in genList!";
-
-          const subOptions = {
-            theme: "bubble",
-            // position: "top-center",
-            duration: 1000,
-            type: "error",
+          const display = `ID ${this.genId} has not been created. Please specify an ID that exists.`;
+          const options = {
+            title: 'Unsuccessful',
+            autoHideDelay: 3000,
+            variant: 'danger'
           };
-
-          this.$toasted.show(display, subOptions);
+          this.$bvToast.toast(display, options);
         }
       } else {
         alert("Drizzle doesn't seem to be initialised / ready");
@@ -99,7 +87,53 @@ export default {
 </script>
 
 <style scoped>
-#getCredits {
-  margin: 200px;
+#wrapper {
+  height: calc(100vh - 100px - 80px);
 }
+
+#title {
+  display: flex;
+  align-items: center;
+  height: 10%;
+}
+
+#title h2 {
+  margin-bottom: 0;
+  margin-left: 40px;
+  margin-right: auto;
+}
+
+#content {
+  height: 80%;
+}
+
+#generator {
+  height: 50%;
+}
+
+#consumer {
+  height: 50%;
+}
+
+h4 {
+  padding: 20px;
+  margin: 0;
+}
+
+form {
+  padding: 20px;
+}
+
+span {
+  padding: 20px;
+}
+
+label {
+  margin-right: 10px;
+}
+
+input {
+  margin-right: 10px;
+}
+
 </style>
