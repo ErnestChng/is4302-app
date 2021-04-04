@@ -13,12 +13,9 @@ import ConsumerMarket from "./views/consumer/ConsumerMarket";
 import Generator from "./views/generator/Generator";
 import GeneratorProfile from "./views/generator/GeneratorProfile";
 import GeneratorMarket from "./views/generator/GeneratorMarket";
-import VueRouter from "vue-router";
-import Vue from "vue";
 
-Vue.use(VueRouter);
 
-const routes = [
+export default[
     {path: '/', component: Home},
     {path: '/login', component: Login},
     {path: '/validator', component: Validator},
@@ -35,10 +32,3 @@ const routes = [
     {path: '/generator/generator-profile', component: GeneratorProfile},
     {path: '/generator/generator-market', component: GeneratorMarket}
 ];
-
-const router = new VueRouter({
-    mode: 'history',
-    routes: routes
-});
-
-export default router;

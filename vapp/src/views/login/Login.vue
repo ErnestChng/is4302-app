@@ -57,7 +57,7 @@
 
 <script>
 // TODO: fix firebase login
-// import firebase from "firebase";
+import firebase from "firebase";
 
 export default {
   data() {
@@ -72,16 +72,15 @@ export default {
   },
   methods: {
     submit() {
-      this.$router.replace({path: `/${this.form.role}`});
-      // firebase
-      //     .auth()
-      //     .signInWithEmailAndPassword(this.form.email, this.form.password)
-      //     .then(() => {
-      //       this.$router.replace({path: `/${this.role}`});
-      //     })
-      //     .catch(err => {
-      //       this.error = err.message;
-      //     });
+      firebase
+          .auth()
+          .signInWithEmailAndPassword(this.form.email, this.form.password)
+          .then(() => {
+            this.$router.replace({path: `/${this.form.role}`});
+          })
+          .catch(err => {
+            this.error = err.message;
+          });
     }
   }
 };

@@ -1,8 +1,9 @@
 <template>
-  <div>
+  <div v-if="isDrizzleInitialized">
     <!-- Sidenav -->
-    <div class="row">
+    <div class="row" ref="foo">
       <div class="profile left">
+        <div>{{msg}}</div>
           <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png" alt="" width="130" height="130">
           <div class="name">{{ this.name }}</div>
           <div class="userType">Consumer</div>
@@ -42,6 +43,7 @@
       </div>
     </div>
   </div>
+  <div v-else>Not initialized</div>
 </template>
 
 <script>
@@ -50,6 +52,7 @@ import {mapGetters} from "vuex";
 export default {
   name: 'ConsumerProfile',
   computed: {
+    ...mapGetters('accounts', ['activeAccount', 'activeBalance']),
     ...mapGetters('drizzle', ['isDrizzleInitialized', 'drizzleInstance']),
     ...mapGetters("contracts", ["getContractData"]),
   },
@@ -59,11 +62,20 @@ export default {
       id: '1',
       name: 'jojo',
       balance: 100,
-      emissions: 130
+      emissions: 130,
     };
   },
   methods: {
   },
+  mounted() {
+    if (this.$refs.foo) {
+      if (this.isDrizzleInitialized) {
+        window.console.log('initalized');
+      } else {
+        alert("Drizzle doesn't seem to be initialised / ready");
+      }
+    }
+  }
 };
 
 </script>
