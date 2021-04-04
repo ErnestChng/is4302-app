@@ -12,12 +12,12 @@
 </template>
 
 <script>
-import homevid from "@/assets/homevid.mp4";
+import homeVid from "@/assets/homeVid.mp4";
 
 export default {
   data() {
     return {
-      image: homevid
+      image: homeVid
     };
   }
 };
