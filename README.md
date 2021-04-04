@@ -21,18 +21,18 @@ cd vapp/
 npm install
 ```
 
-### Start vue app
-
-```
-cd vapp/
-npm run serv 
-```
-
 ### Launch truffle
 
 ```
 truffle develop
 >>> migrate
+```
+
+### Start vue app
+
+```
+cd vapp/
+npm run serve
 ```
 
 ## Carbon Credit Ecosystem
