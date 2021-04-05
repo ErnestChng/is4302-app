@@ -37,6 +37,7 @@ export default {
   components: {BackButton},
   computed: {
     ...mapGetters('drizzle', ['isDrizzleInitialized', 'drizzleInstance']),
+    ...mapGetters('accounts', ['activeAccount', 'activeBalance'])
   },
   data() {
     return {
