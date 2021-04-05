@@ -1,37 +1,42 @@
 <template>
-  <div v-if="isDrizzleInitialized">
-    <h1>Create User</h1>
-    <hr>
-    <form class="form" @submit.prevent="onSubmit">
-      <label for="dropdown" class="required drop">User Type:</label>
-      <select id="dropdown" v-model="userType" name="'userType">
-        <option value="consumer">Consumer</option>
-        <option value="generator">Generator</option>
-      </select>
-      <br>
-      <label for="id" class="required">ID:</label>
-      <input id="id" required v-model="id" name='id' type="text"/>
-      <br>
-      <label for="name" class="required">Name:</label>
-      <input id="name" required v-model='name' name='name' type="text"/>
-      <br>
-      <br>
-      <label></label>
-      <input style='font-weight: bold;' type="submit" value="Send">
-    </form>
+  <div v-if="isDrizzleInitialized" id="wrapper">
+    <div id="title">
+      <h2>Create User</h2>
+      <BackButton/>
+    </div>
+    <hr style="margin: 0">
+    <div id="content">
+      <form class="form" @submit.prevent="onSubmit">
+        <label for="dropdown" class="required drop">User Type:</label>
+        <select id="dropdown" v-model="userType" name="'userType">
+          <option value="consumer">Consumer</option>
+          <option value="generator">Generator</option>
+        </select>
+        <br>
+        <label for="id" class="required">ID:</label>
+        <input id="id" required v-model="id" name='id' type="text"/>
+        <br>
+        <label for="name" class="required">Name:</label>
+        <input id="name" required v-model='name' name='name' type="text"/>
+        <br>
+        <br>
+        <label></label>
+        <input style='font-weight: bold;' type="submit" value="Send">
+      </form>
+    </div>
   </div>
   <div v-else>Loading...</div>
 </template>
 
 <script>
 import {mapGetters} from "vuex";
+import BackButton from "@/components/BackButton";
 
 export default {
   name: 'createUser',
+  components: {BackButton},
   computed: {
-    ...mapGetters('accounts', ['activeAccount', 'activeBalance']),
     ...mapGetters('drizzle', ['isDrizzleInitialized', 'drizzleInstance']),
-    ...mapGetters("contracts", ["getContractData"]),
   },
   data() {
     return {
@@ -106,6 +111,28 @@ export default {
 </script>
 
 <style scoped>
+#wrapper {
+  height: calc(100vh - 100px - 80px);
+}
+
+#title {
+  display: flex;
+  align-items: center;
+  height: 10%;
+}
+
+#title h2 {
+  margin-bottom: 0;
+  margin-left: 40px;
+  margin-right: auto;
+}
+
+#content {
+  align-items: center;
+  justify-content: center;
+  height: 80%;
+}
+
 label {
   padding: 8px;
   display: inline-block;
@@ -140,6 +167,6 @@ input[type="submit"]:hover {
 }
 
 div {
-  padding: 30px;
+  padding: 20px;
 }
 </style>
