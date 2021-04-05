@@ -45,7 +45,7 @@
             </div>
           </div>
           <div class="form-group row mb-0">
-            <div class="col-md-8 offset-md-4">
+            <div class="col-md-8 offset-md-3">
               <button type="submit" class="btn btn-primary">Login</button>
             </div>
           </div>
@@ -88,15 +88,33 @@ export default {
 <style scoped>
 .container {
   min-height: calc(100vh - 100px - 80px);
-  padding: 100px 0;
+  padding: 50px 0;
+}
+
+.card-header {
+  font-weight: bold;
 }
 
 .form-group {
-  padding: 20px;
+  padding: 15px;
 }
 
-select {
+select, button{
+  display: inline-block;
+  width: 30%;
+  border-radius: 10px;
+  border: 1px solid #2d3f55;
   height: 35px;
-  width: 150px;
+}
+
+button {
+  background: #DCDCDC;
+  color: black;
+}
+
+button:hover {
+  background: #103B1D;
+  border: solid 1px #2d3f55;
+  color: white;
 }
 </style>
