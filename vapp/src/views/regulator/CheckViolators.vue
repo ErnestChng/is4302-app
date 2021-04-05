@@ -1,40 +1,46 @@
 <template>
-  <div v-if="isDrizzleInitialized">
-    <h1>Check Violators</h1>
-    <hr>
-    <form @submit.prevent="printViolators">
-      <input type="submit" value="Retrieve violators">
-    </form>
+  <div v-if="isDrizzleInitialized" id="wrapper">
+    <div id="title">
+      <h2>Check Violators</h2>
+      <BackButton/>
+    </div>
+    <hr style="margin: 0">
+    <div id="content">
+      <form @submit.prevent="printViolators">
+        <input type="submit" value="Retrieve violators">
+      </form>
 
-    <table class="table">
-      <thead style="background: #103B1D; color: white;">
-      <tr style='width:18%'>
-        <td class="border"><strong>Consumers</strong></td>
-        <td class="border"><strong>Credit Balance</strong></td>
-        <td class="border"><strong>Actual Emissions</strong></td>
-        <td class="border"><strong>Exceeded Amount</strong></td>
-      </tr>
-      </thead>
+      <table class="table">
+        <thead style="background: #103B1D; color: white;">
+        <tr style='width:18%'>
+          <td class="border"><strong>Consumers</strong></td>
+          <td class="border"><strong>Credit Balance</strong></td>
+          <td class="border"><strong>Actual Emissions</strong></td>
+          <td class="border"><strong>Exceeded Amount</strong></td>
+        </tr>
+        </thead>
 
-      <tbody>
-      <tr v-for="item in itemsList" :key="item.user">
-        <td class="border" style="width:18%">{{ item.user }}</td>
-        <td class="border" style="width:18%">{{ item.balance }}</td>
-        <td class="border" style="width:18%">{{ item.emissions }}</td>
-        <td class="border" style="width:18%; color:red">{{ item.diff }}</td>
-      </tr>
-      </tbody>
-    </table>
-
+        <tbody>
+        <tr v-for="item in itemsList" :key="item.user">
+          <td class="border" style="width:18%">{{ item.user }}</td>
+          <td class="border" style="width:18%">{{ item.balance }}</td>
+          <td class="border" style="width:18%">{{ item.emissions }}</td>
+          <td class="border" style="width:18%; color:red">{{ item.diff }}</td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
   </div>
   <div v-else>Loading...</div>
 </template>
 
 <script>
 import {mapGetters} from "vuex";
+import BackButton from "@/components/BackButton";
 
 export default {
   name: 'checkViolators',
+  components: {BackButton},
   computed: {
     ...mapGetters('drizzle', ['isDrizzleInitialized', 'drizzleInstance']),
   },
@@ -76,6 +82,28 @@ export default {
 </script>
 
 <style scoped>
+#wrapper {
+  height: calc(100vh - 100px - 80px);
+}
+
+#title {
+  display: flex;
+  align-items: center;
+  height: 10%;
+}
+
+#title h2 {
+  margin-bottom: 0;
+  margin-left: 40px;
+  margin-right: auto;
+}
+
+#content {
+  align-items: center;
+  justify-content: center;
+  height: 80%;
+}
+
 .table {
   width: 70%;
   margin-left: auto;
@@ -104,5 +132,9 @@ input[type="submit"]:hover {
   background: #103B1D;
   border: solid 1px #2d3f55;
   color: white;
+}
+
+div {
+  padding: 20px;
 }
 </style>
