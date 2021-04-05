@@ -58,4 +58,8 @@ button:hover {
   color: white;
   cursor: pointer;
 }
+
+div {
+  padding: 20px;
+}
 </style>

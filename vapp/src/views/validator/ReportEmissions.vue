@@ -111,4 +111,8 @@ label {
 input {
   margin-right: 10px;
 }
+
+div {
+  padding: 20px;
+}
 </style>
