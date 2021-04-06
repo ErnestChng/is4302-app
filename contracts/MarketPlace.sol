@@ -5,6 +5,7 @@ import "./CarbonCredit.sol";
 contract MarketPlace {
 
     CarbonCredit carbonCredit;
+    address public marketplaceOwner;
 
     struct listing {
         uint firmId;
@@ -12,16 +13,18 @@ contract MarketPlace {
         bool isValue;
     }
 
-
-    // {priceOfCredit: {firmId: numberOfCredits}}
+    // {priceOfCredit: listing}
     mapping(uint => listing) creditsForSale;
     uint[] public prices;  // wont allow duplicate price listings
     uint numListings = 0;
 
+    // ==== CONSTRUCTOR ==== //
     constructor(CarbonCredit carbonCredit_address) public {
         carbonCredit = carbonCredit_address;
+        marketplaceOwner = msg.sender;
     }
 
+    // ==== MODIFIERS ==== //
     modifier onlyConsumer(uint firmId) {
         require(carbonCredit.isConsumer(firmId));
         _;
@@ -32,8 +35,9 @@ contract MarketPlace {
         _;
     }
 
+    // ==== FUNCTIONS ==== //
     // this gets added to the sorted list of prices. We will prevent people from listing
-    function listCredit(uint firmId, uint price, uint quantity) public onlyConsumer(firmId) {
+    function listCredit(uint firmId, uint price, uint quantity) public {
 
         if (carbonCredit.isConsumer(firmId)) {
             assert(carbonCredit.getConsumerCredits(firmId) >= quantity);
@@ -44,7 +48,7 @@ contract MarketPlace {
         assert(price > 0);
         // can only list positive price
         require(creditsForSale[price].isValue == false, "this price is already listed. Please go one up or one down.");
-        // the price shouldnt exist in the dictionary. We only allow unique price listings.
+        // the price shouldn't exist in the dictionary. We only allow unique price listings.
 
         // create the mapping of the listing and add to creditsForSale mapping
         listing memory newListing = listing(firmId, quantity, true);
@@ -55,10 +59,9 @@ contract MarketPlace {
         numListings += 1;
         insertionSort(prices, numListings);
 
-        // SHERVIN - need to transfer tokens from the seller to the marketplace
-
+        //transfer tokens from the seller to the marketplace
+        carbonCredit.transferFrom(msg.sender, marketplaceOwner, quantity);
     }
-
 
     function buyCredit(uint firmId, uint quantity) public onlyConsumer(firmId) returns (uint numFilled, uint avgPriceFilled) {
         // looks at creditsForSale and picks the lowest price.
@@ -72,6 +75,10 @@ contract MarketPlace {
         // while loop runs either until we fill the quantity, or we run out of listings
         while (filledSoFar < quantity) {
             if (prices[0] == 0 || numListings == 0) {// this is the case where there are no more listings
+
+                // need to transfer contracts from marketplace to this firmId
+                carbonCredit.transferFrom(marketplaceOwner, msg.sender, filledSoFar);
+
                 if (filledSoFar == 0) {return (filledSoFar, 0);}
                 else {return (filledSoFar, totalPaid / filledSoFar);}
             }
@@ -83,6 +90,7 @@ contract MarketPlace {
             if (currQty > yetToFill) {// this is the case where this is the last listing we have to look at
                 filledSoFar += yetToFill;
                 totalPaid += currPrice * yetToFill;
+                creditsForSale[currPrice].qty -= yetToFill;
                 // after this we break out of the loop
             }
 
@@ -101,23 +109,12 @@ contract MarketPlace {
             }
         }
 
-        // SHERVIN - need to transfer contracts from marketplace to this firmId
+        // transfer contracts from marketplace to this firmId
+        carbonCredit.transferFrom(marketplaceOwner, msg.sender, filledSoFar);
 
         return (filledSoFar, totalPaid / filledSoFar);
 
     }
-
-
-    // // insertion sort function to sort an array
-    // function insertionSort(uint[] memory a) internal {
-    //    for (uint i = 1;i < a.length;i++){
-    //     uint temp = a[i];
-    //     uint j;
-    //     for (j = i -1; j >= 0 && temp < a[j]; j--)
-    //       a[j+1] = a[j];
-    //     a[j + 1] = temp;
-    //    }
-    //   }
 
     function insertionSort(uint[] memory data, uint numElems) internal pure {
         uint length = numElems;
