@@ -6,7 +6,7 @@
     </div>
     <hr style="margin: 0">
     <div id="content">
-      <form @submit.prevent="printViolators">
+      <form @submit.prevent="checkEmissions">
         <input type="submit" value="Retrieve violators">
       </form>
 
@@ -50,28 +50,20 @@ export default {
     };
   },
   methods: {
-    async printViolators() {
+    async checkEmissions() {
       if (this.isDrizzleInitialized) {
-        const violators = await this.drizzleInstance.contracts['CarbonCredit'].methods.getViolators().call();
-        window.console.log('violators: ', violators);
-        window.console.log(violators.length);
-        for (let i = 0; i < violators.length; i++) {
-          const id = violators[i];
-          const consumer1 = await this.drizzleInstance.contracts['CarbonCredit'].methods.getConsumerName(id).call();
-          window.console.log('violator name: ', consumer1);
-          const balance1 = await this.drizzleInstance.contracts['CarbonCredit'].methods.getConsumerCredits(id).call();
-          window.console.log('violator balance: ', balance1);
-          const emissions1 = await this.drizzleInstance.contracts['CarbonCredit'].methods.getConsumerEmission(id).call();
-          window.console.log('violator emissions: ', emissions1);
-          const diff1 = await balance1 - emissions1;
-          window.console.log('violator diff: ', diff1);
-          let data = {
-            user: consumer1,
-            balance: balance1,
-            emissions: emissions1,
-            diff: diff1
-          };
-          this.itemsList.push(data);
+        const result = await this.drizzleInstance.contracts['CarbonCredit'].methods.checkEmissions().call();
+        window.console.log('result', result);
+
+        this.itemsList = []; // resetting itemsList
+        for (let i = 0; i < result[0].length; i++) {
+          window.console.log('here');
+          this.itemsList.push({
+            user: result[0][i],
+            balance: result[1][i],
+            emissions: result[2][i],
+            diff: result[3][i],
+          });
         }
       } else {
         alert("Drizzle doesn't seem to be initialised / ready");
@@ -106,9 +98,7 @@ export default {
 
 .table {
   width: 70%;
-  margin-left: auto;
-  margin-right: auto;
-  margin-bottom: 40px;
+  margin: 20px auto 40px;
 }
 
 .border {
