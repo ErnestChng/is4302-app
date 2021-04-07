@@ -31,7 +31,6 @@ contract CarbonCredit is ERC20 {
 
     uint[] consumerList;
     uint[] generatorList;
-    uint[] violatorsList;
     uint numExceeded;
 
     // ==== CONSTRUCTOR ==== //
@@ -63,10 +62,6 @@ contract CarbonCredit is ERC20 {
         return consumerList;
     }
 
-    function getViolators() public view returns (uint[] memory){// for consumers
-        return violatorsList;
-    }
-
     function getContractOwner() public view returns (address) {
         return contractOwner;
     }
@@ -94,7 +89,7 @@ contract CarbonCredit is ERC20 {
         return (allConsumers[consumerId].consumerName);
     }
 
-`    function getConsumerEmissions(uint consumerId) public view returns (uint emission) {
+    function getConsumerEmissions(uint consumerId) public view returns (uint emission) {
         require(consumerExists[consumerId] == true);
         return (allConsumers[consumerId].emissions);
     }
@@ -153,11 +148,6 @@ contract CarbonCredit is ERC20 {
         require(consumerExists[consumerId] == true);
 
         allConsumers[consumerId].emissions = emission;
-
-        // Add consumerId to violatorsList if emissions exceed tokenBalance.
-        if (emission > allConsumers[consumerId].tokenBalance) {
-            violatorsList.push(consumerId);
-        }
     }
 
     function updateConsumerBalance(uint consumerId, uint delta, bool subtract) public {
