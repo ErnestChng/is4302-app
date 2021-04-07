@@ -94,12 +94,16 @@ contract CarbonCredit is ERC20 {
         return (allConsumers[consumerId].consumerName);
     }
 
-    function getConsumerEmission(uint consumerId) public view returns (uint emission) {
+`    function getConsumerEmissions(uint consumerId) public view returns (uint emission) {
         require(consumerExists[consumerId] == true);
         return (allConsumers[consumerId].emissions);
     }
 
     // ==== FUNCTIONS ==== //
+    function createValidator(address thisAdd) public isRegulator {
+        allValidators[thisAdd] = true;
+    }
+
     function createGenerator(uint generatorId, string memory name, address thisAdd) public isRegulator {
         require(generatorExists[generatorId] == false);
 
@@ -176,7 +180,7 @@ contract CarbonCredit is ERC20 {
         }
     }
 
-    function checkEmission() isRegulator public view returns (uint[] memory, uint[] memory, uint[] memory, uint[] memory) {
+    function checkEmissions() isRegulator public view returns (uint[] memory, uint[] memory, uint[] memory, uint[] memory) {
         // Returns 4 arrays: ID, balance, emissions and exceededBy. Same index corresponds to same company.
         uint resCount;
 

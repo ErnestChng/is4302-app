@@ -38,10 +38,13 @@ contract MarketPlace {
     // ==== FUNCTIONS ==== //
     // this gets added to the sorted list of prices. We will prevent people from listing
     function listCredit(uint firmId, uint price, uint quantity) public {
+        bool consumer;
 
         if (carbonCredit.isConsumer(firmId)) {
+            consumer = true;
             assert(carbonCredit.getConsumerCredits(firmId) >= quantity);
         } else if (carbonCredit.isGenerator(firmId)) {
+            consumer = false;
             assert(carbonCredit.getGeneratorCredits(firmId) >= quantity);
         }
 
@@ -60,7 +63,12 @@ contract MarketPlace {
         insertionSort(prices, numListings);
 
         //transfer tokens from the seller to the marketplace
-        carbonCredit.transferFrom(msg.sender, marketplaceOwner, quantity);
+        carbonCredit.transferFrom(msg.sender, address(this), quantity);
+        if (consumer) {
+            carbonCredit.updateConsumerBalance(firmId, quantity, true);
+        } else {
+            carbonCredit.updateGeneratorBalance(firmId, quantity, true);
+        }
     }
 
     function buyCredit(uint firmId, uint quantity) public onlyConsumer(firmId) returns (uint numFilled, uint avgPriceFilled) {
@@ -77,7 +85,8 @@ contract MarketPlace {
             if (prices[0] == 0 || numListings == 0) {// this is the case where there are no more listings
 
                 // need to transfer contracts from marketplace to this firmId
-                carbonCredit.transferFrom(marketplaceOwner, msg.sender, filledSoFar);
+                carbonCredit.transferFrom(address(this), msg.sender, filledSoFar);
+                carbonCredit.updateConsumerBalance(firmId, quantity, false);
 
                 if (filledSoFar == 0) {return (filledSoFar, 0);}
                 else {return (filledSoFar, totalPaid / filledSoFar);}
@@ -110,7 +119,8 @@ contract MarketPlace {
         }
 
         // transfer contracts from marketplace to this firmId
-        carbonCredit.transferFrom(marketplaceOwner, msg.sender, filledSoFar);
+        carbonCredit.transferFrom(address(this), msg.sender, filledSoFar);
+        carbonCredit.updateConsumerBalance(firmId, quantity, false);
 
         return (filledSoFar, totalPaid / filledSoFar);
 
