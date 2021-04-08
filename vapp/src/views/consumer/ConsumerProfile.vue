@@ -1,5 +1,5 @@
 <template>
-  <div v-if="isDrizzleInitialized">
+  <div v-if="isDrizzleInitialized" id="wrapper">
     <!-- Sidenav -->
     <div class="row" ref="foo">
       <div class="profile left">
@@ -11,7 +11,10 @@
 
       <!-- Main -->
       <div class="main right">
-        <h2>Personal Details</h2><br>
+        <div id="title">
+          <h2>Personal Details</h2>
+          <BackButton/>
+        </div>
 
         <form class="form" @submit.prevent="getConsumerData">
           <label for="id" class="required drop">Consumer ID:</label>
@@ -54,9 +57,11 @@
 
 <script>
 import {mapGetters} from "vuex";
+import BackButton from "@/components/BackButton";
 
 export default {
   name: 'ConsumerProfile',
+  components: {BackButton},
   computed: {
     ...mapGetters('accounts', ['activeAccount', 'activeBalance']),
     ...mapGetters('drizzle', ['isDrizzleInitialized', 'drizzleInstance']),
@@ -121,6 +126,10 @@ export default {
 </script>
 
 <style scoped>
+#wrapper {
+  height: calc(100vh - 100px - 80px);
+}
+
 /* Sidenav */
 .profile {
   margin-bottom: 20px;
@@ -177,23 +186,49 @@ export default {
 }
 
 .right {
-  padding: 80px 50px;
+  padding: 40px;
   flex: 65%;
   text-align: left;
   margin-right: 40px;
 }
 
+#title {
+  display: flex;
+  align-items: center;
+  height: 10%;
+}
+
+#title h2 {
+  margin-bottom: 0;
+  margin-right: auto;
+}
+
 .form {
-  margin: 40px 0;
+  margin: 20px 0;
 }
 
 .form label {
   margin-right: 10px;
+  font-weight: bold;
 }
 
 .form select {
   width: 120px;
   margin-right: 20px;
+}
+
+input[type="submit"] {
+  padding: 5px;
+  width: 15%;
+  border-radius: 10px;
+  border: 1px solid #2d3f55;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+input[type="submit"]:hover {
+  background: #103B1D;
+  border: solid 1px #2d3f55;
+  color: white;
 }
 
 </style>
