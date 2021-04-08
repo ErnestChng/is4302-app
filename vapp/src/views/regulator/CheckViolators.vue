@@ -54,16 +54,32 @@ export default {
       if (this.isDrizzleInitialized) {
         const result = await this.drizzleInstance.contracts['CarbonCredit'].methods.checkEmissions().call();
         window.console.log('result', result);
-
         this.itemsList = []; // resetting itemsList
-        for (let i = 0; i < result[0].length; i++) {
-          window.console.log('here');
-          this.itemsList.push({
-            user: result[0][i],
-            balance: result[1][i],
-            emissions: result[2][i],
-            diff: result[3][i],
-          });
+
+        if (result[0].length === 0) {
+          const display = `There are no violators.`;
+          const options = {
+            title: 'Successful',
+            autoHideDelay: 3000,
+            variant: 'success'
+          };
+          this.$bvToast.toast(display, options);
+        } else {
+          for (let i = 0; i < result[0].length; i++) {
+            this.itemsList.push({
+              user: result[0][i],
+              balance: result[1][i],
+              emissions: result[2][i],
+              diff: result[3][i],
+            });
+          }
+          const display = `Successfully retrived ${result[0].length} violators.`;
+          const options = {
+            title: 'Successful',
+            autoHideDelay: 3000,
+            variant: 'success'
+          };
+          this.$bvToast.toast(display, options);
         }
       } else {
         alert("Drizzle doesn't seem to be initialised / ready");
