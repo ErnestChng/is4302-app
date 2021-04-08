@@ -7,19 +7,19 @@
     <hr style="margin: 0">
     <div id="content">
       <div class="column " id="generator">
-          <h4>Get Generator Credits</h4>
-          <form @submit.prevent="getGenCredits">
-            <label for="genId" class="required">ID:</label>
-            <input id="genId" required v-model="genId" name="genId" type="text">
-            <input type="submit">
-          </form>
-          <div class="card">
-            <span>Generator has:</span>
-            <div class="credits">{{ genCredits }}</div>
-            <span>credits!</span>
-          </div>
+        <h4>Get Generator Credits</h4>
+        <form @submit.prevent="getGenCredits">
+          <label for="genId" class="required">ID:</label>
+          <input id="genId" required v-model="genId" name="genId" type="text">
+          <input type="submit">
+        </form>
+        <div class="card">
+          <span>Generator has:</span>
+          <div class="credits">{{ genCredits }}</div>
+          <span>credits!</span>
+        </div>
       </div>
-      <hr style="width: 1px; height: 100%; background: #103B1D; border: none;" />
+      <hr style="width: 1px; height: 100%; background: #103B1D; border: none;"/>
       <div class="column " id="consumer">
         <h4>Get Consumer Credits</h4>
         <form @submit.prevent="getConCredits">
@@ -68,6 +68,13 @@ export default {
           const genCredits = await this.drizzleInstance.contracts['CarbonCredit'].methods.getGeneratorCredits(this.genId).call();
           window.console.log('genCredits: ', genCredits);
           this.genCredits = genCredits;
+          const display = `Successfully retrieved. Generator ID ${this.genId} has ${this.genCredits} credits`;
+          const options = {
+            title: 'Successful',
+            autoHideDelay: 3000,
+            variant: 'success'
+          };
+          this.$bvToast.toast(display, options);
         } else {
           const display = `ID ${this.genId} has not been created. Please specify an ID that exists.`;
           const options = {
@@ -83,9 +90,30 @@ export default {
     },
     async getConCredits() {
       if (this.isDrizzleInitialized) {
-        const conCredits = await this.drizzleInstance.contracts['CarbonCredit'].methods.getConsumerCredits(this.conId).call();
-        window.console.log('conCredits: ', conCredits);
-        this.conCredits = conCredits;
+        const conList = await this.drizzleInstance.contracts['CarbonCredit'].methods.getConsumerList().call();
+        window.console.log('conId: ', this.conId.toString());
+        window.console.log('conList: ', conList);
+
+        if (conList.includes(this.conId.toString())) {
+          const conCredits = await this.drizzleInstance.contracts['CarbonCredit'].methods.getConsumerCredits(this.conId).call();
+          window.console.log('conCredits: ', conCredits);
+          this.conCredits = conCredits;
+          const display = `Successfully retrieved. Consumer ID ${this.conId} has ${this.conCredits} credits`;
+          const options = {
+            title: 'Successful',
+            autoHideDelay: 3000,
+            variant: 'success'
+          };
+          this.$bvToast.toast(display, options);
+        } else {
+          const display = `ID ${this.conId} has not been created. Please specify an ID that exists.`;
+          const options = {
+            title: 'Unsuccessful',
+            autoHideDelay: 3000,
+            variant: 'danger'
+          };
+          this.$bvToast.toast(display, options);
+        }
       } else {
         alert("Drizzle doesn't seem to be initialised / ready");
       }

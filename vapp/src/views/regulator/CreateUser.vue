@@ -8,7 +8,7 @@
     <div id="content">
       <form class="form" @submit.prevent="onSubmit">
         <label for="dropdown" class="required drop">User Type:</label>
-        <select id="dropdown" v-model="userType" name="'userType">
+        <select id="dropdown" required v-model="userType" name="userType">
           <option value="consumer">Consumer</option>
           <option value="generator">Generator</option>
         </select>

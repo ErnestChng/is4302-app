@@ -59,9 +59,8 @@ export default {
         if (result[0].length === 0) {
           const display = `There are no violators.`;
           const options = {
-            title: 'Successful',
+            title: 'Information',
             autoHideDelay: 3000,
-            variant: 'success'
           };
           this.$bvToast.toast(display, options);
         } else {
