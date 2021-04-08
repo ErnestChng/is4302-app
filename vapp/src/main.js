@@ -5,16 +5,16 @@ import store from "./store";
 import routes from "./routes.js";
 import VueRouter from "vue-router";
 import Toasted from 'vue-toasted';
-
+import BootstrapVue from "bootstrap-vue";
 
 import drizzleVuePlugin from '@drizzle/vue-plugin';
 import drizzleOptions from "@/drizzleOptions";
-import BootstrapVue from "bootstrap-vue";
+
+Vue.use(Toasted);
+Vue.use(BootstrapVue);
 
 Vue.use(VueRouter);
 Vue.use(drizzleVuePlugin, {store, drizzleOptions});
-Vue.use(Toasted);
-Vue.use(BootstrapVue);
 
 Vue.config.productionTip = false;
 
@@ -40,7 +40,6 @@ const router = new VueRouter({
     mode: 'history',
     routes: routes
 });
-// export default router;
 
 new Vue({
     render: h => h(App),

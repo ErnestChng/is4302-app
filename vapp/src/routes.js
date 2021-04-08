@@ -15,7 +15,7 @@ import GeneratorProfile from "./views/generator/GeneratorProfile";
 import GeneratorMarket from "./views/generator/GeneratorMarket";
 
 
-export default[
+export default [
     {path: '/', component: Home},
     {path: '/login', component: Login},
     {path: '/validator', component: Validator},
