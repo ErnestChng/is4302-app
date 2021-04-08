@@ -89,6 +89,11 @@ contract CarbonCredit is ERC20 {
         return (allConsumers[consumerId].consumerName);
     }
 
+    function getGeneratorName(uint generatorId) public view returns (string memory) {
+        require(generatorExists[generatorId] == true);
+        return (allGenerators[generatorId].generatorName);
+    }
+
     function getConsumerEmissions(uint consumerId) public view returns (uint emission) {
         require(consumerExists[consumerId] == true);
         return (allConsumers[consumerId].emissions);
@@ -131,9 +136,7 @@ contract CarbonCredit is ERC20 {
         consumerList.push(consumerId);
     }
 
-    function allocateCredit(uint generatorId, uint credit) public
-        //    isValidator
-    {
+    function allocateCredit(uint generatorId, uint credit) public isValidator {
         require(generatorExists[generatorId] == true);
         require(credit > 0);
 
@@ -141,9 +144,7 @@ contract CarbonCredit is ERC20 {
         allGenerators[generatorId].tokenBalance += credit;
     }
 
-    function reportEmissions(uint consumerId, uint emission) public
-        //    isValidator
-    {
+    function reportEmissions(uint consumerId, uint emission) public isValidator {
         require(emission > 0);
         require(consumerExists[consumerId] == true);
 
