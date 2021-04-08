@@ -73,7 +73,7 @@ export default {
               diff: result[3][i],
             });
           }
-          const display = `Successfully retrived ${result[0].length} violators.`;
+          const display = `Successfully retrieved ${result[0].length} violators.`;
           const options = {
             title: 'Successful',
             autoHideDelay: 3000,

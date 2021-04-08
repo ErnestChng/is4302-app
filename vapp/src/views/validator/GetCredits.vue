@@ -123,7 +123,7 @@ export default {
   height: 250px;
   width: 340px;
   margin-bottom: 20px;
-  margin-left: 75px;
+  margin-left: 130px;
   padding: 10px;
 }
 
@@ -141,6 +141,7 @@ export default {
 
 h4 {
   padding: 20px;
+  padding-top: 5px;
   margin: 0;
 }
 
