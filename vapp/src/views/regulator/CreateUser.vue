@@ -153,10 +153,6 @@ input[type="text"], input[type="submit"], select {
   margin: 15px;
 }
 
-select {
-  height: 30px;
-}
-
 input[type="submit"] {
   cursor: pointer;
 }
