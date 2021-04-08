@@ -23,7 +23,7 @@ button span {
 }
 
 button span:after {
-  content: '\00bb';
+  content: '\00ab';
   position: absolute;
   opacity: 0;
   top: 0;

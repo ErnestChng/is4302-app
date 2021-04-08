@@ -13,7 +13,7 @@ import BootstrapVue from "bootstrap-vue";
 
 Vue.use(VueRouter);
 Vue.use(drizzleVuePlugin, {store, drizzleOptions});
-Vue.use(Toasted); // TODO: can consider vuenotification or other toast
+Vue.use(Toasted);
 Vue.use(BootstrapVue);
 
 Vue.config.productionTip = false;
