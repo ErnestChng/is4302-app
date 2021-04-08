@@ -55,7 +55,7 @@ export default {
           };
           this.$bvToast.toast(display, options);
         } else {
-          const display = `Consumer ID ${this.id} has not been created. Please specify an ID that exists.`;
+          const display = `Consumer ID ${this.conId} has not been created. Please specify an ID that exists.`;
           const options = {
             title: 'Unsuccessful',
             autoHideDelay: 3000,
