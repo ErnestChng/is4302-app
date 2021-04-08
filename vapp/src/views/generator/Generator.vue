@@ -1,5 +1,5 @@
 <template>
-  <div id="wrapper">
+  <div id="wrapper" :style="{backgroundImage: `url(${image})`}">
     <div id="title">
       <h1 style="margin: 0">Welcome Generator...</h1>
     </div>
@@ -16,6 +16,15 @@
 </template>
 
 <script>
+import gen from "@/assets/generator.jpeg";
+
+export default {
+  data() {
+    return {
+      image: gen
+    };
+  }
+};
 </script>
 
 <style scoped>

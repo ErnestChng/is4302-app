@@ -1,5 +1,5 @@
 <template>
-  <div id="wrapper">
+  <div id="wrapper" :style="{backgroundImage: `url(${image})`}">
     <div id="title">
       <h1 style="margin: 0">Welcome Validator...</h1>
     </div>
@@ -19,6 +19,15 @@
 </template>
 
 <script>
+import val from "@/assets/validator.jpeg";
+
+export default {
+  data() {
+    return {
+      image: val
+    };
+  }
+};
 </script>
 
 <style scoped>

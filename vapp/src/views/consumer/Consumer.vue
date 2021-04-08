@@ -1,5 +1,5 @@
 <template>
-  <div id="wrapper">
+  <div id="wrapper" :style="{backgroundImage: `url(${image})`}">
     <div id="title">
       <h1 style="margin: 0">Welcome Consumer...</h1>
     </div>
@@ -16,6 +16,15 @@
 </template>
 
 <script>
+import con from "@/assets/consumer.jpeg";
+
+export default {
+  data() {
+    return {
+      image:con
+    };
+  }
+};
 </script>
 
 <style scoped>
