@@ -3,7 +3,6 @@
     <!-- Sidenav -->
     <div class="row" ref="foo">
       <div class="profile left">
-        <div>{{ msg }}</div>
         <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png" alt=""
              width="130" height="130">
         <div class="name">{{ this.name }}</div>
@@ -13,6 +12,17 @@
       <!-- Main -->
       <div class="main right">
         <h2>Personal Details</h2><br>
+
+        <form class="form" @submit.prevent="getConsumerData">
+          <label for="id" class="required drop">Consumer ID:</label>
+          <select id="id" v-model="id" name="id" required>
+            <option v-for="id in conList" v-bind:value="id" v-bind:key="id">
+              {{ id }}
+            </option>
+          </select>
+          <input type="submit" value="Retrieve Details">
+        </form>
+
         <div class="card">
           <div class="card-body">
             <table>
@@ -21,11 +31,6 @@
                 <td>Name</td>
                 <td>:</td>
                 <td>{{ this.name }}</td>
-              </tr>
-              <tr>
-                <td>ID</td>
-                <td>:</td>
-                <td>{{ this.id }}</td>
               </tr>
               <tr>
                 <td>Token Balance</td>
@@ -55,22 +60,57 @@ export default {
   computed: {
     ...mapGetters('accounts', ['activeAccount', 'activeBalance']),
     ...mapGetters('drizzle', ['isDrizzleInitialized', 'drizzleInstance']),
-    ...mapGetters("contracts", ["getContractData"]),
   },
   data() {
     return {
-      userType: '',
-      id: '1',
-      name: 'jojo',
-      balance: 100,
-      emissions: 130,
+      id: 'NIL',
+      name: 'NIL',
+      balance: 'NIL',
+      emissions: 'NIL',
+      conList: []
     };
   },
-  methods: {},
+  methods: {
+    async setUp() {
+      const accounts = this.$store.state.accounts;
+      window.console.log('accounts', accounts);
+
+      const conList = await this.drizzleInstance.contracts['CarbonCredit'].methods.getConsumerList().call();
+      window.console.log('conList', conList);
+      this.conList = conList;
+    },
+    async getConsumerData() {
+      const isConsumer = await this.drizzleInstance.contracts['CarbonCredit'].methods.isConsumer(this.id).call();
+      window.console.log('isConsumer', isConsumer);
+
+      if (isConsumer) {
+        const name = await this.drizzleInstance.contracts['CarbonCredit'].methods.getConsumerName(this.id).call();
+        const balance = await this.drizzleInstance.contracts['CarbonCredit'].methods.getConsumerCredits(this.id).call();
+        const emissions = await this.drizzleInstance.contracts['CarbonCredit'].methods.getConsumerEmissions(this.id).call();
+
+        window.console.log('name', name);
+        window.console.log('balance', balance);
+        window.console.log('emissions', emissions);
+
+        this.name = name;
+        this.balance = balance;
+        this.emissions = emissions;
+
+        const display = `Successfully retrieved Consumer ${this.id}'s details`;
+        const options = {
+          title: 'Successful',
+          autoHideDelay: 3000,
+          variant: 'success'
+        };
+        this.$bvToast.toast(display, options);
+      }
+    },
+  },
   mounted() {
     if (this.$refs.foo) {
       if (this.isDrizzleInitialized) {
-        window.console.log('initalized');
+        window.console.log('initialized');
+        this.setUp();
       } else {
         alert("Drizzle doesn't seem to be initialised / ready");
       }
@@ -124,6 +164,7 @@ export default {
 
 .row {
   display: flex;
+  height: calc(100vh - 100px - 80px)
 }
 
 .left {
@@ -136,10 +177,23 @@ export default {
 }
 
 .right {
-  padding: 30px;
+  padding: 80px 50px;
   flex: 65%;
   text-align: left;
   margin-right: 40px;
+}
+
+.form {
+  margin: 40px 0;
+}
+
+.form label {
+  margin-right: 10px;
+}
+
+.form select {
+  width: 120px;
+  margin-right: 20px;
 }
 
 </style>
