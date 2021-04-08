@@ -140,4 +140,13 @@ contract MarketPlace {
         }
     }
 
+    // TEST only
+    function getPrices() public view returns (uint[] memory) {
+        return prices;
+    }
+
+    function getNumListings() public view returns (uint) {
+        return numListings;
+    }
+
 }

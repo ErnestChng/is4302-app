@@ -1,5 +1,5 @@
 <template>
-  <div v-if="isDrizzleInitialized" id="wrapper">
+  <div v-if="isDrizzleInitialized" id="wrapper" ref="foo">
     <div id="title">
       <h2>Generator Market Place</h2>
       <BackButton/>
@@ -63,7 +63,8 @@ export default {
     };
   },
   computed: {
-    ...mapGetters("drizzle", ["isDrizzleInitialized", "drizzleInstance"])
+    ...mapGetters("drizzle", ["isDrizzleInitialized", "drizzleInstance"]),
+    ...mapGetters('accounts', ['activeAccount', 'activeBalance'])
   },
   methods: {
     async setUp() {
@@ -71,8 +72,28 @@ export default {
     },
     async listCredit() {
       window.console.log(this.$store.state);
+      window.console.log('active account:' ,this.activeAccount);
+
+      // const marketaddress = await this.drizzleInstance.contracts['MarketPlace'].address;
+      // window.console.log('marketaddress:', marketaddress);
+      //
+      // const approval = await this.drizzleInstance.contracts['CarbonCredit'].methods.approve(marketaddress, 300).call();
+      // window.console.log('approval', approval);
+      //
+      // const allowance = await this.drizzleInstance.contracts['CarbonCredit'].methods.allowance(this.activeAccount, marketaddress).call();
+      // window.console.log('allowance:', allowance);
+
       const listCredit = await this.drizzleInstance.contracts['MarketPlace'].methods['listCredit'];
       await listCredit.cacheSend(this.id, this.price, this.qty, {gas: 1000000});
+
+      const owner1 = await this.drizzleInstance.contracts['MarketPlace'].methods.marketplaceOwner().call();
+      window.console.log('owner', owner1);
+
+      const prices = await this.drizzleInstance.contracts['MarketPlace'].methods.getPrices().call();
+      window.console.log('prices', prices);
+
+      const numListing = await this.drizzleInstance.contracts['MarketPlace'].methods.getNumListings().call();
+      window.console.log('numListing', numListing);
 
       // const creditsForSale = await this.drizzleInstance.contracts['MarketPlace'].methods.creditsForSale(1).call();
       // window.console.log('creditsForSale', creditsForSale);
