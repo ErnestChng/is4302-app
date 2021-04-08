@@ -35,6 +35,14 @@ cd vapp/
 npm run serve
 ```
 
+## Testing
+
+### Test solidity files with Truffle
+
+```
+truffle test
+```
+
 ## Carbon Credit Ecosystem
 
-(Description)
+*WIP*
