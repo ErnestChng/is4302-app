@@ -14,7 +14,7 @@ contract MarketPlace {
     }
 
     // {priceOfCredit: listing}
-    mapping(uint => listing) creditsForSale;
+    mapping(uint => listing) public creditsForSale;
     uint[] public prices;  // wont allow duplicate price listings
     uint numListings = 0;
 

@@ -2,6 +2,7 @@ import SimpleStorage from './contracts/SimpleStorage.json';
 import ComplexStorage from './contracts/ComplexStorage.json';
 import TutorialToken from './contracts/TutorialToken.json';
 import CarbonCredit from './contracts/CarbonCredit.json';
+import MarketPlace from './contracts/MarketPlace.json';
 
 const options = {
     web3: {
@@ -15,7 +16,8 @@ const options = {
         SimpleStorage,
         ComplexStorage,
         TutorialToken,
-        CarbonCredit
+        CarbonCredit,
+        MarketPlace
     ],
     events: {
         SimpleStorage: ['StorageSet']
