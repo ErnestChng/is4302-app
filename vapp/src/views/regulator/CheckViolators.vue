@@ -72,7 +72,12 @@ export default {
               diff: result[3][i],
             });
           }
-          const display = `Successfully retrieved ${result[0].length} violators.`;
+          let display = "";
+          if (result[0].length === 1) {
+            display = `Successfully retrieved ${result[0].length} violator.`;
+          } else {
+            display = `Successfully retrieved ${result[0].length} violators.`;
+          }
           const options = {
             title: 'Successful',
             autoHideDelay: 3000,

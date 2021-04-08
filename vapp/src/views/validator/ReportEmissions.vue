@@ -12,8 +12,8 @@
         <br>
         <label for="conEmissions" class="required">Emissions to report:</label>
         <input id="conEmissions" required v-model="conEmissions" name="conEmissions" type="text">
-        <br>
-        <br>
+        <br><br>
+        <label></label>
         <input type="submit">
       </form>
     </div>
@@ -90,7 +90,6 @@ export default {
 }
 
 #content {
-  display: flex;
   align-items: center;
   justify-content: center;
   height: 80%;
@@ -100,16 +99,33 @@ form {
   padding: 20px;
 }
 
-span {
-  padding: 20px;
-}
-
 label {
-  margin-right: 10px;
+  padding: 8px;
+  display: inline-block;
+  margin: 20px 0 10px;
+  width: 15%;
+  text-align: left;
+  font-weight: bold;
 }
 
-input {
-  margin-right: 10px;
+input[type="text"], input[type="submit"], select {
+  display: inline-block;
+  padding: 8px;
+  width: 30%;
+  border-radius: 10px;
+  border: 1px solid #2d3f55;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  margin: 15px;
+}
+
+input[type="submit"] {
+  cursor: pointer;
+}
+
+input[type="submit"]:hover {
+  background: #103B1D;
+  border: solid 1px #2d3f55;
+  color: white;
 }
 
 div {

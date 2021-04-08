@@ -98,7 +98,7 @@ export default {
           const conCredits = await this.drizzleInstance.contracts['CarbonCredit'].methods.getConsumerCredits(this.conId).call();
           window.console.log('conCredits: ', conCredits);
           this.conCredits = conCredits;
-          const display = `Successfully retrieved. Consumer ID ${this.conId} has ${this.conCredits} credits`;
+          const display = `Successfully retrieved. Consumer ID ${this.conId} has ${this.conCredits} credits.`;
           const options = {
             title: 'Successful',
             autoHideDelay: 3000,
@@ -182,11 +182,42 @@ span {
 }
 
 label {
-  margin-right: 10px;
+  display: inline-block;
+  width: 10%;
+  text-align: left;
+  font-weight: bold;
 }
 
 input {
   margin-right: 10px;
+}
+
+input[type="text"] {
+  display: inline-block;
+  padding: 8px;
+  width: 30%;
+  border-radius: 10px;
+  border: 1px solid #2d3f55;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+input[type="submit"] {
+  display: inline-block;
+  padding: 8px;
+  width: 15%;
+  border-radius: 10px;
+  border: 1px solid #2d3f55;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+input[type="submit"] {
+  cursor: pointer;
+}
+
+input[type="submit"]:hover {
+  background: #103B1D;
+  border: solid 1px #2d3f55;
+  color: white;
 }
 
 div {
