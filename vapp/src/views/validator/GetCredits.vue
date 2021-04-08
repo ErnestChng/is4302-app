@@ -6,24 +6,32 @@
     </div>
     <hr style="margin: 0">
     <div id="content">
-      <div id="generator">
-        <h4>Get Generator Credits</h4>
-        <form @submit.prevent="getGenCredits">
-          <label for="genId" class="required">ID:</label>
-          <input id="genId" required v-model="genId" name="genId" type="text">
-          <input type="submit">
-        </form>
-        <span>Credits: {{ genCredits }}</span>
+      <div class="column " id="generator">
+          <h4>Get Generator Credits</h4>
+          <form @submit.prevent="getGenCredits">
+            <label for="genId" class="required">ID:</label>
+            <input id="genId" required v-model="genId" name="genId" type="text">
+            <input type="submit">
+          </form>
+          <div class="card">
+            <span>Generator has:</span>
+            <div class="credits">{{ genCredits }}</div>
+            <span>credits!</span>
+          </div>
       </div>
-      <hr style="width: 90%">
-      <div id="consumer">
+      <hr style="width: 1px; height: 100%; background: #103B1D; border: none;" />
+      <div class="column " id="consumer">
         <h4>Get Consumer Credits</h4>
         <form @submit.prevent="getConCredits">
           <label for="conId" class="required">ID:</label>
           <input id="conId" required v-model="conId" name="conId" type="text">
           <input type="submit">
         </form>
-        <span>Credits: {{ conCredits }}</span>
+        <div class="card">
+          <span>Consumer has:</span>
+          <div class="credits">{{ conCredits }}</div>
+          <span>credits!</span>
+        </div>
       </div>
 
     </div>
@@ -105,14 +113,30 @@ export default {
 
 #content {
   height: 80%;
+  display: flex;
 }
 
-#generator {
-  height: 50%;
+.card {
+  background-color: #fff;
+  border-radius: 18px;
+  box-shadow: 1px 1px 8px 0 grey;
+  height: 250px;
+  width: 340px;
+  margin-bottom: 20px;
+  margin-left: 75px;
+  padding: 10px;
 }
 
-#consumer {
-  height: 50%;
+.column {
+  flex: 50%;
+  margin: 20px;
+  padding: 20px;
+  text-align: center;
+}
+
+.credits {
+  font-size: 40px;
+  padding-top: 20px;
 }
 
 h4 {
