@@ -12,7 +12,7 @@
           <thead style="background: #103B1D; color: white;">
           <tr style='width:18%'>
             <td class="border"><strong>Quantity</strong></td>
-            <td class="border"><strong>Bid</strong></td>
+            <td class="border"><strong>Offer</strong></td>
           </tr>
           </thead>
           <tbody>
@@ -26,6 +26,7 @@
       <hr style="width: 1px; height: 100%; background: #103B1D; margin: 30px;"/>
       <div id="order">
         <h4>Order</h4>
+        <button v-on:click="listCredit" style="margin: 20px;">Test</button>
         <div class="card">
           <form @submit.prevent="listCredit">
             <label for="id" class="required">Generator ID:</label>
@@ -68,35 +69,32 @@ export default {
   },
   methods: {
     async setUp() {
-
-    },
-    async listCredit() {
-      window.console.log(this.$store.state);
-      window.console.log('active account:' ,this.activeAccount);
-
-      // const marketaddress = await this.drizzleInstance.contracts['MarketPlace'].address;
-      // window.console.log('marketaddress:', marketaddress);
-      //
-      // const approval = await this.drizzleInstance.contracts['CarbonCredit'].methods.approve(marketaddress, 300).call();
-      // window.console.log('approval', approval);
-      //
-      // const allowance = await this.drizzleInstance.contracts['CarbonCredit'].methods.allowance(this.activeAccount, marketaddress).call();
-      // window.console.log('allowance:', allowance);
-
-      const listCredit = await this.drizzleInstance.contracts['MarketPlace'].methods['listCredit'];
-      await listCredit.cacheSend(this.id, this.price, this.qty, {gas: 1000000});
-
-      const owner1 = await this.drizzleInstance.contracts['MarketPlace'].methods.marketplaceOwner().call();
-      window.console.log('owner', owner1);
-
       const prices = await this.drizzleInstance.contracts['MarketPlace'].methods.getPrices().call();
       window.console.log('prices', prices);
 
-      const numListing = await this.drizzleInstance.contracts['MarketPlace'].methods.getNumListings().call();
-      window.console.log('numListing', numListing);
+      for (let i = 0; i < prices.length; i++) {
+        this.itemsList.push({
+          price: prices[i],
+          qty: 'qty'
+        });
+      }
+    },
+    async listCredit() {
+      const marketaddress = await this.drizzleInstance.contracts['MarketPlace'].address;
 
-      // const creditsForSale = await this.drizzleInstance.contracts['MarketPlace'].methods.creditsForSale(1).call();
-      // window.console.log('creditsForSale', creditsForSale);
+      const approval = await this.drizzleInstance.contracts['CarbonCredit'].methods['approve'];
+      await approval.cacheSend(marketaddress, this.qty);
+
+      const listCredit = await this.drizzleInstance.contracts['MarketPlace'].methods['listCredit'];
+      await listCredit.cacheSend(this.id, parseInt(this.price), this.qty, {gas: 1000000});
+
+      const creditsForSale = await this.drizzleInstance.contracts['MarketPlace'].methods.creditsForSale(parseInt(this.price)).call();
+      window.console.log('creditsForSale', creditsForSale);
+
+      this.itemsList.push({
+        price: parseInt(this.price),
+        qty: 'qty'
+      });
     },
   },
   mounted() {
