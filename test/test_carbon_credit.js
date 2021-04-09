@@ -151,7 +151,7 @@ contract("carbonCredit", function (accounts) {
         } catch (e) {
         }
 
-        assert.strictEqual(
+        assert.notStrictEqual(
             check,
             undefined,
             'Check emissions did not return result'
