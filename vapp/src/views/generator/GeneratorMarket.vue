@@ -26,7 +26,6 @@
       <hr style="width: 1px; height: 100%; background: #103B1D; margin: 30px;"/>
       <div id="order">
         <h4>Order</h4>
-        <button v-on:click="listCredit" style="margin: 20px;">Test</button>
         <div class="card">
           <form @submit.prevent="listCredit">
             <label for="id" class="required">Generator ID:</label>
@@ -72,29 +71,57 @@ export default {
       const prices = await this.drizzleInstance.contracts['MarketPlace'].methods.getPrices().call();
       window.console.log('prices', prices);
 
+      const quantity = await this.drizzleInstance.contracts['MarketPlace'].methods.getQty().call();
+      window.console.log('quantity', quantity);
+
       for (let i = 0; i < prices.length; i++) {
         this.itemsList.push({
           price: prices[i],
-          qty: 'qty'
+          qty: quantity[i]
         });
       }
+
+      this.itemsList.sort((a, b) => b.price - a.price);
     },
     async listCredit() {
-      const marketaddress = await this.drizzleInstance.contracts['MarketPlace'].address;
+      // check if prices is already listed
+      const prices = await this.drizzleInstance.contracts['MarketPlace'].methods.getPrices().call();
+      window.console.log('prices', prices);
+      const genList = await this.drizzleInstance.contracts['CarbonCredit'].methods.getGeneratorList().call();
+      window.console.log('genList', genList);
+      if (prices.includes(this.price.toString()) || !(genList.includes(this.id.toString()))) {
+        const display = `Price ${this.price} has already been listed. Please list another price!`;
+        const options = {
+          title: 'Unsuccessful',
+          autoHideDelay: 3000,
+          variant: 'danger'
+        };
+        this.$bvToast.toast(display, options);
+      } else {
+        const marketAddress = await this.drizzleInstance.contracts['MarketPlace'].address;
+        // approve credits to be listed
+        const approval = await this.drizzleInstance.contracts['CarbonCredit'].methods['approve'];
+        await approval.cacheSend(marketAddress, this.qty);
 
-      const approval = await this.drizzleInstance.contracts['CarbonCredit'].methods['approve'];
-      await approval.cacheSend(marketaddress, this.qty);
+        // list credits
+        const listCredit = await this.drizzleInstance.contracts['MarketPlace'].methods['listCredit'];
+        await listCredit.cacheSend(this.id, this.price, this.qty, {gas: 1000000});
 
-      const listCredit = await this.drizzleInstance.contracts['MarketPlace'].methods['listCredit'];
-      await listCredit.cacheSend(this.id, parseInt(this.price), this.qty, {gas: 1000000});
+        this.itemsList.push({
+          price: this.price,
+          qty: this.qty
+        });
 
-      const creditsForSale = await this.drizzleInstance.contracts['MarketPlace'].methods.creditsForSale(parseInt(this.price)).call();
-      window.console.log('creditsForSale', creditsForSale);
+        this.itemsList.sort((a, b) => b.price - a.price);
 
-      this.itemsList.push({
-        price: parseInt(this.price),
-        qty: 'qty'
-      });
+        const display = `Generator ${this.id} successfully listed ${this.qty} credit(s) for ${this.price}`;
+        const options = {
+          title: 'Successful',
+          autoHideDelay: 3000,
+          variant: 'success'
+        };
+        this.$bvToast.toast(display, options);
+      }
     },
   },
   mounted() {

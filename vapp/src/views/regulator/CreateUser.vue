@@ -85,10 +85,10 @@ export default {
             const createConsumer = await this.drizzleInstance.contracts['CarbonCredit'].methods['createConsumer'];
             await createConsumer.cacheSend(this.id, this.name, this.activeAccount, {gas: 1000000});
 
-            // approve consumer with 100 credits
-            const marketaddress = await this.drizzleInstance.contracts['MarketPlace'].address;
-            const approval = await this.drizzleInstance.contracts['CarbonCredit'].methods['approve'];
-            await approval.cacheSend(marketaddress, 200);
+            // // approve consumer with 100 credits
+            // const marketaddress = await this.drizzleInstance.contracts['MarketPlace'].address;
+            // const approval = await this.drizzleInstance.contracts['CarbonCredit'].methods['approve'];
+            // await approval.cacheSend(marketaddress, 100);
 
             const display = `Consumer ID ${this.id} has been created and was allocated 100 credits.`;
             const options = {
