@@ -16,6 +16,7 @@ contract MarketPlace {
     // {priceOfCredit: listing}
     mapping(uint => listing) public creditsForSale;
     uint[] public prices;  // wont allow duplicate price listings
+    uint[] public qty; // in tandem with prices
     uint numListings = 0;
 
     // ==== CONSTRUCTOR ==== //
@@ -33,6 +34,19 @@ contract MarketPlace {
     modifier onlyGenerator(uint firmId) {
         require(carbonCredit.isGenerator(firmId));
         _;
+    }
+
+    // ==== GETTERS ==== //
+    function getPrices() public view returns (uint[] memory) {
+        return prices;
+    }
+
+    function getQty() public view returns (uint[] memory) {
+        return qty;
+    }
+
+    function getNumListings() public view returns (uint) {
+        return numListings;
     }
 
     // ==== FUNCTIONS ==== //
@@ -59,6 +73,7 @@ contract MarketPlace {
 
         // add the same thing to the list of prices, then sort
         prices.push(price);
+        qty.push(quantity); // TODO: check with shervin
         numListings += 1;
         insertionSort(prices, numListings);
 
@@ -123,7 +138,6 @@ contract MarketPlace {
         carbonCredit.updateConsumerBalance(firmId, quantity, false);
 
         return (filledSoFar, totalPaid / filledSoFar);
-
     }
 
     function insertionSort(uint[] memory data, uint numElems) internal pure {
@@ -138,15 +152,6 @@ contract MarketPlace {
 
             data[j + 1] = key;
         }
-    }
-
-    // TEST only
-    function getPrices() public view returns (uint[] memory) {
-        return prices;
-    }
-
-    function getNumListings() public view returns (uint) {
-        return numListings;
     }
 
 }
