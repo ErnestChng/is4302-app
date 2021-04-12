@@ -1,5 +1,5 @@
 <template>
-  <div v-if="isDrizzleInitialized" ref="foo">
+  <div v-if="isDrizzleInitialized" ref="foo" id="wrapper">
     <div id="title">
       <h2>Generator Market Place</h2>
       <BackButton/>
@@ -178,6 +178,10 @@ export default {
 </script>
 
 <style scoped>
+#wrapper {
+  height: calc(100vh - 100px - 80px);
+}
+
 #title {
   display: flex;
   align-items: center;
@@ -193,6 +197,8 @@ export default {
 #content {
   display: flex;
   height: 90%;
+  align-items: center;
+  justify-content: center;
 }
 
 #market {
