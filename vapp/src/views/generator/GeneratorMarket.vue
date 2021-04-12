@@ -68,20 +68,23 @@ export default {
   },
   methods: {
     async setUp() {
+      this.itemsList = [];
+
       const prices = await this.drizzleInstance.contracts['MarketPlace'].methods.getPrices().call();
       window.console.log('prices', prices);
-
+      const numListing = await this.drizzleInstance.contracts['MarketPlace'].methods.getNumListings().call();
+      window.console.log('numListing', numListing);
       const quantity = await this.drizzleInstance.contracts['MarketPlace'].methods.getQty().call();
       window.console.log('quantity', quantity);
 
-      for (let i = 0; i < prices.length; i++) {
+      for (let i = 0; i < numListing; i++) {
         this.itemsList.push({
           price: prices[i],
           qty: quantity[i]
         });
       }
 
-      this.itemsList.sort((a, b) => b.price - a.price);
+      this.itemsList.sort((a, b) => a.price - b.price);
     },
     async listCredit() {
       // check if prices is already listed
@@ -112,7 +115,7 @@ export default {
           qty: this.qty
         });
 
-        this.itemsList.sort((a, b) => b.price - a.price);
+        this.itemsList.sort((a, b) => a.price - b.price);
 
         const display = `Generator ${this.id} successfully listed ${this.qty} credit(s) for ${this.price}`;
         const options = {
