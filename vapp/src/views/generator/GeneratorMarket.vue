@@ -115,6 +115,17 @@ export default {
         return;
       }
 
+      // check if quantity or price is 0
+      if (Number(this.qty) === 0 || Number(this.price) === 0) {
+        const display = `Please list a valid price or quantity!`;
+        this.$bvToast.toast(display, {
+          title: 'Unsuccessful',
+          autoHideDelay: 5000,
+          variant: 'danger'
+        });
+        return;
+      }
+
       // check if quantity specified is > than current ID's balance
       const balance = await this.drizzleInstance.contracts['CarbonCredit'].methods.getGeneratorCredits(this.id).call();
       window.console.log('balance', balance);

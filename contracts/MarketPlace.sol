@@ -122,6 +122,7 @@ contract MarketPlace {
                 carbonCredit.updateConsumerBalance(buyer, filled, false);
 
                 if (filled == 0) {
+                    lastNumFilled = 0;
                     lastAvgPriceFilled = 0;
                     return (filled, 0);
                 }

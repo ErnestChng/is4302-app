@@ -133,7 +133,7 @@ export default {
       }
 
       // check if quantity or price is 0
-      if (Number(this.qty) === 0  || Number(this.price) === 0) {
+      if (Number(this.qty) === 0 || Number(this.price) === 0) {
         const display = `Please list a valid price or quantity!`;
         this.$bvToast.toast(display, {
           title: 'Unsuccessful',
@@ -193,6 +193,10 @@ export default {
         // buying credits
         const buyCredit = await this.drizzleInstance.contracts['MarketPlace'].methods['buyCredit'];
         await buyCredit.cacheSend(this.buyFirmId, this.buyQty, {gas: 1000000});
+
+        // DO NOT REMOVE: function to delay the calling for subsequent functions (must-have)
+        const numListing = await this.drizzleInstance.contracts['MarketPlace'].methods.getNumListings().call();
+        window.console.log('here', numListing);
 
         const lastNumFilled = await this.drizzleInstance.contracts['MarketPlace'].methods.getLastNumFilled().call();
         window.console.log('lastNumFilled', lastNumFilled);
