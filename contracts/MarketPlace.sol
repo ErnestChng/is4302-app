@@ -51,9 +51,9 @@ contract MarketPlace {
 
     function getMinIdx(uint[] memory price) public view returns (uint) {
         uint minValue = 1000000;
-        uint minIdx; 
+        uint minIdx;
         for (uint i = 0; i < numListings; i++) {
-            if(price[i] > 0 && price[i] < minValue){
+            if (price[i] > 0 && price[i] < minValue) {
                 minValue = prices[i];
                 minIdx = i;
             }
@@ -85,7 +85,7 @@ contract MarketPlace {
 
         // add the same thing to the list of prices, return unsorted list
         prices.push(price);
-        qty.push(quantity); 
+        qty.push(quantity);
         numListings += 1;
 
         //transfer tokens from the seller to the marketplace
@@ -100,34 +100,33 @@ contract MarketPlace {
     function buyCredit(uint buyer, uint quantity) public onlyConsumer(buyer) returns (uint numFilled, uint avgPriceFilled) {
         assert(quantity > 0);
 
-        uint filled = 0; 
+        uint filled = 0;
         uint totalPaid = 0;
 
-        while(filled < quantity){
+        while (filled < quantity) {
             //if there are no more listings, break out of loop
-            if(numListings == 0){
-                
+            if (numListings == 0) {
+
                 carbonCredit.transferFrom(marketplaceOwner, msg.sender, quantity);
                 carbonCredit.updateConsumerBalance(buyer, filled, false);
 
-                if(filled == 0){return (filled, 0);}
-                else {return (filled, totalPaid/filled);}
+                if (filled == 0) {return (filled, 0);}
+                else {return (filled, totalPaid / filled);}
             }
-
 
             uint minIdx = getMinIdx(prices);
             uint currPrice = prices[minIdx];
             uint currQty = qty[minIdx];
             uint yetToFill = quantity - filled;
 
-            if(currQty > yetToFill){
+            if (currQty > yetToFill) {
                 filled += yetToFill;
-                totalPaid += yetToFill*currPrice;
+                totalPaid += yetToFill * currPrice;
                 creditsForSale[currPrice].qty -= yetToFill;
-                
+
                 qty[minIdx] -= yetToFill;
             }
-            else if(currQty <= yetToFill){
+            else if (currQty <= yetToFill) {
                 filled += currQty;
                 // assign all
                 totalPaid += currPrice * currQty;
@@ -139,12 +138,15 @@ contract MarketPlace {
                 numListings -= 1;
                 prices[minIdx] = prices[numListings];
                 qty[minIdx] = qty[numListings];
-                
-                
+
+                prices.pop();
+                qty.pop();
+
                 delete creditsForSale[currPrice];
             }
 
         }
+
         carbonCredit.transferFrom(marketplaceOwner, msg.sender, quantity);
         carbonCredit.updateConsumerBalance(buyer, filled, false);
 
