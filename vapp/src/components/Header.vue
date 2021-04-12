@@ -5,11 +5,10 @@
         <router-link id="header-title" to="/" exact>
           <span>Carbon Ecosystem</span>
         </router-link>
-        <!--        TODO: remove when done-->
         <router-link to="/regulator" style="margin-left: 50px; color: white">Regulator</router-link>
         <router-link to="/validator" style="margin-left: 30px; color: white">Validator</router-link>
-        <router-link to="/consumer" style="margin-left: 30px; color: white">Consumer</router-link>
         <router-link to="/generator" style="margin-left: 30px; color: white">Generator</router-link>
+        <router-link to="/consumer" style="margin-left: 30px; color: white">Consumer</router-link>
       </div>
       <div id="main-right-if" v-if="user.loggedIn">
         <span>{{ user.data.displayName }}</span>

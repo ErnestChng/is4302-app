@@ -48,7 +48,7 @@ export default {
           const allocateCredit = await this.drizzleInstance.contracts['CarbonCredit'].methods['allocateCredit'];
           allocateCredit.cacheSend(this.genId, this.genCredits, {gas: 1000000});
 
-          const display = `ID ${this.genId} has been allocated ${this.genCredits} credits.`;
+          const display = `Generator ID ${this.genId} has been allocated ${this.genCredits} credits.`;
           this.$bvToast.toast(display, {
             title: 'Successful',
             autoHideDelay: 5000,

@@ -5,11 +5,11 @@
     </div>
     <hr style="margin: 0">
     <div id="buttons">
-      <router-link to="/consumer/consumer-market">
-        <button>Consumer Market</button>
-      </router-link>
       <router-link to="/consumer/consumer-profile">
         <button>Consumer Profile</button>
+      </router-link>
+      <router-link to="/consumer/consumer-market">
+        <button>Consumer Market</button>
       </router-link>
     </div>
   </div>
@@ -21,7 +21,7 @@ import con from "@/assets/consumer.jpeg";
 export default {
   data() {
     return {
-      image:con
+      image: con
     };
   }
 };

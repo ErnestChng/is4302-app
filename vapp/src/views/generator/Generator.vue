@@ -5,11 +5,11 @@
     </div>
     <hr style="margin: 0">
     <div id="buttons">
-      <router-link to="/generator/generator-market">
-        <button>Generator Market</button>
-      </router-link>
       <router-link to="/generator/generator-profile">
         <button>Generator Profile</button>
+      </router-link>
+      <router-link to="/generator/generator-market">
+        <button>Generator Market</button>
       </router-link>
     </div>
   </div>

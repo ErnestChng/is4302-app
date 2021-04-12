@@ -79,7 +79,7 @@ export default {
             variant: 'success'
           });
         } else {
-          const display = `ID ${this.genId} has not been created. Please specify an ID that exists.`;
+          const display = `Generator ID ${this.genId} has not been created. Please specify an ID that exists.`;
           this.$bvToast.toast(display, {
             title: 'Unsuccessful',
             autoHideDelay: 5000,
@@ -108,7 +108,7 @@ export default {
             variant: 'success'
           });
         } else {
-          const display = `ID ${this.conId} has not been created. Please specify an ID that exists.`;
+          const display = `Consumer ID ${this.conId} has not been created. Please specify an ID that exists.`;
           this.$bvToast.toast(display, {
             title: 'Unsuccessful',
             autoHideDelay: 5000,

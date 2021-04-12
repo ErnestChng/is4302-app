@@ -99,7 +99,7 @@ export default {
   padding: 15px;
 }
 
-select, button{
+select, button {
   display: inline-block;
   width: 30%;
   border-radius: 10px;
