@@ -16,7 +16,7 @@
 </template>
 
 <script>
-import reg from "@/assets/regulator.jpeg";
+import reg from "@/assets/regulator.jpg";
 
 export default {
   data() {
@@ -30,6 +30,7 @@ export default {
 <style scoped>
 #wrapper {
   height: calc(100vh - 100px - 80px);
+  background-size: cover;
 }
 
 #title {

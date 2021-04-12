@@ -19,7 +19,7 @@
 </template>
 
 <script>
-import val from "@/assets/validator.jpeg";
+import val from "@/assets/validator.jpg";
 
 export default {
   data() {
@@ -33,6 +33,7 @@ export default {
 <style scoped>
 #wrapper {
   height: calc(100vh - 100px - 80px);
+  background-size: cover;
 }
 
 #title {

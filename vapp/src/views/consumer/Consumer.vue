@@ -16,7 +16,7 @@
 </template>
 
 <script>
-import con from "@/assets/consumer.jpeg";
+import con from "@/assets/consumer.jpg";
 
 export default {
   data() {
@@ -30,6 +30,7 @@ export default {
 <style scoped>
 #wrapper {
   height: calc(100vh - 100px - 80px);
+  background-size: cover;
 }
 
 #title {
