@@ -19,6 +19,9 @@ contract MarketPlace {
     uint[] public qty; // in tandem with prices
     uint numListings = 0;
 
+    uint lastNumFilled;
+    uint lastAvgPriceFilled;
+
     // ==== CONSTRUCTOR ==== //
     constructor(CarbonCredit carbonCredit_address) public {
         carbonCredit = carbonCredit_address;
@@ -59,6 +62,14 @@ contract MarketPlace {
             }
         }
         return minIdx;
+    }
+
+    function getLastNumFilled() public view returns (uint) {
+        return lastNumFilled;
+    }
+
+    function getLastAvgPriceFilled() public view returns (uint) {
+        return lastAvgPriceFilled;
     }
 
     // ==== FUNCTIONS ==== //
@@ -110,8 +121,15 @@ contract MarketPlace {
                 carbonCredit.transferFrom(marketplaceOwner, msg.sender, quantity);
                 carbonCredit.updateConsumerBalance(buyer, filled, false);
 
-                if (filled == 0) {return (filled, 0);}
-                else {return (filled, totalPaid / filled);}
+                if (filled == 0) {
+                    lastAvgPriceFilled = 0;
+                    return (filled, 0);
+                }
+                else {
+                    lastNumFilled = filled;
+                    lastAvgPriceFilled = totalPaid / filled;
+                    return (filled, totalPaid / filled);
+                }
             }
 
             uint minIdx = getMinIdx(prices);
@@ -149,6 +167,9 @@ contract MarketPlace {
 
         carbonCredit.transferFrom(marketplaceOwner, msg.sender, quantity);
         carbonCredit.updateConsumerBalance(buyer, filled, false);
+
+        lastNumFilled = filled;
+        lastAvgPriceFilled = totalPaid / filled;
 
         return (filled, totalPaid / filled);
     }
