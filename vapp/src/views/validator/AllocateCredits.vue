@@ -47,21 +47,20 @@ export default {
         if (genList.includes(this.genId.toString())) {
           const allocateCredit = await this.drizzleInstance.contracts['CarbonCredit'].methods['allocateCredit'];
           allocateCredit.cacheSend(this.genId, this.genCredits, {gas: 1000000});
+
           const display = `ID ${this.genId} has been allocated ${this.genCredits} credits.`;
-          const options = {
+          this.$bvToast.toast(display, {
             title: 'Successful',
-            autoHideDelay: 3000,
+            autoHideDelay: 5000,
             variant: 'success'
-          };
-          this.$bvToast.toast(display, options);
+          });
         } else {
           const display = `Generator ID ${this.genId} has not been created. Please specify an ID that exists.`;
-          const options = {
+          this.$bvToast.toast(display, {
             title: 'Unsuccessful',
-            autoHideDelay: 3000,
+            autoHideDelay: 5000,
             variant: 'danger'
-          };
-          this.$bvToast.toast(display, options);
+          });
         }
       } else {
         alert("Drizzle doesn't seem to be initialised / ready");

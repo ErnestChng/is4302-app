@@ -47,21 +47,20 @@ export default {
         if (conList.includes(this.conId.toString())) {
           const reportEmissions = await this.drizzleInstance.contracts['CarbonCredit'].methods['reportEmissions'];
           await reportEmissions.cacheSend(this.conId, this.conEmissions, {gas: 1000000});
+
           const display = `Consumer ID ${this.conId} was reported with ${this.conEmissions} emissions.`;
-          const options = {
+          this.$bvToast.toast(display, {
             title: 'Successful',
-            autoHideDelay: 3000,
+            autoHideDelay: 5000,
             variant: 'success'
-          };
-          this.$bvToast.toast(display, options);
+          });
         } else {
           const display = `Consumer ID ${this.conId} has not been created. Please specify an ID that exists.`;
-          const options = {
+          this.$bvToast.toast(display, {
             title: 'Unsuccessful',
-            autoHideDelay: 3000,
+            autoHideDelay: 5000,
             variant: 'danger'
-          };
-          this.$bvToast.toast(display, options);
+          });
         }
 
       } else {

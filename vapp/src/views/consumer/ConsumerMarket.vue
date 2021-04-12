@@ -108,12 +108,11 @@ export default {
       window.console.log('conList', conList);
       if (prices.includes(this.price.toString()) || !(conList.includes(this.id.toString()))) {
         const display = `Price ${this.price} has already been listed. Please list another price!`;
-        const options = {
+        this.$bvToast.toast(display, {
           title: 'Unsuccessful',
-          autoHideDelay: 3000,
+          autoHideDelay: 5000,
           variant: 'danger'
-        };
-        this.$bvToast.toast(display, options);
+        });
       } else {
         // approve consumer with 100 credits
         const marketAddress = await this.drizzleInstance.contracts['MarketPlace'].address;
@@ -132,12 +131,11 @@ export default {
         this.itemsList.sort((a, b) => a.price - b.price);
 
         const display = `Consumer ${this.id} successfully listed ${this.qty} credit(s) for ${this.price}`;
-        const options = {
+        this.$bvToast.toast(display, {
           title: 'Successful',
-          autoHideDelay: 3000,
+          autoHideDelay: 5000,
           variant: 'success'
-        };
-        this.$bvToast.toast(display, options);
+        });
       }
     },
     async buyCredit() {

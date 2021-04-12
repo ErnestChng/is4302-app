@@ -68,21 +68,20 @@ export default {
           const genCredits = await this.drizzleInstance.contracts['CarbonCredit'].methods.getGeneratorCredits(this.genId).call();
           window.console.log('genCredits: ', genCredits);
           this.genCredits = genCredits;
+
           const display = `Successfully retrieved. Generator ID ${this.genId} has ${this.genCredits} credits`;
-          const options = {
+          this.$bvToast.toast(display, {
             title: 'Successful',
-            autoHideDelay: 3000,
+            autoHideDelay: 5000,
             variant: 'success'
-          };
-          this.$bvToast.toast(display, options);
+          });
         } else {
           const display = `ID ${this.genId} has not been created. Please specify an ID that exists.`;
-          const options = {
+          this.$bvToast.toast(display, {
             title: 'Unsuccessful',
-            autoHideDelay: 3000,
+            autoHideDelay: 5000,
             variant: 'danger'
-          };
-          this.$bvToast.toast(display, options);
+          });
         }
       } else {
         alert("Drizzle doesn't seem to be initialised / ready");
@@ -98,21 +97,20 @@ export default {
           const conCredits = await this.drizzleInstance.contracts['CarbonCredit'].methods.getConsumerCredits(this.conId).call();
           window.console.log('conCredits: ', conCredits);
           this.conCredits = conCredits;
+
           const display = `Successfully retrieved. Consumer ID ${this.conId} has ${this.conCredits} credits.`;
-          const options = {
+          this.$bvToast.toast(display, {
             title: 'Successful',
-            autoHideDelay: 3000,
+            autoHideDelay: 5000,
             variant: 'success'
-          };
-          this.$bvToast.toast(display, options);
+          });
         } else {
           const display = `ID ${this.conId} has not been created. Please specify an ID that exists.`;
-          const options = {
+          this.$bvToast.toast(display, {
             title: 'Unsuccessful',
-            autoHideDelay: 3000,
+            autoHideDelay: 5000,
             variant: 'danger'
-          };
-          this.$bvToast.toast(display, options);
+          });
         }
       } else {
         alert("Drizzle doesn't seem to be initialised / ready");

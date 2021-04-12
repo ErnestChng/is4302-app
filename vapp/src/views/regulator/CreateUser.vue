@@ -62,21 +62,19 @@ export default {
             const createGenerator = await this.drizzleInstance.contracts['CarbonCredit'].methods['createGenerator'];
             await createGenerator.cacheSend(this.id, this.name, this.activeAccount, {gas: 1000000});
 
-            const display = `Generator ID ${this.id} has been created and was allocated 0 credits.`;
-            const options = {
+            const display = `Generator ID ${this.id} (${this.name}) has been created and was allocated 0 credits.`;
+            this.$bvToast.toast(display, {
               title: 'Successful',
-              autoHideDelay: 3000,
+              autoHideDelay: 5000,
               variant: 'success'
-            };
-            this.$bvToast.toast(display, options);
+            });
           } else {
             const display = `Generator ID ${this.id} has already been created. Please specify a unique ID.`;
-            const options = {
+            this.$bvToast.toast(display, {
               title: 'Unsuccessful',
-              autoHideDelay: 3000,
+              autoHideDelay: 5000,
               variant: 'danger'
-            };
-            this.$bvToast.toast(display, options);
+            });
           }
         } else {
           window.console.log('creating consumer...');
@@ -85,26 +83,19 @@ export default {
             const createConsumer = await this.drizzleInstance.contracts['CarbonCredit'].methods['createConsumer'];
             await createConsumer.cacheSend(this.id, this.name, this.activeAccount, {gas: 1000000});
 
-            // // approve consumer with 100 credits
-            // const marketaddress = await this.drizzleInstance.contracts['MarketPlace'].address;
-            // const approval = await this.drizzleInstance.contracts['CarbonCredit'].methods['approve'];
-            // await approval.cacheSend(marketaddress, 100);
-
-            const display = `Consumer ID ${this.id} has been created and was allocated 100 credits.`;
-            const options = {
+            const display = `Consumer ID ${this.id} (${this.name}) has been created and was allocated 100 credits.`;
+            this.$bvToast.toast(display, {
               title: 'Successful',
-              autoHideDelay: 3000,
+              autoHideDelay: 5000,
               variant: 'success'
-            };
-            this.$bvToast.toast(display, options);
+            });
           } else {
             const display = `Consumer ID ${this.id} has already been created. Please specify a unique ID.`;
-            const options = {
+            this.$bvToast.toast(display, {
               title: 'Unsuccessful',
-              autoHideDelay: 3000,
+              autoHideDelay: 5000,
               variant: 'danger'
-            };
-            this.$bvToast.toast(display, options);
+            });
           }
         }
       } else {

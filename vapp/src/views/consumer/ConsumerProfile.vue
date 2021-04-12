@@ -102,12 +102,11 @@ export default {
         this.emissions = emissions;
 
         const display = `Successfully retrieved Consumer ${this.id}'s details`;
-        const options = {
+        this.$bvToast.toast(display, {
           title: 'Successful',
-          autoHideDelay: 3000,
+          autoHideDelay: 5000,
           variant: 'success'
-        };
-        this.$bvToast.toast(display, options);
+        });
       }
     },
   },

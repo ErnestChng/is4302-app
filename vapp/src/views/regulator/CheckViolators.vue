@@ -54,15 +54,15 @@ export default {
       if (this.isDrizzleInitialized) {
         const result = await this.drizzleInstance.contracts['CarbonCredit'].methods.checkEmissions().call();
         window.console.log('result', result);
+
         this.itemsList = []; // resetting itemsList
 
         if (result[0].length === 0) {
           const display = `There are no violators.`;
-          const options = {
+          this.$bvToast.toast(display, {
             title: 'Information',
-            autoHideDelay: 3000,
-          };
-          this.$bvToast.toast(display, options);
+            autoHideDelay: 5000,
+          });
         } else {
           for (let i = 0; i < result[0].length; i++) {
             this.itemsList.push({
@@ -72,18 +72,18 @@ export default {
               diff: result[3][i],
             });
           }
+
           let display = "";
           if (result[0].length === 1) {
             display = `Successfully retrieved ${result[0].length} violator.`;
           } else {
             display = `Successfully retrieved ${result[0].length} violators.`;
           }
-          const options = {
+          this.$bvToast.toast(display, {
             title: 'Successful',
-            autoHideDelay: 3000,
+            autoHideDelay: 5000,
             variant: 'success'
-          };
-          this.$bvToast.toast(display, options);
+          });
         }
       } else {
         alert("Drizzle doesn't seem to be initialised / ready");

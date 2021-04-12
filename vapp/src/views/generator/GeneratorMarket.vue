@@ -94,12 +94,11 @@ export default {
       window.console.log('genList', genList);
       if (prices.includes(this.price.toString()) || !(genList.includes(this.id.toString()))) {
         const display = `Price ${this.price} has already been listed. Please list another price!`;
-        const options = {
+        this.$bvToast.toast(display, {
           title: 'Unsuccessful',
-          autoHideDelay: 3000,
+          autoHideDelay: 5000,
           variant: 'danger'
-        };
-        this.$bvToast.toast(display, options);
+        });
       } else {
         const marketAddress = await this.drizzleInstance.contracts['MarketPlace'].address;
         // approve credits to be listed
@@ -118,12 +117,11 @@ export default {
         this.itemsList.sort((a, b) => a.price - b.price);
 
         const display = `Generator ${this.id} successfully listed ${this.qty} credit(s) for ${this.price}`;
-        const options = {
+        this.$bvToast.toast(display, {
           title: 'Successful',
-          autoHideDelay: 3000,
+          autoHideDelay: 5000,
           variant: 'success'
-        };
-        this.$bvToast.toast(display, options);
+        });
       }
     },
   },
