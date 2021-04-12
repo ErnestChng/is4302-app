@@ -7,31 +7,34 @@
     <hr style="margin: 0">
     <div id="content">
       <div class="column " id="generator">
-        <h4>Get Generator Credits</h4>
+        <h4>Get Generator's Credits</h4>
         <form @submit.prevent="getGenCredits">
           <label for="genId" class="required">ID:</label>
           <input id="genId" required v-model="genId" name="genId" type="text">
-          <input type="submit">
+          <input type="submit"><br><br>
+
+          <div class="card">
+            <span>Generator has:</span>
+            <div class="credits">{{ genCredits }}</div>
+            <span>credits!</span>
+          </div>
         </form>
-        <div class="card">
-          <span>Generator has:</span>
-          <div class="credits">{{ genCredits }}</div>
-          <span>credits!</span>
-        </div>
+
       </div>
       <hr style="width: 1px; height: 100%; background: #103B1D; border: none;"/>
       <div class="column " id="consumer">
-        <h4>Get Consumer Credits</h4>
+        <h4>Get Consumer's Credits</h4>
         <form @submit.prevent="getConCredits">
           <label for="conId" class="required">ID:</label>
           <input id="conId" required v-model="conId" name="conId" type="text">
-          <input type="submit">
+          <input type="submit"><br><br>
+
+          <div class="card">
+            <span>Consumer has:</span>
+            <div class="credits">{{ conCredits }}</div>
+            <span>credits!</span>
+          </div>
         </form>
-        <div class="card">
-          <span>Consumer has:</span>
-          <div class="credits">{{ conCredits }}</div>
-          <span>credits!</span>
-        </div>
       </div>
 
     </div>
@@ -148,8 +151,7 @@ export default {
   box-shadow: 1px 1px 8px 0 grey;
   height: 250px;
   width: 340px;
-  margin-bottom: 20px;
-  margin-left: 130px;
+  margin: auto;
   padding: 10px;
 }
 
