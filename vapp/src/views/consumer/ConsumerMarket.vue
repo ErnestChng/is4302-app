@@ -1,5 +1,5 @@
 <template>
-  <div v-if="isDrizzleInitialized" id="wrapper" ref="foo">
+  <div v-if="isDrizzleInitialized" ref="foo">
     <div id="title">
       <h2>Consumer Market Place</h2>
       <BackButton/>
@@ -7,7 +7,7 @@
     <hr style="margin: 0">
     <div id="content">
       <div id="market">
-        <h4>Market</h4>
+        <h3>Market</h3>
         <table class="table">
           <thead style="background: #103B1D; color: white;">
           <tr style='width:18%'>
@@ -25,8 +25,10 @@
       </div>
       <hr style="width: 1px; height: 100%; background: #103B1D; margin: 30px;"/>
       <div id="order">
-        <h4>Order</h4>
+        <h3>Order</h3>
         <div class="card">
+          <h4>List Credits</h4>
+          <hr style="margin: 0">
           <form @submit.prevent="listCredit">
             <label for="id" class="required">Consumer ID:</label>
             <input id="id" required v-model="id" name="id" type="text">
@@ -38,10 +40,12 @@
             <input id="qty" required v-model="qty" name="qty" type="text">
             <br><br>
             <label></label>
-            <input type="submit" value="List Credit">
+            <input type="submit" value="List">
           </form>
-        </div>
+        </div><br>
         <div class="card">
+          <h4>Buy Credits</h4>
+          <hr style="margin: 0">
           <form @submit.prevent="buyCredit">
             <label for="buyFirmId" class="required">Consumer ID:</label>
             <input id="buyFirmId" required v-model="buyFirmId" name="buyFirmId" type="text">
@@ -50,7 +54,7 @@
             <input id="buyQty" required v-model="buyQty" name="buyQty" type="text">
             <br><br>
             <label></label>
-            <input type="submit" value="Buy Credit">
+            <input type="submit" value="Buy">
           </form>
         </div>
       </div>
@@ -165,10 +169,6 @@ export default {
 </script>
 
 <style scoped>
-#wrapper {
-  /*height: calc(100vh - 100px - 80px);*/
-}
-
 #title {
   display: flex;
   align-items: center;
@@ -183,8 +183,6 @@ export default {
 
 #content {
   display: flex;
-  align-items: center;
-  justify-content: center;
   height: 90%;
 }
 
@@ -198,14 +196,14 @@ export default {
   width: 40%;
 }
 
-h4 {
+h3 {
   margin-bottom: 30px;
+  text-decoration: underline;
 }
 
 .card {
   border-radius: 18px;
   box-shadow: 1px 1px 8px 0 grey;
-  /*height: 80%;*/
   display: flex;
 }
 
@@ -245,9 +243,3 @@ input[type="submit"]:hover {
   color: white;
 }
 </style>
-
-
-[10, 20, 30]
-[0, 20, 30]
-[30, 20, 30]
-[30, 20]
