@@ -135,8 +135,9 @@ export default {
       // check if quantity specified is > than current ID's balance
       const balance = await this.drizzleInstance.contracts['CarbonCredit'].methods.getConsumerCredits(this.id).call();
       window.console.log('balance', balance);
-      if (this.qty > balance) {
-        const display = `Specified quantity of ${this.qty} exceeds current consumer ID's token balance of ${balance}. Please specify a quantity lower than ${balance}`;
+      window.console.log('quan:', this.qty);
+      if (Number(this.qty) > Number(balance)) {
+        const display = `Specified quantity of ${this.qty} exceeds current consumer ID's token balance of ${balance}. Please specify a quantity lower than ${balance}!`;
         this.$bvToast.toast(display, {
           title: 'Unsuccessful',
           autoHideDelay: 5000,
@@ -169,28 +170,41 @@ export default {
       });
     },
     async buyCredit() {
-      // approve credits to be listed
-      const marketAddress = await this.drizzleInstance.contracts['MarketPlace'].address;
-      const approval = await this.drizzleInstance.contracts['CarbonCredit'].methods['approve'];
-      await approval.cacheSend(marketAddress, this.buyQty);
+      const numListing = await this.drizzleInstance.contracts['MarketPlace'].methods.getNumListings().call();
 
-      // buying credits
-      const buyCredit = await this.drizzleInstance.contracts['MarketPlace'].methods['buyCredit'];
-      await buyCredit.cacheSend(this.buyFirmId, this.buyQty, {gas: 1000000});
+      // Check if there are listings
+      if (Number(numListing) !== 0) {
+        // approve credits to be listed
+        const marketAddress = await this.drizzleInstance.contracts['MarketPlace'].address;
+        const approval = await this.drizzleInstance.contracts['CarbonCredit'].methods['approve'];
+        await approval.cacheSend(marketAddress, this.buyQty);
 
-      const lastNumFilled = await this.drizzleInstance.contracts['MarketPlace'].methods.getLastNumFilled().call();
-      window.console.log('lastNumFilled', lastNumFilled);
-      const lastAvgPriceFilled = await this.drizzleInstance.contracts['MarketPlace'].methods.getLastAvgPriceFilled().call();
-      window.console.log('lastAvgPriceFilled', lastAvgPriceFilled);
+        // buying credits
+        const buyCredit = await this.drizzleInstance.contracts['MarketPlace'].methods['buyCredit'];
+        await buyCredit.cacheSend(this.buyFirmId, this.buyQty, {gas: 1000000});
 
-      const display = `Filled: ${lastNumFilled} units, Average Filled Price: $${lastAvgPriceFilled}`;
-      this.$bvToast.toast(display, {
-        title: 'Order Filled',
-        autoHideDelay: 5000,
-        variant: 'success'
-      });
+        const lastNumFilled = await this.drizzleInstance.contracts['MarketPlace'].methods.getLastNumFilled().call();
+        window.console.log('lastNumFilled', lastNumFilled);
+        const lastAvgPriceFilled = await this.drizzleInstance.contracts['MarketPlace'].methods.getLastAvgPriceFilled().call();
+        window.console.log('lastAvgPriceFilled', lastAvgPriceFilled);
 
-      await this.setUp();
+        const display = `Filled: ${lastNumFilled} units, Average Filled Price: $${lastAvgPriceFilled}`;
+        this.$bvToast.toast(display, {
+          title: 'Order Filled',
+          autoHideDelay: 5000,
+          variant: 'success'
+        });
+
+        await this.setUp();
+      } else {
+        const display = `There are no listings. Purchase is not permitted.`;
+        this.$bvToast.toast(display, {
+          title: 'Order Failed',
+          autoHideDelay: 5000,
+          variant: 'danger'
+        });
+      }
+
     },
   },
   mounted() {

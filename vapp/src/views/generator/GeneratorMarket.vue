@@ -118,8 +118,9 @@ export default {
       // check if quantity specified is > than current ID's balance
       const balance = await this.drizzleInstance.contracts['CarbonCredit'].methods.getGeneratorCredits(this.id).call();
       window.console.log('balance', balance);
-      if (this.qty > balance) {
-        const display = `Specified quantity of ${this.qty} exceeds current generator ID's token balance of ${balance}. Please specify a quantity lower than ${balance}`;
+      window.console.log('quan:', this.qty);
+      if (Number(this.qty) > Number(balance)) {
+        const display = `Specified quantity of ${this.qty} exceeds current generator ID's token balance of ${balance}. Please specify a quantity lower than ${balance}!`;
         this.$bvToast.toast(display, {
           title: 'Unsuccessful',
           autoHideDelay: 5000,
