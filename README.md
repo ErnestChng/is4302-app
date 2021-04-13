@@ -78,7 +78,7 @@ stored on-chain. The key information that will be stored on-chain and their data
 
 *Carbon Credit Marketplace Contract*
 ![photo_name](photos/functionalCMP.png)
-
+ 
 ## 04 Privacy
 
 Since our ecosystem does not involve the storage of sensitive information, there is no need for an off-chain database.
