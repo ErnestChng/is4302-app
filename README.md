@@ -1,4 +1,4 @@
-# IS4302 Project - Blockchain-based Carbon Credit Ecosystem
+# IS4302 Group 6 Project - Blockchain-based Carbon Credit Ecosystem
 
 IS4302 Blockchain and Distributed Ledger Technologies. A Blockchain-based Carbon Credit Ecosystem that facilitates the
 exchange of carbon credits.
