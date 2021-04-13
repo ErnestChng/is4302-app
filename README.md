@@ -37,7 +37,7 @@ The following table lists the key stakeholders in the carbon market:
 
 ### Architectural & Design Choices
 
-![photo_name](photos/architectural.png)
+![photo_name](photos/architectural_new.png)
 
 For the four different users of our blockchain web application, we will have different functions available for them.
 Hence, the respective user interface will be displayed according to the login user type. The application will be built
@@ -66,18 +66,18 @@ Due to the goal of attaining full transparency in the carbon reporting, all data
 stored on-chain. The key information that will be stored on-chain and their data structures are listed below:
 
 *Carbon Credit Contract*
-![photo_name](photos/informationStorageCC.png)
+![photo_name](photos/informationStorageCC_new.png)
 
 *Carbon Credit Marketplace Contract*
-![photo_name](photos/informationStorageCMP.png)
+![photo_name](photos/informationStorageCMP_new.png)
 
 ## 03 Functional & Access Control
 
 *Carbon Credit Contract*
-![photo_name](photos/functionalCC.png)
+![photo_name](photos/functionalCC_new.png)
 
 *Carbon Credit Marketplace Contract*
-![photo_name](photos/functionalCMP.png)
+![photo_name](photos/functionalCMP_new.png)
 
 ## 04 Privacy
 
