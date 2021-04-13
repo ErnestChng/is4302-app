@@ -7,7 +7,6 @@ module.exports = function (deployer, network, accounts) {
     // for demonstration purpose: activeAccount will represent a Regulator and Validator
     const activeAccount = accounts[0];
     const marketplaceAccount = accounts[0];
-    // let ccInstance;
 
     deployer.then(() => {
         return deployer.deploy(ERC20, {
