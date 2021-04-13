@@ -52,9 +52,9 @@ smart contracts by turning them into regular JavaScript objects.
 Our smart contracts will be used to describe the functionalities of both our carbon credit token, and the carbon
 exchange market in which the tokens will be traded. The 3 smart tokens to be deployed are as follows:
 
-1. ERC20 Token: The ERC20 ethereum standard will be used as a basis for our carbon credit contract. Our choice was
-   born out of the need for a fungible token, where tokens can be burnt (to allow reduction in carbon credit supply in
-   the long-run).
+1. ERC20 Token: The ERC20 ethereum standard will be used as a basis for our carbon credit contract. Our choice was born
+   out of the need for a fungible token, where tokens can be burnt (to allow reduction in carbon credit supply in the
+   long-run).
 2. Carbon Credit Contract: The carbon credit contract will be owned by the regulators, and will own all functionalities
    available to regulators and validators, such as allocation of credits and reporting emissions.
 3. Carbon Credit Marketplace: The carbon credit marketplace contract acts as the carbon exchange market, where credits
